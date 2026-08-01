@@ -1,12 +1,12 @@
 # PROGRESS
-phase: P0
-last-update: 2026-08-01T10:36
+phase: W1
+last-update: 2026-08-01T11:24
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
 - Track A: ✅ 완료·검수 통과·master 머지 + __vfx 훅 통합
 - Track B: ✅ 완료·검수 통과·master 머지(0cf91b1)
-- Track C (wt-c, task-ms9owlk8-pvtsgb): 내보내기 제너레이터 5종 — 진행 중 (R 리서치 완료: docs/HYPERFRAMES_NOTES.md)
+- Track C: ✅ 완료·검수 통과·master 머지 (verify는 bun 런타임 필요 — node는 확장자 없는 TS import 불가)
 - 검수 스위트(playwright smoke + __vfx 훅 계약) = 오케스트레이터 작성 완료
 - 통합·게이트 실행 = 오케스트레이터
 
@@ -24,11 +24,13 @@ last-update: 2026-08-01T10:36
 | P0-2 registry lint (3 effects) | pass | 08-01 |
 | P0-3 smoke 스위트 5/5 (갤러리·about·C02·E01·P01) | pass | 08-01 |
 | P0-4 remotion still 3종 + thumbs 3장 | pass | 08-01 |
-| P0-5 HyperFrames 검증 | 대기 | Track C 진행 중 |
+| P0-5 HyperFrames check 3/3 + P01 실렌더 mp4 | pass | 08-01 |
+| **P0 게이트 (7/7)** | **pass** | 08-01 |
 | P0-6 3라우트 + DEXA 토큰 (스크린샷 확보) | pass | 08-01 |
 | P0-7 stateful 시크 결정성 (2회 렌더 바이트 동일) | pass | 08-01 |
 
 ## 미해결 이슈
-- 1차 P0 모놀리식 발주(task-ms9nkwgm-auhb7y) graphify 인덱싱 대기 중 프로세스 사망 → 취소. 재발 방지: 모든 발주 프롬프트에 절차 오버헤드 생략 명시
+- 1차 P0 모놀리식 발주 graphify 대기 중 사망 → 병렬 트랙으로 전환 완료
+- 디스크 풀 사태(08-01): 부트 볼륨 0바이트로 전 작업 중단 → 해소. bunx hyperframes는 캐시 공간 요구 큼
 - 상세 프리뷰를 라이브 드라이버 트랜스포트로 구현(A). Remotion Player 전환은 통합 단계에서 판단 — SPEC §6과 차이, 사용자 보고 필요
 - import.meta.glob은 Vite 전용 → 매니페스트 코드젠으로 교체(SPEC §4의 glob 서술은 코드젠으로 갱신 필요)

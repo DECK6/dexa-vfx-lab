@@ -53,7 +53,7 @@ function documentShell(input: FxExportInput, body: string, runtime: string): str
   <title>${escapeHtml(input.meta.id)} / ${escapeHtml(input.meta.name)}</title>
   <style>
     html, body { margin: 0; width: ${WIDTH}px; height: ${HEIGHT}px; overflow: hidden; }
-    body { background: #000; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    body { background: #000; font-family: 'JetBrains Mono', monospace; }
     #root { position: relative; width: ${WIDTH}px; height: ${HEIGHT}px; overflow: hidden; }
     .stage { position: absolute; inset: 0; width: ${WIDTH}px; height: ${HEIGHT}px; overflow: hidden; background: #0d0e10; }
     canvas { display: block; width: ${WIDTH}px; height: ${HEIGHT}px; }
@@ -125,7 +125,7 @@ function canvasSubjectRuntime(): string {
       subjectG.beginPath();
       subjectG.moveTo(314, 146); subjectG.lineTo(240, 80); subjectG.lineTo(240, 202); subjectG.closePath(); subjectG.fill();
       subjectG.fillStyle = '#f5f1e6';
-      subjectG.font = '700 22px ui-monospace, monospace';
+      subjectG.font = '700 22px JetBrains Mono, monospace';
       subjectG.textAlign = 'center';
       subjectG.fillText('DEXA', 240, 232);
       return subjectCanvas;

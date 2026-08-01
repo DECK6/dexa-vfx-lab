@@ -3,7 +3,7 @@
  * Generate HyperFrames compositions and run the official static/runtime check.
  * Usage: bun scripts/verify-hyperframes.mjs [--selftest] [EFFECT_ID ...]
  */
-import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -149,12 +149,16 @@ if (version.status !== 0) {
 console.log(`HyperFrames CLI: ${(version.stdout || version.stderr).trim()}`);
 
 for (const input of inputs) {
-  const file = join(outputDir, `${input.meta.id.toLowerCase().replace(/[^a-z0-9-]/g, '-')}.html`);
+  // `hyperframes check` expects a PROJECT DIRECTORY containing index.html — one dir per effect.
+  const slug = input.meta.id.toLowerCase().replace(/[^a-z0-9-]/g, '-');
+  const projectDir = join(outputDir, slug);
+  mkdirSync(projectDir, { recursive: true });
+  const file = join(projectDir, 'index.html');
   writeFileSync(file, hyperframesExporter.generate(input));
-  const checked = run('bunx', ['hyperframes', 'check', file]);
+  const checked = run('bunx', ['hyperframes', 'check', projectDir]);
   const output = [checked.stdout, checked.stderr].filter(Boolean).join('\n').trim();
   results.push({ id: input.meta.id, file, ok: checked.status === 0, output });
-  console.log(`${checked.status === 0 ? 'PASS' : 'FAIL'} ${input.meta.id} — ${basename(file)}`);
+  console.log(`${checked.status === 0 ? 'PASS' : 'FAIL'} ${input.meta.id} — ${slug}/index.html`);
   if (output) console.log(output);
 }
 
