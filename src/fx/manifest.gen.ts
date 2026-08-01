@@ -5,12 +5,17 @@ import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
+import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
+import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
+import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
+import meta_S04 from '../../effects/shape/S04_radar-sweep.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
 import meta_T04 from '../../effects/type/T04_mask-reveal.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
+import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -24,10 +29,15 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
+  { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
+  { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
+  { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
+  { meta: meta_S04, effectPath: 'effects/shape/S04_radar-sweep.effect.tsx', load: () => import('../../effects/shape/S04_radar-sweep.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
   { meta: meta_T04, effectPath: 'effects/type/T04_mask-reveal.effect.tsx', load: () => import('../../effects/type/T04_mask-reveal.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
+  { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
 ];
