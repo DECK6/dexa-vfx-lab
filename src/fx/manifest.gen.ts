@@ -2,6 +2,7 @@
 import type { FxKernel, FxMeta } from './types';
 
 import meta_A01 from '../../effects/audio/A01_waveform-bars.meta';
+import meta_A02 from '../../effects/audio/A02_spectrum-analyzer.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -33,6 +34,7 @@ import meta_P04 from '../../effects/particle/P04_dust-motes.meta';
 import meta_P06 from '../../effects/particle/P06_snow-fall.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
+import meta_R08 from '../../effects/pattern/R08_phyllotaxis.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
 import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
 import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
@@ -62,6 +64,7 @@ export interface ManifestEntry {
 
 export const manifest: ManifestEntry[] = [
   { meta: meta_A01, effectPath: 'effects/audio/A01_waveform-bars.effect.ts', load: () => import('../../effects/audio/A01_waveform-bars.effect') },
+  { meta: meta_A02, effectPath: 'effects/audio/A02_spectrum-analyzer.effect.ts', load: () => import('../../effects/audio/A02_spectrum-analyzer.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
@@ -93,6 +96,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P06, effectPath: 'effects/particle/P06_snow-fall.effect.ts', load: () => import('../../effects/particle/P06_snow-fall.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
+  { meta: meta_R08, effectPath: 'effects/pattern/R08_phyllotaxis.effect.ts', load: () => import('../../effects/pattern/R08_phyllotaxis.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
   { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
   { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
