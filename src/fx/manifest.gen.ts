@@ -50,21 +50,26 @@ import meta_G07 from '../../effects/glitch/G07_block-corrupt.meta';
 import meta_G08 from '../../effects/glitch/G08_bit-crush.meta';
 import meta_G09 from '../../effects/glitch/G09_interlace-tear.meta';
 import meta_G10 from '../../effects/glitch/G10_ghost-echo.meta';
+import meta_G11 from '../../effects/glitch/G11_compression-artifact.meta';
 import meta_G12 from '../../effects/glitch/G12_sync-roll.meta';
+import meta_G13 from '../../effects/glitch/G13_color-bleed.meta';
 import meta_G14 from '../../effects/glitch/G14_static-burst.meta';
 import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
+import meta_G16 from '../../effects/glitch/G16_chromatic-shear.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
 import meta_L04 from '../../effects/light/L04_anamorphic-flare.meta';
 import meta_L05 from '../../effects/light/L05_god-rays.meta';
 import meta_L06 from '../../effects/light/L06_light-leak.meta';
+import meta_L07 from '../../effects/light/L07_caustics.meta';
 import meta_L08 from '../../effects/light/L08_lightning-arc.meta';
 import meta_L09 from '../../effects/light/L09_strobe-cut.meta';
 import meta_L10 from '../../effects/light/L10_rim-light.meta';
 import meta_L11 from '../../effects/light/L11_halation.meta';
 import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
+import meta_L14 from '../../effects/light/L14_prism-refract.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M02 from '../../effects/mask/M02_gradient-wipe.meta';
 import meta_M03 from '../../effects/mask/M03_text-knockout.meta';
@@ -94,6 +99,7 @@ import meta_P08 from '../../effects/particle/P08_swarm-flock.meta';
 import meta_P09 from '../../effects/particle/P09_magnetic-field.meta';
 import meta_P10 from '../../effects/particle/P10_orbit-ring.meta';
 import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
+import meta_P14 from '../../effects/particle/P14_point-cloud-form.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_Q02 from '../../effects/liquid/Q02_ink-diffuse.meta';
 import meta_Q03 from '../../effects/liquid/Q03_paint-splatter.meta';
@@ -232,21 +238,26 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G08, effectPath: 'effects/glitch/G08_bit-crush.effect.ts', load: () => import('../../effects/glitch/G08_bit-crush.effect') },
   { meta: meta_G09, effectPath: 'effects/glitch/G09_interlace-tear.effect.ts', load: () => import('../../effects/glitch/G09_interlace-tear.effect') },
   { meta: meta_G10, effectPath: 'effects/glitch/G10_ghost-echo.effect.tsx', load: () => import('../../effects/glitch/G10_ghost-echo.effect') },
+  { meta: meta_G11, effectPath: 'effects/glitch/G11_compression-artifact.effect.ts', load: () => import('../../effects/glitch/G11_compression-artifact.effect') },
   { meta: meta_G12, effectPath: 'effects/glitch/G12_sync-roll.effect.tsx', load: () => import('../../effects/glitch/G12_sync-roll.effect') },
+  { meta: meta_G13, effectPath: 'effects/glitch/G13_color-bleed.effect.ts', load: () => import('../../effects/glitch/G13_color-bleed.effect') },
   { meta: meta_G14, effectPath: 'effects/glitch/G14_static-burst.effect.ts', load: () => import('../../effects/glitch/G14_static-burst.effect') },
   { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
+  { meta: meta_G16, effectPath: 'effects/glitch/G16_chromatic-shear.effect.ts', load: () => import('../../effects/glitch/G16_chromatic-shear.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
   { meta: meta_L04, effectPath: 'effects/light/L04_anamorphic-flare.effect.ts', load: () => import('../../effects/light/L04_anamorphic-flare.effect') },
   { meta: meta_L05, effectPath: 'effects/light/L05_god-rays.effect.ts', load: () => import('../../effects/light/L05_god-rays.effect') },
   { meta: meta_L06, effectPath: 'effects/light/L06_light-leak.effect.tsx', load: () => import('../../effects/light/L06_light-leak.effect') },
+  { meta: meta_L07, effectPath: 'effects/light/L07_caustics.effect.ts', load: () => import('../../effects/light/L07_caustics.effect') },
   { meta: meta_L08, effectPath: 'effects/light/L08_lightning-arc.effect.ts', load: () => import('../../effects/light/L08_lightning-arc.effect') },
   { meta: meta_L09, effectPath: 'effects/light/L09_strobe-cut.effect.tsx', load: () => import('../../effects/light/L09_strobe-cut.effect') },
   { meta: meta_L10, effectPath: 'effects/light/L10_rim-light.effect.tsx', load: () => import('../../effects/light/L10_rim-light.effect') },
   { meta: meta_L11, effectPath: 'effects/light/L11_halation.effect.tsx', load: () => import('../../effects/light/L11_halation.effect') },
   { meta: meta_L12, effectPath: 'effects/light/L12_spotlight-track.effect.tsx', load: () => import('../../effects/light/L12_spotlight-track.effect') },
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
+  { meta: meta_L14, effectPath: 'effects/light/L14_prism-refract.effect.ts', load: () => import('../../effects/light/L14_prism-refract.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M02, effectPath: 'effects/mask/M02_gradient-wipe.effect.tsx', load: () => import('../../effects/mask/M02_gradient-wipe.effect') },
   { meta: meta_M03, effectPath: 'effects/mask/M03_text-knockout.effect.tsx', load: () => import('../../effects/mask/M03_text-knockout.effect') },
@@ -276,6 +287,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P09, effectPath: 'effects/particle/P09_magnetic-field.effect.ts', load: () => import('../../effects/particle/P09_magnetic-field.effect') },
   { meta: meta_P10, effectPath: 'effects/particle/P10_orbit-ring.effect.ts', load: () => import('../../effects/particle/P10_orbit-ring.effect') },
   { meta: meta_P11, effectPath: 'effects/particle/P11_trail-emitter.effect.ts', load: () => import('../../effects/particle/P11_trail-emitter.effect') },
+  { meta: meta_P14, effectPath: 'effects/particle/P14_point-cloud-form.effect.ts', load: () => import('../../effects/particle/P14_point-cloud-form.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_Q02, effectPath: 'effects/liquid/Q02_ink-diffuse.effect.ts', load: () => import('../../effects/liquid/Q02_ink-diffuse.effect') },
   { meta: meta_Q03, effectPath: 'effects/liquid/Q03_paint-splatter.effect.ts', load: () => import('../../effects/liquid/Q03_paint-splatter.effect') },
