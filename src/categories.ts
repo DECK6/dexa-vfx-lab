@@ -28,4 +28,6 @@ export const categories: FxCategory[] = [
   { key: 'stylize', label: 'STYLIZE', order: 20 },
   { key: 'broadcast', label: 'BROADCAST', order: 21 },
   { key: 'cinema', label: 'CINEMA', order: 22 },
+  { key: 'three', label: 'THREE', order: 23 },
+  { key: 'bg', label: 'BG', order: 24 },
 ];
