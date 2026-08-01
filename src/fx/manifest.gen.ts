@@ -37,6 +37,8 @@ import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_D12 from '../../effects/distort/D12_kaleidoscope.meta';
 import meta_D13 from '../../effects/distort/D13_polar-coord.meta';
 import meta_D14 from '../../effects/distort/D14_time-displace.meta';
+import meta_D15 from '../../effects/distort/D15_heat-haze.meta';
+import meta_D16 from '../../effects/distort/D16_glass-blocks.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
@@ -85,6 +87,10 @@ import meta_L11 from '../../effects/light/L11_halation.meta';
 import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_L14 from '../../effects/light/L14_prism-refract.meta';
+import meta_L15 from '../../effects/light/L15_volumetric-spot.meta';
+import meta_L16 from '../../effects/light/L16_disco-ball.meta';
+import meta_L17 from '../../effects/light/L17_laser-grid.meta';
+import meta_L18 from '../../effects/light/L18_candle-flicker.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M02 from '../../effects/mask/M02_gradient-wipe.meta';
 import meta_M03 from '../../effects/mask/M03_text-knockout.meta';
@@ -296,6 +302,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_D12, effectPath: 'effects/distort/D12_kaleidoscope.effect.ts', load: () => import('../../effects/distort/D12_kaleidoscope.effect') },
   { meta: meta_D13, effectPath: 'effects/distort/D13_polar-coord.effect.ts', load: () => import('../../effects/distort/D13_polar-coord.effect') },
   { meta: meta_D14, effectPath: 'effects/distort/D14_time-displace.effect.ts', load: () => import('../../effects/distort/D14_time-displace.effect') },
+  { meta: meta_D15, effectPath: 'effects/distort/D15_heat-haze.effect.ts', load: () => import('../../effects/distort/D15_heat-haze.effect') },
+  { meta: meta_D16, effectPath: 'effects/distort/D16_glass-blocks.effect.ts', load: () => import('../../effects/distort/D16_glass-blocks.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
@@ -344,6 +352,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_L12, effectPath: 'effects/light/L12_spotlight-track.effect.tsx', load: () => import('../../effects/light/L12_spotlight-track.effect') },
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
   { meta: meta_L14, effectPath: 'effects/light/L14_prism-refract.effect.ts', load: () => import('../../effects/light/L14_prism-refract.effect') },
+  { meta: meta_L15, effectPath: 'effects/light/L15_volumetric-spot.effect.tsx', load: () => import('../../effects/light/L15_volumetric-spot.effect') },
+  { meta: meta_L16, effectPath: 'effects/light/L16_disco-ball.effect.ts', load: () => import('../../effects/light/L16_disco-ball.effect') },
+  { meta: meta_L17, effectPath: 'effects/light/L17_laser-grid.effect.tsx', load: () => import('../../effects/light/L17_laser-grid.effect') },
+  { meta: meta_L18, effectPath: 'effects/light/L18_candle-flicker.effect.tsx', load: () => import('../../effects/light/L18_candle-flicker.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M02, effectPath: 'effects/mask/M02_gradient-wipe.effect.tsx', load: () => import('../../effects/mask/M02_gradient-wipe.effect') },
   { meta: meta_M03, effectPath: 'effects/mask/M03_text-knockout.effect.tsx', load: () => import('../../effects/mask/M03_text-knockout.effect') },
