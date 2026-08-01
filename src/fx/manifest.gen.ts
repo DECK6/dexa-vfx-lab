@@ -245,6 +245,12 @@ import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
 import meta_X15 from '../../effects/trans/X15_luma-wipe.meta';
 import meta_X16 from '../../effects/trans/X16_split-open.meta';
+import meta_Y01 from '../../effects/stylize/Y01_halftone-cmyk.meta';
+import meta_Y02 from '../../effects/stylize/Y02_watercolor-bleed.meta';
+import meta_Y03 from '../../effects/stylize/Y03_oil-daub.meta';
+import meta_Y04 from '../../effects/stylize/Y04_pencil-sketch.meta';
+import meta_Y05 from '../../effects/stylize/Y05_cel-shade.meta';
+import meta_Y06 from '../../effects/stylize/Y06_posterize-pop.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -498,4 +504,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
   { meta: meta_X15, effectPath: 'effects/trans/X15_luma-wipe.effect.ts', load: () => import('../../effects/trans/X15_luma-wipe.effect') },
   { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
+  { meta: meta_Y01, effectPath: 'effects/stylize/Y01_halftone-cmyk.effect.ts', load: () => import('../../effects/stylize/Y01_halftone-cmyk.effect') },
+  { meta: meta_Y02, effectPath: 'effects/stylize/Y02_watercolor-bleed.effect.ts', load: () => import('../../effects/stylize/Y02_watercolor-bleed.effect') },
+  { meta: meta_Y03, effectPath: 'effects/stylize/Y03_oil-daub.effect.ts', load: () => import('../../effects/stylize/Y03_oil-daub.effect') },
+  { meta: meta_Y04, effectPath: 'effects/stylize/Y04_pencil-sketch.effect.ts', load: () => import('../../effects/stylize/Y04_pencil-sketch.effect') },
+  { meta: meta_Y05, effectPath: 'effects/stylize/Y05_cel-shade.effect.ts', load: () => import('../../effects/stylize/Y05_cel-shade.effect') },
+  { meta: meta_Y06, effectPath: 'effects/stylize/Y06_posterize-pop.effect.ts', load: () => import('../../effects/stylize/Y06_posterize-pop.effect') },
 ];
