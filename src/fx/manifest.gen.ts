@@ -88,7 +88,11 @@ import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
 import meta_S03 from '../../effects/shape/S03_grid-wave.meta';
 import meta_S04 from '../../effects/shape/S04_radar-sweep.meta';
 import meta_S05 from '../../effects/shape/S05_polygon-rotate.meta';
+import meta_S06 from '../../effects/shape/S06_circle-pack.meta';
+import meta_S07 from '../../effects/shape/S07_voronoi-shatter.meta';
+import meta_S08 from '../../effects/shape/S08_triangulate.meta';
 import meta_S09 from '../../effects/shape/S09_spiral-unfold.meta';
+import meta_S10 from '../../effects/shape/S10_fractal-branch.meta';
 import meta_S12 from '../../effects/shape/S12_dash-march.meta';
 import meta_S13 from '../../effects/shape/S13_corner-trace.meta';
 import meta_S14 from '../../effects/shape/S14_concentric-pulse.meta';
@@ -124,6 +128,7 @@ import meta_X05 from '../../effects/trans/X05_push-slide.meta';
 import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
 import meta_X08 from '../../effects/trans/X08_blinds.meta';
 import meta_X09 from '../../effects/trans/X09_pixelate-cross.meta';
+import meta_X11 from '../../effects/trans/X11_shatter-break.meta';
 import meta_X12 from '../../effects/trans/X12_liquid-warp.meta';
 import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
@@ -225,7 +230,11 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S03, effectPath: 'effects/shape/S03_grid-wave.effect.tsx', load: () => import('../../effects/shape/S03_grid-wave.effect') },
   { meta: meta_S04, effectPath: 'effects/shape/S04_radar-sweep.effect.tsx', load: () => import('../../effects/shape/S04_radar-sweep.effect') },
   { meta: meta_S05, effectPath: 'effects/shape/S05_polygon-rotate.effect.tsx', load: () => import('../../effects/shape/S05_polygon-rotate.effect') },
+  { meta: meta_S06, effectPath: 'effects/shape/S06_circle-pack.effect.ts', load: () => import('../../effects/shape/S06_circle-pack.effect') },
+  { meta: meta_S07, effectPath: 'effects/shape/S07_voronoi-shatter.effect.ts', load: () => import('../../effects/shape/S07_voronoi-shatter.effect') },
+  { meta: meta_S08, effectPath: 'effects/shape/S08_triangulate.effect.ts', load: () => import('../../effects/shape/S08_triangulate.effect') },
   { meta: meta_S09, effectPath: 'effects/shape/S09_spiral-unfold.effect.tsx', load: () => import('../../effects/shape/S09_spiral-unfold.effect') },
+  { meta: meta_S10, effectPath: 'effects/shape/S10_fractal-branch.effect.ts', load: () => import('../../effects/shape/S10_fractal-branch.effect') },
   { meta: meta_S12, effectPath: 'effects/shape/S12_dash-march.effect.tsx', load: () => import('../../effects/shape/S12_dash-march.effect') },
   { meta: meta_S13, effectPath: 'effects/shape/S13_corner-trace.effect.tsx', load: () => import('../../effects/shape/S13_corner-trace.effect') },
   { meta: meta_S14, effectPath: 'effects/shape/S14_concentric-pulse.effect.tsx', load: () => import('../../effects/shape/S14_concentric-pulse.effect') },
@@ -261,6 +270,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X06, effectPath: 'effects/trans/X06_clock-wipe.effect.tsx', load: () => import('../../effects/trans/X06_clock-wipe.effect') },
   { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
   { meta: meta_X09, effectPath: 'effects/trans/X09_pixelate-cross.effect.ts', load: () => import('../../effects/trans/X09_pixelate-cross.effect') },
+  { meta: meta_X11, effectPath: 'effects/trans/X11_shatter-break.effect.ts', load: () => import('../../effects/trans/X11_shatter-break.effect') },
   { meta: meta_X12, effectPath: 'effects/trans/X12_liquid-warp.effect.ts', load: () => import('../../effects/trans/X12_liquid-warp.effect') },
   { meta: meta_X13, effectPath: 'effects/trans/X13_cube-rotate.effect.tsx', load: () => import('../../effects/trans/X13_cube-rotate.effect') },
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
