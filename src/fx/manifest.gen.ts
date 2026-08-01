@@ -71,8 +71,13 @@ import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
 import meta_T04 from '../../effects/type/T04_mask-reveal.meta';
 import meta_T05 from '../../effects/type/T05_typewriter-caret.meta';
 import meta_T06 from '../../effects/type/T06_word-cascade.meta';
+import meta_T07 from '../../effects/type/T07_variable-weight-morph.meta';
+import meta_T08 from '../../effects/type/T08_text-path-flow.meta';
 import meta_T09 from '../../effects/type/T09_char-flip-3d.meta';
 import meta_T10 from '../../effects/type/T10_highlight-sweep.meta';
+import meta_T11 from '../../effects/type/T11_stretch-squash.meta';
+import meta_T12 from '../../effects/type/T12_vertical-roll.meta';
+import meta_T13 from '../../effects/type/T13_outline-fill.meta';
 import meta_T15 from '../../effects/type/T15_wave-text.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
@@ -173,8 +178,13 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T04, effectPath: 'effects/type/T04_mask-reveal.effect.tsx', load: () => import('../../effects/type/T04_mask-reveal.effect') },
   { meta: meta_T05, effectPath: 'effects/type/T05_typewriter-caret.effect.tsx', load: () => import('../../effects/type/T05_typewriter-caret.effect') },
   { meta: meta_T06, effectPath: 'effects/type/T06_word-cascade.effect.tsx', load: () => import('../../effects/type/T06_word-cascade.effect') },
+  { meta: meta_T07, effectPath: 'effects/type/T07_variable-weight-morph.effect.tsx', load: () => import('../../effects/type/T07_variable-weight-morph.effect') },
+  { meta: meta_T08, effectPath: 'effects/type/T08_text-path-flow.effect.tsx', load: () => import('../../effects/type/T08_text-path-flow.effect') },
   { meta: meta_T09, effectPath: 'effects/type/T09_char-flip-3d.effect.tsx', load: () => import('../../effects/type/T09_char-flip-3d.effect') },
   { meta: meta_T10, effectPath: 'effects/type/T10_highlight-sweep.effect.tsx', load: () => import('../../effects/type/T10_highlight-sweep.effect') },
+  { meta: meta_T11, effectPath: 'effects/type/T11_stretch-squash.effect.tsx', load: () => import('../../effects/type/T11_stretch-squash.effect') },
+  { meta: meta_T12, effectPath: 'effects/type/T12_vertical-roll.effect.tsx', load: () => import('../../effects/type/T12_vertical-roll.effect') },
+  { meta: meta_T13, effectPath: 'effects/type/T13_outline-fill.effect.tsx', load: () => import('../../effects/type/T13_outline-fill.effect') },
   { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
