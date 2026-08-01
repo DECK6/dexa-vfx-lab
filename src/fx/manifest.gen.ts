@@ -3,6 +3,7 @@ import type { FxKernel, FxMeta } from './types';
 
 import meta_A01 from '../../effects/audio/A01_waveform-bars.meta';
 import meta_A02 from '../../effects/audio/A02_spectrum-analyzer.meta';
+import meta_A03 from '../../effects/audio/A03_circular-viz.meta';
 import meta_A04 from '../../effects/audio/A04_beat-pulse.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
@@ -69,6 +70,7 @@ import meta_N01 from '../../effects/nature/N01_fire-flame.meta';
 import meta_N02 from '../../effects/nature/N02_smoke-plume.meta';
 import meta_N03 from '../../effects/nature/N03_water-surface.meta';
 import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
+import meta_N10 from '../../effects/nature/N10_bubble-rise.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
@@ -81,9 +83,12 @@ import meta_P09 from '../../effects/particle/P09_magnetic-field.meta';
 import meta_P10 from '../../effects/particle/P10_orbit-ring.meta';
 import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
+import meta_Q03 from '../../effects/liquid/Q03_paint-splatter.meta';
 import meta_Q08 from '../../effects/liquid/Q08_gel-wobble.meta';
 import meta_Q10 from '../../effects/liquid/Q10_liquid-fill.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
+import meta_R02 from '../../effects/pattern/R02_flow-field.meta';
+import meta_R03 from '../../effects/pattern/R03_cellular-automata.meta';
 import meta_R05 from '../../effects/pattern/R05_moire-interference.meta';
 import meta_R07 from '../../effects/pattern/R07_lissajous.meta';
 import meta_R08 from '../../effects/pattern/R08_phyllotaxis.meta';
@@ -155,6 +160,7 @@ export interface ManifestEntry {
 export const manifest: ManifestEntry[] = [
   { meta: meta_A01, effectPath: 'effects/audio/A01_waveform-bars.effect.ts', load: () => import('../../effects/audio/A01_waveform-bars.effect') },
   { meta: meta_A02, effectPath: 'effects/audio/A02_spectrum-analyzer.effect.ts', load: () => import('../../effects/audio/A02_spectrum-analyzer.effect') },
+  { meta: meta_A03, effectPath: 'effects/audio/A03_circular-viz.effect.ts', load: () => import('../../effects/audio/A03_circular-viz.effect') },
   { meta: meta_A04, effectPath: 'effects/audio/A04_beat-pulse.effect.tsx', load: () => import('../../effects/audio/A04_beat-pulse.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
@@ -221,6 +227,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_N02, effectPath: 'effects/nature/N02_smoke-plume.effect.ts', load: () => import('../../effects/nature/N02_smoke-plume.effect') },
   { meta: meta_N03, effectPath: 'effects/nature/N03_water-surface.effect.ts', load: () => import('../../effects/nature/N03_water-surface.effect') },
   { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
+  { meta: meta_N10, effectPath: 'effects/nature/N10_bubble-rise.effect.ts', load: () => import('../../effects/nature/N10_bubble-rise.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
@@ -233,9 +240,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P10, effectPath: 'effects/particle/P10_orbit-ring.effect.ts', load: () => import('../../effects/particle/P10_orbit-ring.effect') },
   { meta: meta_P11, effectPath: 'effects/particle/P11_trail-emitter.effect.ts', load: () => import('../../effects/particle/P11_trail-emitter.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
+  { meta: meta_Q03, effectPath: 'effects/liquid/Q03_paint-splatter.effect.ts', load: () => import('../../effects/liquid/Q03_paint-splatter.effect') },
   { meta: meta_Q08, effectPath: 'effects/liquid/Q08_gel-wobble.effect.tsx', load: () => import('../../effects/liquid/Q08_gel-wobble.effect') },
   { meta: meta_Q10, effectPath: 'effects/liquid/Q10_liquid-fill.effect.tsx', load: () => import('../../effects/liquid/Q10_liquid-fill.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
+  { meta: meta_R02, effectPath: 'effects/pattern/R02_flow-field.effect.ts', load: () => import('../../effects/pattern/R02_flow-field.effect') },
+  { meta: meta_R03, effectPath: 'effects/pattern/R03_cellular-automata.effect.ts', load: () => import('../../effects/pattern/R03_cellular-automata.effect') },
   { meta: meta_R05, effectPath: 'effects/pattern/R05_moire-interference.effect.tsx', load: () => import('../../effects/pattern/R05_moire-interference.effect') },
   { meta: meta_R07, effectPath: 'effects/pattern/R07_lissajous.effect.tsx', load: () => import('../../effects/pattern/R07_lissajous.effect') },
   { meta: meta_R08, effectPath: 'effects/pattern/R08_phyllotaxis.effect.ts', load: () => import('../../effects/pattern/R08_phyllotaxis.effect') },
