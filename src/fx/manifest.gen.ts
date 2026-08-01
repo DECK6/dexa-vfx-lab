@@ -5,6 +5,7 @@ import meta_A01 from '../../effects/audio/A01_waveform-bars.meta';
 import meta_A02 from '../../effects/audio/A02_spectrum-analyzer.meta';
 import meta_A03 from '../../effects/audio/A03_circular-viz.meta';
 import meta_A04 from '../../effects/audio/A04_beat-pulse.meta';
+import meta_A05 from '../../effects/audio/A05_oscilloscope.meta';
 import meta_A06 from '../../effects/audio/A06_vu-meter.meta';
 import meta_A07 from '../../effects/audio/A07_waveform-line.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
@@ -186,6 +187,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_A02, effectPath: 'effects/audio/A02_spectrum-analyzer.effect.ts', load: () => import('../../effects/audio/A02_spectrum-analyzer.effect') },
   { meta: meta_A03, effectPath: 'effects/audio/A03_circular-viz.effect.ts', load: () => import('../../effects/audio/A03_circular-viz.effect') },
   { meta: meta_A04, effectPath: 'effects/audio/A04_beat-pulse.effect.tsx', load: () => import('../../effects/audio/A04_beat-pulse.effect') },
+  { meta: meta_A05, effectPath: 'effects/audio/A05_oscilloscope.effect.ts', load: () => import('../../effects/audio/A05_oscilloscope.effect') },
   { meta: meta_A06, effectPath: 'effects/audio/A06_vu-meter.effect.tsx', load: () => import('../../effects/audio/A06_vu-meter.effect') },
   { meta: meta_A07, effectPath: 'effects/audio/A07_waveform-line.effect.tsx', load: () => import('../../effects/audio/A07_waveform-line.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
