@@ -1,6 +1,6 @@
 # PROGRESS
-phase: W2 (라운드1 발주 중 · W1 배포 승인 별도 대기)
-last-update: 2026-08-01T12:09
+phase: W2-GATE-DONE (배포 승인 대기) → W3 준비
+last-update: 2026-08-01T12:47
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -110,12 +110,26 @@ last-update: 2026-08-01T12:09
 | W1-4 번들 QA (갤러리 initial에 remotion 런타임 0) | pass | 08-01 |
 | W1-5 썸네일 26장 + build + deploy 스테이징 | pass | 08-01 |
 | **W1 게이트** | **pass — adxdeck 커밋·푸시만 사용자 승인 대기** | 08-01 |
+| W2 이펙트 71/71 pass (라운드1~3 + RX10 + 재작업) | pass | 08-01 |
+| W2 풀 스모크 100/100 | pass | 08-01 |
+| W2 부하 QA (GL 포함 스크롤·스래시, ctxLost 0, 에러 0) | pass | 08-01 |
+| W2 번들 QA (remotion 런타임 0) | pass | 08-01 |
+| W2 썸네일 97장 + build + deploy 스테이징 | pass | 08-01 |
+| **W2 게이트** | **pass — adxdeck 푸시 승인 대기(W1과 함께)** | 08-01 |
 | P0-6 3라우트 + DEXA 토큰 (스크린샷 확보) | pass | 08-01 |
 | P0-7 stateful 시크 결정성 (2회 렌더 바이트 동일) | pass | 08-01 |
+
+## W2 검수 중 잡은 실결함 (전부 수정 완료)
+- exporter GL 경로: 표준 uniform 미주입 + subject 텍스처 언바운드 + preserveDrawingBuffer 부재 → 3중 수정
+- glRunner: UNPACK_FLIP_Y가 ImageBitmap에 스펙상 무시 → 전 GL 이펙트 subject 뒤집힘 → 스크래치 캔버스 경유
+- sweep_static 클래스(7종: E02 E03 E07 L12 S12 S13 E06 V05): 검사기 핑거프린트가 bbox+opacity만 인정 — 페인트-온리 모션 금지 규칙 확립, 배치 템플릿 반영
+- T10: 형제 요소 백드롭 미인식으로 반전 컨셉 불가 → 글로우 스트립 재설계
+- E07: 플랫 subject엔 포스터화 비가시 → 그라디언트 필드 합성
 
 ## 미해결 이슈
 - 1차 P0 모놀리식 발주 graphify 대기 중 사망 → 병렬 트랙으로 전환 완료
 - 디스크 풀 사태(08-01): 부트 볼륨 0바이트로 전 작업 중단 → 해소. bunx hyperframes는 캐시 공간 요구 큼
+- entry 번들 652K(raw) — kernel-js eager 맵이 원인, 214종이면 배가됨 → W3에서 지연 로딩 최적화
 - TRANS 계열 썸네일 프레임(90=전환 완료 후) → 카테고리별 썸네일 프레임 튜닝 백로그
 - 상세 프리뷰를 라이브 드라이버 트랜스포트로 구현(A). Remotion Player 전환은 통합 단계에서 판단 — SPEC §6과 차이, 사용자 보고 필요
 - import.meta.glob은 Vite 전용 → 매니페스트 코드젠으로 교체(SPEC §4의 glob 서술은 코드젠으로 갱신 필요)
