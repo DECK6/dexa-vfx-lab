@@ -19,6 +19,8 @@ import meta_G05 from '../../effects/glitch/G05_vhs-tracking.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
+import meta_L09 from '../../effects/light/L09_strobe-cut.meta';
+import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
@@ -26,6 +28,7 @@ import meta_N03 from '../../effects/nature/N03_water-surface.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
+import meta_P05 from '../../effects/particle/P05_bokeh-drift.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
@@ -33,6 +36,8 @@ import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
 import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
 import meta_S03 from '../../effects/shape/S03_grid-wave.meta';
 import meta_S04 from '../../effects/shape/S04_radar-sweep.meta';
+import meta_S05 from '../../effects/shape/S05_polygon-rotate.meta';
+import meta_S09 from '../../effects/shape/S09_spiral-unfold.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
 import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
@@ -74,6 +79,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
+  { meta: meta_L09, effectPath: 'effects/light/L09_strobe-cut.effect.tsx', load: () => import('../../effects/light/L09_strobe-cut.effect') },
+  { meta: meta_L12, effectPath: 'effects/light/L12_spotlight-track.effect.tsx', load: () => import('../../effects/light/L12_spotlight-track.effect') },
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
@@ -81,6 +88,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
+  { meta: meta_P05, effectPath: 'effects/particle/P05_bokeh-drift.effect.tsx', load: () => import('../../effects/particle/P05_bokeh-drift.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
@@ -88,6 +96,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
   { meta: meta_S03, effectPath: 'effects/shape/S03_grid-wave.effect.tsx', load: () => import('../../effects/shape/S03_grid-wave.effect') },
   { meta: meta_S04, effectPath: 'effects/shape/S04_radar-sweep.effect.tsx', load: () => import('../../effects/shape/S04_radar-sweep.effect') },
+  { meta: meta_S05, effectPath: 'effects/shape/S05_polygon-rotate.effect.tsx', load: () => import('../../effects/shape/S05_polygon-rotate.effect') },
+  { meta: meta_S09, effectPath: 'effects/shape/S09_spiral-unfold.effect.tsx', load: () => import('../../effects/shape/S09_spiral-unfold.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
   { meta: meta_T03, effectPath: 'effects/type/T03_odometer-roll.effect.tsx', load: () => import('../../effects/type/T03_odometer-roll.effect') },
