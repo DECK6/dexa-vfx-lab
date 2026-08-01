@@ -3,6 +3,7 @@ import type { FxKernel, FxMeta } from './types';
 
 import meta_A01 from '../../effects/audio/A01_waveform-bars.meta';
 import meta_A02 from '../../effects/audio/A02_spectrum-analyzer.meta';
+import meta_A04 from '../../effects/audio/A04_beat-pulse.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -37,6 +38,9 @@ import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M02 from '../../effects/mask/M02_gradient-wipe.meta';
+import meta_M03 from '../../effects/mask/M03_text-knockout.meta';
+import meta_M05 from '../../effects/mask/M05_spotlight-mask.meta';
+import meta_M09 from '../../effects/mask/M09_radial-unveil.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
 import meta_N03 from '../../effects/nature/N03_water-surface.meta';
 import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
@@ -105,6 +109,7 @@ export interface ManifestEntry {
 export const manifest: ManifestEntry[] = [
   { meta: meta_A01, effectPath: 'effects/audio/A01_waveform-bars.effect.ts', load: () => import('../../effects/audio/A01_waveform-bars.effect') },
   { meta: meta_A02, effectPath: 'effects/audio/A02_spectrum-analyzer.effect.ts', load: () => import('../../effects/audio/A02_spectrum-analyzer.effect') },
+  { meta: meta_A04, effectPath: 'effects/audio/A04_beat-pulse.effect.tsx', load: () => import('../../effects/audio/A04_beat-pulse.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
@@ -139,6 +144,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M02, effectPath: 'effects/mask/M02_gradient-wipe.effect.tsx', load: () => import('../../effects/mask/M02_gradient-wipe.effect') },
+  { meta: meta_M03, effectPath: 'effects/mask/M03_text-knockout.effect.tsx', load: () => import('../../effects/mask/M03_text-knockout.effect') },
+  { meta: meta_M05, effectPath: 'effects/mask/M05_spotlight-mask.effect.tsx', load: () => import('../../effects/mask/M05_spotlight-mask.effect') },
+  { meta: meta_M09, effectPath: 'effects/mask/M09_radial-unveil.effect.tsx', load: () => import('../../effects/mask/M09_radial-unveil.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
   { meta: meta_N03, effectPath: 'effects/nature/N03_water-surface.effect.ts', load: () => import('../../effects/nature/N03_water-surface.effect') },
   { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
