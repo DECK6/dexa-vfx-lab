@@ -245,6 +245,12 @@ import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
 import meta_X15 from '../../effects/trans/X15_luma-wipe.meta';
 import meta_X16 from '../../effects/trans/X16_split-open.meta';
+import meta_Z07 from '../../effects/screen/Z07_teletext.meta';
+import meta_Z08 from '../../effects/screen/Z08_ticker-marquee.meta';
+import meta_Z09 from '../../effects/screen/Z09_vfd-display.meta';
+import meta_Z10 from '../../effects/screen/Z10_crt-terminal.meta';
+import meta_Z11 from '../../effects/screen/Z11_lcd-subpixel.meta';
+import meta_Z12 from '../../effects/screen/Z12_dot-flip.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -498,4 +504,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
   { meta: meta_X15, effectPath: 'effects/trans/X15_luma-wipe.effect.ts', load: () => import('../../effects/trans/X15_luma-wipe.effect') },
   { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
+  { meta: meta_Z07, effectPath: 'effects/screen/Z07_teletext.effect.ts', load: () => import('../../effects/screen/Z07_teletext.effect') },
+  { meta: meta_Z08, effectPath: 'effects/screen/Z08_ticker-marquee.effect.tsx', load: () => import('../../effects/screen/Z08_ticker-marquee.effect') },
+  { meta: meta_Z09, effectPath: 'effects/screen/Z09_vfd-display.effect.tsx', load: () => import('../../effects/screen/Z09_vfd-display.effect') },
+  { meta: meta_Z10, effectPath: 'effects/screen/Z10_crt-terminal.effect.ts', load: () => import('../../effects/screen/Z10_crt-terminal.effect') },
+  { meta: meta_Z11, effectPath: 'effects/screen/Z11_lcd-subpixel.effect.ts', load: () => import('../../effects/screen/Z11_lcd-subpixel.effect') },
+  { meta: meta_Z12, effectPath: 'effects/screen/Z12_dot-flip.effect.ts', load: () => import('../../effects/screen/Z12_dot-flip.effect') },
 ];
