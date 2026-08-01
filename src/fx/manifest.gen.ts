@@ -49,6 +49,8 @@ import meta_E09 from '../../effects/texture/E09_risograph.meta';
 import meta_E10 from '../../effects/texture/E10_vignette-breathe.meta';
 import meta_E11 from '../../effects/texture/E11_chromatic-grain.meta';
 import meta_E12 from '../../effects/texture/E12_ascii-map.meta';
+import meta_E13 from '../../effects/texture/E13_brushed-metal.meta';
+import meta_E14 from '../../effects/texture/E14_frosted-glass.meta';
 import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
@@ -142,6 +144,8 @@ import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
 import meta_P12 from '../../effects/particle/P12_explosion-debris.meta';
 import meta_P13 from '../../effects/particle/P13_attract-repel.meta';
 import meta_P14 from '../../effects/particle/P14_point-cloud-form.meta';
+import meta_P15 from '../../effects/particle/P15_fireflies.meta';
+import meta_P16 from '../../effects/particle/P16_pollen-drift.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_Q02 from '../../effects/liquid/Q02_ink-diffuse.meta';
 import meta_Q03 from '../../effects/liquid/Q03_paint-splatter.meta';
@@ -182,6 +186,8 @@ import meta_S13 from '../../effects/shape/S13_corner-trace.meta';
 import meta_S14 from '../../effects/shape/S14_concentric-pulse.meta';
 import meta_S15 from '../../effects/shape/S15_isometric-stack.meta';
 import meta_S16 from '../../effects/shape/S16_truchet-tile.meta';
+import meta_S17 from '../../effects/shape/S17_gear-train.meta';
+import meta_S18 from '../../effects/shape/S18_origami-fold.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
 import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
@@ -308,6 +314,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_E10, effectPath: 'effects/texture/E10_vignette-breathe.effect.tsx', load: () => import('../../effects/texture/E10_vignette-breathe.effect') },
   { meta: meta_E11, effectPath: 'effects/texture/E11_chromatic-grain.effect.ts', load: () => import('../../effects/texture/E11_chromatic-grain.effect') },
   { meta: meta_E12, effectPath: 'effects/texture/E12_ascii-map.effect.ts', load: () => import('../../effects/texture/E12_ascii-map.effect') },
+  { meta: meta_E13, effectPath: 'effects/texture/E13_brushed-metal.effect.ts', load: () => import('../../effects/texture/E13_brushed-metal.effect') },
+  { meta: meta_E14, effectPath: 'effects/texture/E14_frosted-glass.effect.ts', load: () => import('../../effects/texture/E14_frosted-glass.effect') },
   { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
@@ -401,6 +409,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P12, effectPath: 'effects/particle/P12_explosion-debris.effect.ts', load: () => import('../../effects/particle/P12_explosion-debris.effect') },
   { meta: meta_P13, effectPath: 'effects/particle/P13_attract-repel.effect.ts', load: () => import('../../effects/particle/P13_attract-repel.effect') },
   { meta: meta_P14, effectPath: 'effects/particle/P14_point-cloud-form.effect.ts', load: () => import('../../effects/particle/P14_point-cloud-form.effect') },
+  { meta: meta_P15, effectPath: 'effects/particle/P15_fireflies.effect.ts', load: () => import('../../effects/particle/P15_fireflies.effect') },
+  { meta: meta_P16, effectPath: 'effects/particle/P16_pollen-drift.effect.ts', load: () => import('../../effects/particle/P16_pollen-drift.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_Q02, effectPath: 'effects/liquid/Q02_ink-diffuse.effect.ts', load: () => import('../../effects/liquid/Q02_ink-diffuse.effect') },
   { meta: meta_Q03, effectPath: 'effects/liquid/Q03_paint-splatter.effect.ts', load: () => import('../../effects/liquid/Q03_paint-splatter.effect') },
@@ -441,6 +451,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S14, effectPath: 'effects/shape/S14_concentric-pulse.effect.tsx', load: () => import('../../effects/shape/S14_concentric-pulse.effect') },
   { meta: meta_S15, effectPath: 'effects/shape/S15_isometric-stack.effect.tsx', load: () => import('../../effects/shape/S15_isometric-stack.effect') },
   { meta: meta_S16, effectPath: 'effects/shape/S16_truchet-tile.effect.tsx', load: () => import('../../effects/shape/S16_truchet-tile.effect') },
+  { meta: meta_S17, effectPath: 'effects/shape/S17_gear-train.effect.tsx', load: () => import('../../effects/shape/S17_gear-train.effect') },
+  { meta: meta_S18, effectPath: 'effects/shape/S18_origami-fold.effect.tsx', load: () => import('../../effects/shape/S18_origami-fold.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
   { meta: meta_T03, effectPath: 'effects/type/T03_odometer-roll.effect.tsx', load: () => import('../../effects/type/T03_odometer-roll.effect') },
