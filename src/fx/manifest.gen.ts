@@ -17,11 +17,13 @@ import meta_D02 from '../../effects/distort/D02_ripple-circle.meta';
 import meta_D03 from '../../effects/distort/D03_twirl-vortex.meta';
 import meta_D05 from '../../effects/distort/D05_wave-shear.meta';
 import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
+import meta_D12 from '../../effects/distort/D12_kaleidoscope.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
 import meta_E06 from '../../effects/texture/E06_duotone-map.meta';
 import meta_E07 from '../../effects/texture/E07_posterize-step.meta';
+import meta_E08 from '../../effects/texture/E08_cross-hatch.meta';
 import meta_E10 from '../../effects/texture/E10_vignette-breathe.meta';
 import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
@@ -52,6 +54,8 @@ import meta_M03 from '../../effects/mask/M03_text-knockout.meta';
 import meta_M05 from '../../effects/mask/M05_spotlight-mask.meta';
 import meta_M09 from '../../effects/mask/M09_radial-unveil.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
+import meta_N01 from '../../effects/nature/N01_fire-flame.meta';
+import meta_N02 from '../../effects/nature/N02_smoke-plume.meta';
 import meta_N03 from '../../effects/nature/N03_water-surface.meta';
 import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
@@ -146,11 +150,13 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_D03, effectPath: 'effects/distort/D03_twirl-vortex.effect.ts', load: () => import('../../effects/distort/D03_twirl-vortex.effect') },
   { meta: meta_D05, effectPath: 'effects/distort/D05_wave-shear.effect.ts', load: () => import('../../effects/distort/D05_wave-shear.effect') },
   { meta: meta_D11, effectPath: 'effects/distort/D11_mirror-fold.effect.ts', load: () => import('../../effects/distort/D11_mirror-fold.effect') },
+  { meta: meta_D12, effectPath: 'effects/distort/D12_kaleidoscope.effect.ts', load: () => import('../../effects/distort/D12_kaleidoscope.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
   { meta: meta_E06, effectPath: 'effects/texture/E06_duotone-map.effect.tsx', load: () => import('../../effects/texture/E06_duotone-map.effect') },
   { meta: meta_E07, effectPath: 'effects/texture/E07_posterize-step.effect.ts', load: () => import('../../effects/texture/E07_posterize-step.effect') },
+  { meta: meta_E08, effectPath: 'effects/texture/E08_cross-hatch.effect.ts', load: () => import('../../effects/texture/E08_cross-hatch.effect') },
   { meta: meta_E10, effectPath: 'effects/texture/E10_vignette-breathe.effect.tsx', load: () => import('../../effects/texture/E10_vignette-breathe.effect') },
   { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
@@ -181,6 +187,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_M05, effectPath: 'effects/mask/M05_spotlight-mask.effect.tsx', load: () => import('../../effects/mask/M05_spotlight-mask.effect') },
   { meta: meta_M09, effectPath: 'effects/mask/M09_radial-unveil.effect.tsx', load: () => import('../../effects/mask/M09_radial-unveil.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
+  { meta: meta_N01, effectPath: 'effects/nature/N01_fire-flame.effect.ts', load: () => import('../../effects/nature/N01_fire-flame.effect') },
+  { meta: meta_N02, effectPath: 'effects/nature/N02_smoke-plume.effect.ts', load: () => import('../../effects/nature/N02_smoke-plume.effect') },
   { meta: meta_N03, effectPath: 'effects/nature/N03_water-surface.effect.ts', load: () => import('../../effects/nature/N03_water-surface.effect') },
   { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
