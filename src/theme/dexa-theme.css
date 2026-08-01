@@ -1,0 +1,42 @@
+/* ==========================================================================
+   DEXA Design System — VFX LAB theme
+   Source of truth: /Dev/dexa_design_system (DESIGN.md) · adxdeck dexa-theme.css
+   Rule: light chrome (Paper + Signal Orange) / dark canvas (Ink bezel + #0D0E10 inset + Dexa Cyan data)
+   Do NOT redefine hex values — these mirror the canonical tokens.
+   ========================================================================== */
+
+:root {
+  --paper: #F5F1E6;
+  --panel: #EBE4D3;
+  --panel2: #E3DBC6;
+  --ink: #17181B;
+  --line: #D9D0BB;
+  --muted: #6A644F;
+  --orange: #FF5A1F;
+  --orange-hover: #E64D14;
+  --cyan: #5EE7F3;
+  --red: #E0402A;
+  --red-text: #B33320;
+  --ink-display: #0D0E10;
+  --ink-key: #2A2B2E;
+  --ink-key2: #3A3B3F;
+  --ink-text: #8A8D93;
+  --ink-text-dim: #5A5D63;
+  --font-sans: 'Space Grotesk', 'Pretendard Variable', Pretendard, 'Noto Sans KR', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--orange); color: var(--ink); }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.mono { font-family: var(--font-mono); }

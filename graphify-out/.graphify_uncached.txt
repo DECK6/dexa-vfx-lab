@@ -1,0 +1,5 @@
+/Volumes/data/Dev/dexa-vfx-lab/docs/BATCHES_W1.md
+/Volumes/data/Dev/dexa-vfx-lab/docs/CATALOG.md
+/Volumes/data/Dev/dexa-vfx-lab/docs/GOAL_PROMPT.md
+/Volumes/data/Dev/dexa-vfx-lab/docs/PROGRESS.md
+/Volumes/data/Dev/dexa-vfx-lab/docs/SPEC.md
