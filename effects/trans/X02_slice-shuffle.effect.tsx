@@ -48,7 +48,7 @@ const kernel = {
                     inset: 0,
                     display: 'grid',
                     placeItems: 'center',
-                    filter: 'grayscale(1) contrast(1.4)',
+                    filter: 'grayscale(1) contrast(1.4) brightness(0.45)',
                     mixBlendMode: 'multiply',
                   }}
                 >
