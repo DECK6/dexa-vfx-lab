@@ -118,12 +118,19 @@ if (selftest) {
     console.error(`Unknown effect ID(s): ${missing.join(', ')}`);
     process.exit(2);
   }
-  inputs = selected.map((entry) => ({
-    meta: entry.meta,
-    params: defaultParams(entry.meta.params),
-    kernelSource: readFileSync(join(ROOT, entry.effectPath), 'utf8'),
-    effectPath: entry.effectPath,
-  }));
+  inputs = await Promise.all(
+    selected.map(async (entry) => {
+      const kernelSource = readFileSync(join(ROOT, entry.effectPath), 'utf8');
+      return {
+        meta: entry.meta,
+        params: defaultParams(entry.meta.params),
+        kernelSource,
+        effectPath: entry.effectPath,
+        // kernel JS is code-split now — transpile directly instead of reading the eager map
+        kernelJs: await transpile(kernelSource, entry.effectPath),
+      };
+    }),
+  );
 }
 
 if (inputs.length === 0) {

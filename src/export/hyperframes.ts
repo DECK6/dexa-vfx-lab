@@ -1,4 +1,3 @@
-import { kernelJsByEffectPath } from './kernel-js.gen';
 import sampleEnvelope from '../../public/audio/sample.envelope.json';
 import type { FxExportInput, FxExporter } from './types';
 
@@ -27,20 +26,11 @@ function escapeHtml(value: string): string {
 }
 
 function resolveKernelJs(input: FxExportInput): string {
+  // Kernel JS is code-split per effect — callers load it via kernelJsLoaders
+  // (src/export/kernel-js.gen.ts) and pass it in. No eager map in the entry chunk.
   if (input.kernelJs) return input.kernelJs;
-  if (input.effectPath && kernelJsByEffectPath[input.effectPath]) {
-    return kernelJsByEffectPath[input.effectPath];
-  }
-  const suffixes = [
-    `/${input.meta.id}_${input.meta.slug}.effect.ts`,
-    `/${input.meta.id}_${input.meta.slug}.effect.tsx`,
-  ];
-  const found = Object.entries(kernelJsByEffectPath).find(([effectPath]) =>
-    suffixes.some((suffix) => `/${effectPath}`.endsWith(suffix)),
-  );
-  if (found) return found[1];
   throw new Error(
-    `No generated JavaScript for ${input.meta.id}. Run scripts/gen-kernel-js.mjs first.`,
+    `No kernel JS provided for ${input.meta.id}. Load it via kernelJsLoaders[effectPath] and pass input.kernelJs.`,
   );
 }
 
