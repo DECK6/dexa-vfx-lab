@@ -41,6 +41,8 @@ import meta_P05 from '../../effects/particle/P05_bokeh-drift.meta';
 import meta_P06 from '../../effects/particle/P06_snow-fall.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
+import meta_R05 from '../../effects/pattern/R05_moire-interference.meta';
+import meta_R07 from '../../effects/pattern/R07_lissajous.meta';
 import meta_R08 from '../../effects/pattern/R08_phyllotaxis.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
 import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
@@ -62,6 +64,9 @@ import meta_T09 from '../../effects/type/T09_char-flip-3d.meta';
 import meta_T10 from '../../effects/type/T10_highlight-sweep.meta';
 import meta_T15 from '../../effects/type/T15_wave-text.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
+import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
+import meta_U03 from '../../effects/ui/U03_loading-spinner.meta';
+import meta_U04 from '../../effects/ui/U04_skeleton-shimmer.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
@@ -123,6 +128,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P06, effectPath: 'effects/particle/P06_snow-fall.effect.ts', load: () => import('../../effects/particle/P06_snow-fall.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
+  { meta: meta_R05, effectPath: 'effects/pattern/R05_moire-interference.effect.tsx', load: () => import('../../effects/pattern/R05_moire-interference.effect') },
+  { meta: meta_R07, effectPath: 'effects/pattern/R07_lissajous.effect.tsx', load: () => import('../../effects/pattern/R07_lissajous.effect') },
   { meta: meta_R08, effectPath: 'effects/pattern/R08_phyllotaxis.effect.ts', load: () => import('../../effects/pattern/R08_phyllotaxis.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
   { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
@@ -144,6 +151,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T10, effectPath: 'effects/type/T10_highlight-sweep.effect.tsx', load: () => import('../../effects/type/T10_highlight-sweep.effect') },
   { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
+  { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
+  { meta: meta_U03, effectPath: 'effects/ui/U03_loading-spinner.effect.tsx', load: () => import('../../effects/ui/U03_loading-spinner.effect') },
+  { meta: meta_U04, effectPath: 'effects/ui/U04_skeleton-shimmer.effect.tsx', load: () => import('../../effects/ui/U04_skeleton-shimmer.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
