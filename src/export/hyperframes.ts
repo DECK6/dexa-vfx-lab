@@ -1,4 +1,5 @@
 import { kernelJsByEffectPath } from './kernel-js.gen';
+import sampleEnvelope from '../../public/audio/sample.envelope.json';
 import type { FxExportInput, FxExporter } from './types';
 
 const WIDTH = 1280;
@@ -78,6 +79,7 @@ function sharedRuntime(input: FxExportInput, kernelJs: string): string {
     const DURATION_IN_FRAMES = ${FPS * DURATION_SECONDS};
     const EFFECT_ID = ${safeJson(input.meta.id)};
     const PARAMS = ${safeJson(input.params)};
+    ${input.meta.category === 'audio' ? `const AUDIO_FRAMES = ${safeJson((sampleEnvelope as { frames: unknown[] }).frames)};` : ''}
 
     function fxRandom(seed) {
       return function (key) {
@@ -115,25 +117,27 @@ function canvasSubjectRuntime(): string {
       subjectCanvas.height = 240;
       const subjectG = subjectCanvas.getContext('2d');
       subjectG.clearRect(0, 0, 480, 240);
-      subjectG.fillStyle = '#5ee7f3';
-      subjectG.beginPath();
-      subjectG.moveTo(240, 24); subjectG.lineTo(314, 146); subjectG.lineTo(166, 146); subjectG.closePath(); subjectG.fill();
-      subjectG.fillStyle = '#ff5a1f';
-      subjectG.beginPath();
-      subjectG.moveTo(166, 146); subjectG.lineTo(240, 80); subjectG.lineTo(240, 202); subjectG.closePath(); subjectG.fill();
-      subjectG.fillStyle = '#f5f1e6';
-      subjectG.beginPath();
-      subjectG.moveTo(314, 146); subjectG.lineTo(240, 80); subjectG.lineTo(240, 202); subjectG.closePath(); subjectG.fill();
-      subjectG.fillStyle = '#f5f1e6';
-      subjectG.font = '700 22px JetBrains Mono, monospace';
-      subjectG.textAlign = 'center';
-      subjectG.fillText('DEXA', 240, 232);
+      // Canonical DEXA triad (SPEC §7): nested outline triangles + cyan point. No label (see makeSubjectNode).
+      function tri(r, mode) {
+        subjectG.beginPath();
+        for (let v = 0; v < 3; v++) {
+          const a = -Math.PI / 2 + (v * 2 * Math.PI) / 3;
+          const x = 240 + r * Math.cos(a);
+          const y = 128 + r * Math.sin(a);
+          v === 0 ? subjectG.moveTo(x, y) : subjectG.lineTo(x, y);
+        }
+        subjectG.closePath();
+        if (mode === 'fill') { subjectG.fillStyle = '#5ee7f3'; subjectG.fill(); }
+        else { subjectG.strokeStyle = '#f7fafc'; subjectG.lineWidth = 6; subjectG.stroke(); }
+      }
+      tri(84, 'stroke'); tri(58, 'stroke'); tri(32, 'fill');
       return subjectCanvas;
     }
 
     const subject = { kind: 'triad', label: 'DEXA', bitmap: makeSubjectBitmap() };
 
     function makeContext(frame) {
+      const clamped = Math.max(0, Math.min(frame, DURATION_IN_FRAMES - 1));
       return {
         frame: frame,
         fps: FPS,
@@ -143,7 +147,8 @@ function canvasSubjectRuntime(): string {
         t: frame / DURATION_IN_FRAMES,
         random: random,
         params: PARAMS,
-        subject: subject
+        subject: subject,
+        audio: typeof AUDIO_FRAMES !== 'undefined' ? AUDIO_FRAMES[clamped] : undefined
       };
     }
 `;
@@ -306,7 +311,9 @@ ${canvasSubjectRuntime()}
     canvas.height = HEIGHT;
     const fragmentSource = kernel.shader.frag;
     const gl2 = /^\\s*#version 300 es/.test(fragmentSource);
-    const gl = canvas.getContext(gl2 ? 'webgl2' : 'webgl');
+    // preserveDrawingBuffer: checker readback samples the buffer after composite — without it every sample reads black (=> sweep_static)
+    const glOptions = { preserveDrawingBuffer: true };
+    const gl = canvas.getContext(gl2 ? 'webgl2' : 'webgl', glOptions);
     if (!gl) throw new Error('WebGL is unavailable');
     const vertexSource = gl2
       ? '#version 300 es\\nin vec2 a_position; out vec2 v_uv; void main(){v_uv=a_position*.5+.5;gl_Position=vec4(a_position,0.,1.);}'
@@ -341,11 +348,28 @@ ${canvasSubjectRuntime()}
       else gl.uniform1fv(location, value);
     }
 
+    // subject bitmap -> texture unit 0 (unbound samplers read black, which froze earlier snippets)
+    const subjectTexture = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, subjectTexture);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, subject.bitmap);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    const subjectLocation = gl.getUniformLocation(program, 'u_subject');
+    if (subjectLocation !== null) gl.uniform1i(subjectLocation, 0);
+
     function render(time) {
       const frame = Math.round(time * 30);
-      const values = kernel.shader.uniforms(makeContext(frame));
+      const context = makeContext(frame);
       gl.viewport(0, 0, WIDTH, HEIGHT);
       gl.useProgram(program);
+      setUniform('u_resolution', [WIDTH, HEIGHT]);
+      setUniform('u_time', frame / FPS);
+      setUniform('u_frame', frame);
+      setUniform('u_t', context.t);
+      const values = kernel.shader.uniforms(context);
       for (const entry of Object.entries(values)) setUniform(entry[0], entry[1]);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
     }
