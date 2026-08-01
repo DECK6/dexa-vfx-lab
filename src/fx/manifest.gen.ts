@@ -9,6 +9,7 @@ import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
 import meta_C04 from '../../effects/camera/C04_dolly-zoom.meta';
 import meta_C05 from '../../effects/camera/C05_rack-focus.meta';
+import meta_C06 from '../../effects/camera/C06_orbit-around.meta';
 import meta_C07 from '../../effects/camera/C07_crash-zoom.meta';
 import meta_C08 from '../../effects/camera/C08_tilt-shift.meta';
 import meta_C11 from '../../effects/camera/C11_perspective-card.meta';
@@ -44,6 +45,8 @@ import meta_L05 from '../../effects/light/L05_god-rays.meta';
 import meta_L06 from '../../effects/light/L06_light-leak.meta';
 import meta_L08 from '../../effects/light/L08_lightning-arc.meta';
 import meta_L09 from '../../effects/light/L09_strobe-cut.meta';
+import meta_L10 from '../../effects/light/L10_rim-light.meta';
+import meta_L11 from '../../effects/light/L11_halation.meta';
 import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
@@ -84,6 +87,7 @@ import meta_S09 from '../../effects/shape/S09_spiral-unfold.meta';
 import meta_S12 from '../../effects/shape/S12_dash-march.meta';
 import meta_S13 from '../../effects/shape/S13_corner-trace.meta';
 import meta_S14 from '../../effects/shape/S14_concentric-pulse.meta';
+import meta_S15 from '../../effects/shape/S15_isometric-stack.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
 import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
@@ -97,6 +101,7 @@ import meta_T10 from '../../effects/type/T10_highlight-sweep.meta';
 import meta_T11 from '../../effects/type/T11_stretch-squash.meta';
 import meta_T12 from '../../effects/type/T12_vertical-roll.meta';
 import meta_T13 from '../../effects/type/T13_outline-fill.meta';
+import meta_T14 from '../../effects/type/T14_letter-explode.meta';
 import meta_T15 from '../../effects/type/T15_wave-text.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
@@ -138,6 +143,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
   { meta: meta_C04, effectPath: 'effects/camera/C04_dolly-zoom.effect.tsx', load: () => import('../../effects/camera/C04_dolly-zoom.effect') },
   { meta: meta_C05, effectPath: 'effects/camera/C05_rack-focus.effect.tsx', load: () => import('../../effects/camera/C05_rack-focus.effect') },
+  { meta: meta_C06, effectPath: 'effects/camera/C06_orbit-around.effect.tsx', load: () => import('../../effects/camera/C06_orbit-around.effect') },
   { meta: meta_C07, effectPath: 'effects/camera/C07_crash-zoom.effect.tsx', load: () => import('../../effects/camera/C07_crash-zoom.effect') },
   { meta: meta_C08, effectPath: 'effects/camera/C08_tilt-shift.effect.ts', load: () => import('../../effects/camera/C08_tilt-shift.effect') },
   { meta: meta_C11, effectPath: 'effects/camera/C11_perspective-card.effect.tsx', load: () => import('../../effects/camera/C11_perspective-card.effect') },
@@ -173,6 +179,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_L06, effectPath: 'effects/light/L06_light-leak.effect.tsx', load: () => import('../../effects/light/L06_light-leak.effect') },
   { meta: meta_L08, effectPath: 'effects/light/L08_lightning-arc.effect.ts', load: () => import('../../effects/light/L08_lightning-arc.effect') },
   { meta: meta_L09, effectPath: 'effects/light/L09_strobe-cut.effect.tsx', load: () => import('../../effects/light/L09_strobe-cut.effect') },
+  { meta: meta_L10, effectPath: 'effects/light/L10_rim-light.effect.tsx', load: () => import('../../effects/light/L10_rim-light.effect') },
+  { meta: meta_L11, effectPath: 'effects/light/L11_halation.effect.tsx', load: () => import('../../effects/light/L11_halation.effect') },
   { meta: meta_L12, effectPath: 'effects/light/L12_spotlight-track.effect.tsx', load: () => import('../../effects/light/L12_spotlight-track.effect') },
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
@@ -213,6 +221,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S12, effectPath: 'effects/shape/S12_dash-march.effect.tsx', load: () => import('../../effects/shape/S12_dash-march.effect') },
   { meta: meta_S13, effectPath: 'effects/shape/S13_corner-trace.effect.tsx', load: () => import('../../effects/shape/S13_corner-trace.effect') },
   { meta: meta_S14, effectPath: 'effects/shape/S14_concentric-pulse.effect.tsx', load: () => import('../../effects/shape/S14_concentric-pulse.effect') },
+  { meta: meta_S15, effectPath: 'effects/shape/S15_isometric-stack.effect.tsx', load: () => import('../../effects/shape/S15_isometric-stack.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
   { meta: meta_T03, effectPath: 'effects/type/T03_odometer-roll.effect.tsx', load: () => import('../../effects/type/T03_odometer-roll.effect') },
@@ -226,6 +235,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T11, effectPath: 'effects/type/T11_stretch-squash.effect.tsx', load: () => import('../../effects/type/T11_stretch-squash.effect') },
   { meta: meta_T12, effectPath: 'effects/type/T12_vertical-roll.effect.tsx', load: () => import('../../effects/type/T12_vertical-roll.effect') },
   { meta: meta_T13, effectPath: 'effects/type/T13_outline-fill.effect.tsx', load: () => import('../../effects/type/T13_outline-fill.effect') },
+  { meta: meta_T14, effectPath: 'effects/type/T14_letter-explode.effect.tsx', load: () => import('../../effects/type/T14_letter-explode.effect') },
   { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
