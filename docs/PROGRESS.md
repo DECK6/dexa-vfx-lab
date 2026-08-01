@@ -1,6 +1,6 @@
 # PROGRESS
-phase: W3 (라운드1/4 발주 중 · W1+W2 배포 승인 대기)
-last-update: 2026-08-01T12:54
+phase: W4 (발주 중 · 배포 승인 대기)
+last-update: 2026-08-01T15:13
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -25,6 +25,13 @@ last-update: 2026-08-01T12:54
 - 검수 중 exporter 3픽스: webgl 표준 uniform+subject 텍스처+preserveDrawingBuffer, 오디오 인라인, 스니펫 subject 캐논화
 - 배치 계획: docs/BATCHES_W2.md (15배치). 라운드1 발주: GL1(wt-a) GL2(wt-b) CV1(wt-c) CV2(wt-d) RX1(wt-e)
 - Codex 샌드박스 제약 확정: 브라우저·네트워크 게이트 불가 → 배치 검증은 gen/lint/typecheck까지, 렌더·HF·스모크는 오케스트레이터
+
+## 세션 인계 (08-01 오후)
+- 세션 B 정지 감지(잡 0·HEAD 15분 정체) → 세션 A(원 오케스트레이터) 인계 재개
+- B의 미커밋 W3 라운드2 5배치(23종) 검수·커밋·머지 완료 (still·스모크·HF 전수 통과)
+- W3 잔여 7배치(30종) 발주·검수·머지 완료 → **W3 완료: 173/173**
+- W3 게이트: 스모크 176/176 · HF 통과 · 썸네일 173장 · 번들 remotion 유출 0 · 배포 카피 완료
+- 이슈: 엔트리 청크 996K(kernel-js eager 맵 비대) → W4 게이트 전 지연 로딩 전환 필요
 
 ## W3 진행 (08-01)
 - 배치 계획: docs/BATCHES_W3.md — 17배치(GL 5 · CV 6 · RX 6), 76종
