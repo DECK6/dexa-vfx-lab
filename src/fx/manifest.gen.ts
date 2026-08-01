@@ -65,6 +65,12 @@ import meta_G13 from '../../effects/glitch/G13_color-bleed.meta';
 import meta_G14 from '../../effects/glitch/G14_static-burst.meta';
 import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
 import meta_G16 from '../../effects/glitch/G16_chromatic-shear.meta';
+import meta_K01 from '../../effects/retro/K01_pixel-quantize.meta';
+import meta_K02 from '../../effects/retro/K02_bayer-dither.meta';
+import meta_K03 from '../../effects/retro/K03_floyd-dither.meta';
+import meta_K04 from '../../effects/retro/K04_gameboy-palette.meta';
+import meta_K05 from '../../effects/retro/K05_cga-palette.meta';
+import meta_K06 from '../../effects/retro/K06_sprite-explode.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
@@ -318,6 +324,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G14, effectPath: 'effects/glitch/G14_static-burst.effect.ts', load: () => import('../../effects/glitch/G14_static-burst.effect') },
   { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
   { meta: meta_G16, effectPath: 'effects/glitch/G16_chromatic-shear.effect.ts', load: () => import('../../effects/glitch/G16_chromatic-shear.effect') },
+  { meta: meta_K01, effectPath: 'effects/retro/K01_pixel-quantize.effect.ts', load: () => import('../../effects/retro/K01_pixel-quantize.effect') },
+  { meta: meta_K02, effectPath: 'effects/retro/K02_bayer-dither.effect.ts', load: () => import('../../effects/retro/K02_bayer-dither.effect') },
+  { meta: meta_K03, effectPath: 'effects/retro/K03_floyd-dither.effect.ts', load: () => import('../../effects/retro/K03_floyd-dither.effect') },
+  { meta: meta_K04, effectPath: 'effects/retro/K04_gameboy-palette.effect.ts', load: () => import('../../effects/retro/K04_gameboy-palette.effect') },
+  { meta: meta_K05, effectPath: 'effects/retro/K05_cga-palette.effect.ts', load: () => import('../../effects/retro/K05_cga-palette.effect') },
+  { meta: meta_K06, effectPath: 'effects/retro/K06_sprite-explode.effect.ts', load: () => import('../../effects/retro/K06_sprite-explode.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
