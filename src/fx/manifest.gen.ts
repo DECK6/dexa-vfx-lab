@@ -49,6 +49,14 @@ import meta_E09 from '../../effects/texture/E09_risograph.meta';
 import meta_E10 from '../../effects/texture/E10_vignette-breathe.meta';
 import meta_E11 from '../../effects/texture/E11_chromatic-grain.meta';
 import meta_E12 from '../../effects/texture/E12_ascii-map.meta';
+import meta_F05 from '../../effects/cinema/F05_countdown-leader.meta';
+import meta_F06 from '../../effects/cinema/F06_anamorphic-bokeh.meta';
+import meta_F07 from '../../effects/cinema/F07_day-for-night.meta';
+import meta_F08 from '../../effects/cinema/F08_split-diopter.meta';
+import meta_F09 from '../../effects/cinema/F09_whip-pan.meta';
+import meta_F10 from '../../effects/cinema/F10_iris-pull.meta';
+import meta_F11 from '../../effects/cinema/F11_slate-clap.meta';
+import meta_F12 from '../../effects/cinema/F12_dolly-rig.meta';
 import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
@@ -302,6 +310,14 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_E10, effectPath: 'effects/texture/E10_vignette-breathe.effect.tsx', load: () => import('../../effects/texture/E10_vignette-breathe.effect') },
   { meta: meta_E11, effectPath: 'effects/texture/E11_chromatic-grain.effect.ts', load: () => import('../../effects/texture/E11_chromatic-grain.effect') },
   { meta: meta_E12, effectPath: 'effects/texture/E12_ascii-map.effect.ts', load: () => import('../../effects/texture/E12_ascii-map.effect') },
+  { meta: meta_F05, effectPath: 'effects/cinema/F05_countdown-leader.effect.tsx', load: () => import('../../effects/cinema/F05_countdown-leader.effect') },
+  { meta: meta_F06, effectPath: 'effects/cinema/F06_anamorphic-bokeh.effect.tsx', load: () => import('../../effects/cinema/F06_anamorphic-bokeh.effect') },
+  { meta: meta_F07, effectPath: 'effects/cinema/F07_day-for-night.effect.ts', load: () => import('../../effects/cinema/F07_day-for-night.effect') },
+  { meta: meta_F08, effectPath: 'effects/cinema/F08_split-diopter.effect.ts', load: () => import('../../effects/cinema/F08_split-diopter.effect') },
+  { meta: meta_F09, effectPath: 'effects/cinema/F09_whip-pan.effect.ts', load: () => import('../../effects/cinema/F09_whip-pan.effect') },
+  { meta: meta_F10, effectPath: 'effects/cinema/F10_iris-pull.effect.tsx', load: () => import('../../effects/cinema/F10_iris-pull.effect') },
+  { meta: meta_F11, effectPath: 'effects/cinema/F11_slate-clap.effect.tsx', load: () => import('../../effects/cinema/F11_slate-clap.effect') },
+  { meta: meta_F12, effectPath: 'effects/cinema/F12_dolly-rig.effect.tsx', load: () => import('../../effects/cinema/F12_dolly-rig.effect') },
   { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
