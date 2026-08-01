@@ -11,6 +11,14 @@ import meta_A07 from '../../effects/audio/A07_waveform-line.meta';
 import meta_A08 from '../../effects/audio/A08_frequency-rings.meta';
 import meta_A09 from '../../effects/audio/A09_amplitude-warp.meta';
 import meta_A10 from '../../effects/audio/A10_beat-cut.meta';
+import meta_B09 from '../../effects/broadcast/B09_news-ticker.meta';
+import meta_B10 from '../../effects/broadcast/B10_countdown-clock.meta';
+import meta_B11 from '../../effects/broadcast/B11_hud-frame.meta';
+import meta_B12 from '../../effects/broadcast/B12_live-badge.meta';
+import meta_B13 from '../../effects/broadcast/B13_quote-card.meta';
+import meta_B14 from '../../effects/broadcast/B14_stat-callout.meta';
+import meta_B15 from '../../effects/broadcast/B15_locator-pin.meta';
+import meta_B16 from '../../effects/broadcast/B16_weather-panel.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -270,6 +278,14 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_A08, effectPath: 'effects/audio/A08_frequency-rings.effect.ts', load: () => import('../../effects/audio/A08_frequency-rings.effect') },
   { meta: meta_A09, effectPath: 'effects/audio/A09_amplitude-warp.effect.ts', load: () => import('../../effects/audio/A09_amplitude-warp.effect') },
   { meta: meta_A10, effectPath: 'effects/audio/A10_beat-cut.effect.tsx', load: () => import('../../effects/audio/A10_beat-cut.effect') },
+  { meta: meta_B09, effectPath: 'effects/broadcast/B09_news-ticker.effect.tsx', load: () => import('../../effects/broadcast/B09_news-ticker.effect') },
+  { meta: meta_B10, effectPath: 'effects/broadcast/B10_countdown-clock.effect.tsx', load: () => import('../../effects/broadcast/B10_countdown-clock.effect') },
+  { meta: meta_B11, effectPath: 'effects/broadcast/B11_hud-frame.effect.tsx', load: () => import('../../effects/broadcast/B11_hud-frame.effect') },
+  { meta: meta_B12, effectPath: 'effects/broadcast/B12_live-badge.effect.tsx', load: () => import('../../effects/broadcast/B12_live-badge.effect') },
+  { meta: meta_B13, effectPath: 'effects/broadcast/B13_quote-card.effect.tsx', load: () => import('../../effects/broadcast/B13_quote-card.effect') },
+  { meta: meta_B14, effectPath: 'effects/broadcast/B14_stat-callout.effect.tsx', load: () => import('../../effects/broadcast/B14_stat-callout.effect') },
+  { meta: meta_B15, effectPath: 'effects/broadcast/B15_locator-pin.effect.tsx', load: () => import('../../effects/broadcast/B15_locator-pin.effect') },
+  { meta: meta_B16, effectPath: 'effects/broadcast/B16_weather-panel.effect.tsx', load: () => import('../../effects/broadcast/B16_weather-panel.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
