@@ -1,6 +1,6 @@
 # PROGRESS
-phase: W1-GATE-DONE (사용자 배포 승인 대기)
-last-update: 2026-08-01T11:50
+phase: W2 (라운드1 발주 중 · W1 배포 승인 별도 대기)
+last-update: 2026-08-01T12:09
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -18,6 +18,13 @@ last-update: 2026-08-01T11:50
 | B3 | wt-c | ✅ 검수 통과·머지(14d824e) | G01 S03 R13 L02 L03 M01 |
 | B4 | wt-d | ✅ 검수 통과(사후) | X01 X02 X03 C01 C03 |
 | B5 | wt-e | ✅ 완료·검수 통과·머지(69a383d) | G02 G03 |
+
+
+## W2 진행 (08-01)
+- 인프라 선행 건: ✅ GL 러너(1 ctx, 10개 스트레스 0 lost)·오디오 파이프라인(결정적 envelope)·D01·A01 — 검수 통과·머지(fc704e4)
+- 검수 중 exporter 3픽스: webgl 표준 uniform+subject 텍스처+preserveDrawingBuffer, 오디오 인라인, 스니펫 subject 캐논화
+- 배치 계획: docs/BATCHES_W2.md (15배치). 라운드1 발주: GL1(wt-a) GL2(wt-b) CV1(wt-c) CV2(wt-d) RX1(wt-e)
+- Codex 샌드박스 제약 확정: 브라우저·네트워크 게이트 불가 → 배치 검증은 gen/lint/typecheck까지, 렌더·HF·스모크는 오케스트레이터
 
 ## 이펙트 상태 (구현 완료된 것만 기록, 나머지는 미착수로 간주)
 | ID | 상태 | 비고 |
@@ -71,6 +78,8 @@ last-update: 2026-08-01T11:50
 | L02 | pass | B3 |
 | L03 | pass | B3. 라벨 중복 코스메틱 백로그 |
 | M01 | pass | B3 |
+| D01 | pass | W2 인프라 레퍼런스(webgl) |
+| A01 | pass | W2 인프라 레퍼런스(audio) |
 
 ## W1 완료 게이트 (08-01)
 | 항목 | 결과 |
