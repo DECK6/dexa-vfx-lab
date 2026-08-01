@@ -371,4 +371,73 @@ W1은 각 카테고리 대표작 + DOM/SVG 위주로 뽑아 파이프라인을 �
 | T20 | Char Gravity Fall | 글자 중력 낙하 | 글자 개별 낙하 + 바운스 착지 | RX | ● | type | W5 |
 | T21 | Elastic Tracking | 일래스틱 트래킹 | 자간 밀집↔확산 탄성 | RX | ● | type | W5 |
 
-| **합계** | **244** | | | **244** | | | **244** |
+## W6 — 디스플레이 & 스타일라이즈 (64종)
+
+| ID | 이름 | 한글명 | 설명 | 커널 | cost | category | wave |
+|---|---|---|---|---|---|---|---|
+| Z01 | LED Matrix | LED 매트릭스 | 도트 LED 패널이 피사체를 샘플해 점등 | CV | ●● | screen | W6 |
+| Z02 | Seven Segment | 7세그먼트 | 세그먼트 숫자 카운터 롤 | RX | ● | screen | W6 |
+| Z03 | Split Flap | 스플릿 플랩 | 공항 플립보드 문자 회전 교체 | RX | ●● | screen | W6 |
+| Z04 | Nixie Tube | 닉시관 | 닉시관 숫자 웜 글로우 전환 | RX | ● | screen | W6 |
+| Z05 | Eink Refresh | E-ink 리프레시 | 전자잉크 페이지 갱신 잔상·반전 플래시 | CV | ●● | screen | W6 |
+| Z06 | Hologram Project | 홀로그램 | 프로젝션 스캔라인+플리커+시안 고스트 | RX | ● | screen | W6 |
+| Z07 | Teletext | 텔레텍스트 | 블록 문자 페이지 로딩·색 밴드 | CV | ●● | screen | W6 |
+| Z08 | Ticker Marquee | 티커 마키 | LED 전광 텍스트 스크롤+잔광 | RX | ● | screen | W6 |
+| Z09 | VFD Display | VFD 디스플레이 | 형광표시관 세그먼트 시안 글로우 | RX | ● | screen | W6 |
+| Z10 | CRT Terminal | CRT 터미널 | 곡면 유리·인광 번인·주사 왜곡 | CV | ●● | screen | W6 |
+| Z11 | LCD Subpixel | LCD 서브픽셀 | RGB 스트라이프 확대 룩 | GL | ●● | screen | W6 |
+| Z12 | Dot Flip | 플립닷 | 기계식 도트 반전 패널 웨이브 | CV | ●● | screen | W6 |
+| Z13 | Stadium Board | 전광판 | 경기장 비트맵 보드 줌·판 갱신 | CV | ●● | screen | W6 |
+| Z14 | Scope XY | XY 스코프 | 리사주 벡터스코프 궤적 드로잉 | CV | ●● | screen | W6 |
+| Z15 | Price Board | 시세판 | 증권 시세 행 플립·등락색 점멸 | RX | ● | screen | W6 |
+| Z16 | Pager LCD | 페이저 LCD | 모노크롬 LCD 픽셀 룩+고스팅 | CV | ●● | screen | W6 |
+| K01 | Pixel Quantize | 픽셀 양자화 | 픽셀화+제한 팔레트 양자화 | GL | ●● | retro | W6 |
+| K02 | Bayer Dither | 베이어 디더 | 오더드 디더 매트릭스 명암 | GL | ●● | retro | W6 |
+| K03 | Floyd Dither | 플로이드 디더 | 오차확산 디더(결정적 근사) | CV | ●● | retro | W6 |
+| K04 | Gameboy Palette | 게임보이 팔레트 | DMG 4색 그린 팔레트+도트 | GL | ●● | retro | W6 |
+| K05 | CGA Palette | CGA 팔레트 | 시안·마젠타 4색 CGA 룩 | GL | ●● | retro | W6 |
+| K06 | Sprite Explode | 스프라이트 폭발 | 픽셀 블록 파편 비산 | CV | ●● | retro | W6 |
+| K07 | Bit Rain | 비트 레인 | 8비트 픽셀 비 낙하 | CV | ● | retro | W6 |
+| K08 | Insert Coin | 인서트 코인 | 아케이드 타이틀 데모 점멸 | RX | ● | retro | W6 |
+| K09 | Pixel Reveal | 픽셀 리빌 | 픽셀 블록 순차 등장 전환 | CV | ● | retro | W6 |
+| K10 | Lores Upscale | 저해상 업스케일 | 저해상 렌더 확대+스캔라인 보간 | GL | ●● | retro | W6 |
+| K11 | Palette Cycle | 팔레트 사이클 | 고전 데모씬 색 순환 애니메이션 | GL | ●● | retro | W6 |
+| K12 | Tile Scroll | 타일 스크롤 | 타일맵 패럴랙스 횡스크롤 | CV | ●● | retro | W6 |
+| K13 | Mode7 Plane | 모드7 평면 | SNES 모드7 바닥 원근 회전 | GL | ●● | retro | W6 |
+| K14 | Cartridge Glitch | 카트리지 글리치 | 접촉불량 타일 깨짐·색 오염 | CV | ●● | retro | W6 |
+| K15 | Tracker Bars | 트래커 바 | 칩튠 트래커 채널 시각화 | RX | ● | retro | W6 |
+| K16 | Console Boot | 콘솔 부팅 | 레트로 콘솔 부팅 로고 시퀀스 | RX | ● | retro | W6 |
+| Y01 | Halftone CMYK | CMYK 하프톤 | 4판 망점 로제트 분해 | GL | ●● | stylize | W6 |
+| Y02 | Watercolor Bleed | 수채 번짐 | 경계 번짐+종이 텍스처+안료 고임 | GL | ●●● | stylize | W6 |
+| Y03 | Oil Daub | 유화 터치 | 붓 터치 뭉갬+임파스토 하이라이트 | GL | ●●● | stylize | W6 |
+| Y04 | Pencil Sketch | 연필 스케치 | 윤곽+해칭 스케치화 | GL | ●● | stylize | W6 |
+| Y05 | Cel Shade | 셀 셰이딩 | 계조 밴딩+잉크 외곽선 | GL | ●● | stylize | W6 |
+| Y06 | Posterize Pop | 포스터라이즈 | 팝아트 감산 색 분리 | GL | ● | stylize | W6 |
+| Y07 | Ink Outline | 잉크 아웃라인 | 만화 잉크 외곽선+스크린톤 | GL | ●● | stylize | W6 |
+| Y08 | Hatch Shade | 해칭 셰이드 | 명암 연동 교차 해칭(E08과 달리 휘도 구동) | GL | ●● | stylize | W6 |
+| Y09 | Stipple Dots | 점묘 | 휘도 기반 점묘 밀도 | CV | ●● | stylize | W6 |
+| Y10 | Mosaic Tiles | 모자이크 타일 | 불규칙 타일 조각+줄눈 | CV | ●● | stylize | W6 |
+| Y11 | Stained Glass | 스테인드글라스 | 보로노이 유리+납선+투광 | CV | ●● | stylize | W6 |
+| Y12 | Paper Cutout | 페이퍼 컷아웃 | 종이 오리기 레이어+드롭섀도 | RX | ● | stylize | W6 |
+| Y13 | Blueprint | 블루프린트 | 청사진 도면 라인+치수 표기 | RX | ● | stylize | W6 |
+| Y14 | Thermal Cam | 열화상 | 열화상 팔레트+노이즈+레티클 | GL | ●● | stylize | W6 |
+| Y15 | Night Vision | 야시경 | 그린 인광+비네트+노이즈+스캔 | GL | ●● | stylize | W6 |
+| Y16 | Comic Panel | 코믹 패널 | 패널 분할+효과선+의성어 팝 | RX | ●● | stylize | W6 |
+| G17 | Corrupt Header | 헤더 손상 | 이미지 디코딩 실패 줄무늬 시프트 | CV | ●● | glitch | W6 |
+| G18 | Wave Tear | 웨이브 티어 | 사인 위상 찢김 세로 밴드 | GL | ●● | glitch | W6 |
+| G19 | Time Quantize | 타임 퀀타이즈 | 프레임 홀드 계단+고스트 블렌드 | CV | ●● | glitch | W6 |
+| G20 | Macroblock | 매크로블록 | 압축 블록 이동 벡터 오염 | GL | ●● | glitch | W6 |
+| L15 | Volumetric Spot | 볼류메트릭 스팟 | 무대 스포트라이트 원뿔+더스트 | RX | ●● | light | W6 |
+| L16 | Disco Ball | 디스코 볼 | 미러볼 광점 산란 회전 | CV | ●● | light | W6 |
+| L17 | Laser Grid | 레이저 그리드 | 레이저 스캔 라인 격자 스윕 | RX | ● | light | W6 |
+| L18 | Candle Flicker | 캔들 플리커 | 촛불 웜 라이트 흔들림+그림자 연동 | RX | ● | light | W6 |
+| D15 | Heat Haze | 히트 헤이즈 | 지열 아지랑이 굴절 상승 | GL | ●● | distort | W6 |
+| D16 | Glass Blocks | 글라스 블록 | 유리블록 타일 굴절 | GL | ●● | distort | W6 |
+| E13 | Brushed Metal | 브러시드 메탈 | 헤어라인 금속+이방성 하이라이트 | CV | ●● | texture | W6 |
+| E14 | Frosted Glass | 프로스트 글라스 | 반투명 젖빛 유리+결로 와이프 | GL | ●● | texture | W6 |
+| P15 | Fireflies | 반딧불이 | 점멸 광점 유영+잔광 | CV | ● | particle | W6 |
+| P16 | Pollen Drift | 꽃가루 드리프트 | 역광 꽃가루 부유 산란 | CV | ● | particle | W6 |
+| S17 | Gear Train | 기어 트레인 | 맞물린 기어 회전 전달 | RX | ● | shape | W6 |
+| S18 | Origami Fold | 오리가미 폴드 | 종이 접기 단계 변형 | RX | ●● | shape | W6 |
+
+| **합계** | **308(예정)** | | | **244** | | | **244** |
