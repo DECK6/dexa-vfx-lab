@@ -21,6 +21,7 @@ import meta_C08 from '../../effects/camera/C08_tilt-shift.meta';
 import meta_C09 from '../../effects/camera/C09_roll-horizon.meta';
 import meta_C10 from '../../effects/camera/C10_depth-layers-3d.meta';
 import meta_C11 from '../../effects/camera/C11_perspective-card.meta';
+import meta_C12 from '../../effects/camera/C12_follow-track.meta';
 import meta_D01 from '../../effects/distort/D01_displacement-wave.meta';
 import meta_D02 from '../../effects/distort/D02_ripple-circle.meta';
 import meta_D03 from '../../effects/distort/D03_twirl-vortex.meta';
@@ -147,10 +148,12 @@ import meta_S07 from '../../effects/shape/S07_voronoi-shatter.meta';
 import meta_S08 from '../../effects/shape/S08_triangulate.meta';
 import meta_S09 from '../../effects/shape/S09_spiral-unfold.meta';
 import meta_S10 from '../../effects/shape/S10_fractal-branch.meta';
+import meta_S11 from '../../effects/shape/S11_boolean-merge.meta';
 import meta_S12 from '../../effects/shape/S12_dash-march.meta';
 import meta_S13 from '../../effects/shape/S13_corner-trace.meta';
 import meta_S14 from '../../effects/shape/S14_concentric-pulse.meta';
 import meta_S15 from '../../effects/shape/S15_isometric-stack.meta';
+import meta_S16 from '../../effects/shape/S16_truchet-tile.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
 import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
@@ -166,6 +169,7 @@ import meta_T12 from '../../effects/type/T12_vertical-roll.meta';
 import meta_T13 from '../../effects/type/T13_outline-fill.meta';
 import meta_T14 from '../../effects/type/T14_letter-explode.meta';
 import meta_T15 from '../../effects/type/T15_wave-text.meta';
+import meta_T16 from '../../effects/type/T16_justify-snap.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
 import meta_U03 from '../../effects/ui/U03_loading-spinner.meta';
@@ -186,6 +190,8 @@ import meta_V08 from '../../effects/data/V08_node-graph.meta';
 import meta_V09 from '../../effects/data/V09_gauge-needle.meta';
 import meta_V10 from '../../effects/data/V10_stacked-grow.meta';
 import meta_V11 from '../../effects/data/V11_scatter-settle.meta';
+import meta_V12 from '../../effects/data/V12_sankey-flow.meta';
+import meta_V13 from '../../effects/data/V13_tree-expand.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
 import meta_X02 from '../../effects/trans/X02_slice-shuffle.meta';
 import meta_X03 from '../../effects/trans/X03_zoom-punch.meta';
@@ -195,6 +201,7 @@ import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
 import meta_X07 from '../../effects/trans/X07_page-curl.meta';
 import meta_X08 from '../../effects/trans/X08_blinds.meta';
 import meta_X09 from '../../effects/trans/X09_pixelate-cross.meta';
+import meta_X10 from '../../effects/trans/X10_morph-cut.meta';
 import meta_X11 from '../../effects/trans/X11_shatter-break.meta';
 import meta_X12 from '../../effects/trans/X12_liquid-warp.meta';
 import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
@@ -230,6 +237,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_C09, effectPath: 'effects/camera/C09_roll-horizon.effect.tsx', load: () => import('../../effects/camera/C09_roll-horizon.effect') },
   { meta: meta_C10, effectPath: 'effects/camera/C10_depth-layers-3d.effect.tsx', load: () => import('../../effects/camera/C10_depth-layers-3d.effect') },
   { meta: meta_C11, effectPath: 'effects/camera/C11_perspective-card.effect.tsx', load: () => import('../../effects/camera/C11_perspective-card.effect') },
+  { meta: meta_C12, effectPath: 'effects/camera/C12_follow-track.effect.tsx', load: () => import('../../effects/camera/C12_follow-track.effect') },
   { meta: meta_D01, effectPath: 'effects/distort/D01_displacement-wave.effect.ts', load: () => import('../../effects/distort/D01_displacement-wave.effect') },
   { meta: meta_D02, effectPath: 'effects/distort/D02_ripple-circle.effect.ts', load: () => import('../../effects/distort/D02_ripple-circle.effect') },
   { meta: meta_D03, effectPath: 'effects/distort/D03_twirl-vortex.effect.ts', load: () => import('../../effects/distort/D03_twirl-vortex.effect') },
@@ -356,10 +364,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S08, effectPath: 'effects/shape/S08_triangulate.effect.ts', load: () => import('../../effects/shape/S08_triangulate.effect') },
   { meta: meta_S09, effectPath: 'effects/shape/S09_spiral-unfold.effect.tsx', load: () => import('../../effects/shape/S09_spiral-unfold.effect') },
   { meta: meta_S10, effectPath: 'effects/shape/S10_fractal-branch.effect.ts', load: () => import('../../effects/shape/S10_fractal-branch.effect') },
+  { meta: meta_S11, effectPath: 'effects/shape/S11_boolean-merge.effect.tsx', load: () => import('../../effects/shape/S11_boolean-merge.effect') },
   { meta: meta_S12, effectPath: 'effects/shape/S12_dash-march.effect.tsx', load: () => import('../../effects/shape/S12_dash-march.effect') },
   { meta: meta_S13, effectPath: 'effects/shape/S13_corner-trace.effect.tsx', load: () => import('../../effects/shape/S13_corner-trace.effect') },
   { meta: meta_S14, effectPath: 'effects/shape/S14_concentric-pulse.effect.tsx', load: () => import('../../effects/shape/S14_concentric-pulse.effect') },
   { meta: meta_S15, effectPath: 'effects/shape/S15_isometric-stack.effect.tsx', load: () => import('../../effects/shape/S15_isometric-stack.effect') },
+  { meta: meta_S16, effectPath: 'effects/shape/S16_truchet-tile.effect.tsx', load: () => import('../../effects/shape/S16_truchet-tile.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
   { meta: meta_T03, effectPath: 'effects/type/T03_odometer-roll.effect.tsx', load: () => import('../../effects/type/T03_odometer-roll.effect') },
@@ -375,6 +385,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T13, effectPath: 'effects/type/T13_outline-fill.effect.tsx', load: () => import('../../effects/type/T13_outline-fill.effect') },
   { meta: meta_T14, effectPath: 'effects/type/T14_letter-explode.effect.tsx', load: () => import('../../effects/type/T14_letter-explode.effect') },
   { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
+  { meta: meta_T16, effectPath: 'effects/type/T16_justify-snap.effect.tsx', load: () => import('../../effects/type/T16_justify-snap.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
   { meta: meta_U03, effectPath: 'effects/ui/U03_loading-spinner.effect.tsx', load: () => import('../../effects/ui/U03_loading-spinner.effect') },
@@ -395,6 +406,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_V09, effectPath: 'effects/data/V09_gauge-needle.effect.tsx', load: () => import('../../effects/data/V09_gauge-needle.effect') },
   { meta: meta_V10, effectPath: 'effects/data/V10_stacked-grow.effect.tsx', load: () => import('../../effects/data/V10_stacked-grow.effect') },
   { meta: meta_V11, effectPath: 'effects/data/V11_scatter-settle.effect.ts', load: () => import('../../effects/data/V11_scatter-settle.effect') },
+  { meta: meta_V12, effectPath: 'effects/data/V12_sankey-flow.effect.tsx', load: () => import('../../effects/data/V12_sankey-flow.effect') },
+  { meta: meta_V13, effectPath: 'effects/data/V13_tree-expand.effect.tsx', load: () => import('../../effects/data/V13_tree-expand.effect') },
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
   { meta: meta_X02, effectPath: 'effects/trans/X02_slice-shuffle.effect.tsx', load: () => import('../../effects/trans/X02_slice-shuffle.effect') },
   { meta: meta_X03, effectPath: 'effects/trans/X03_zoom-punch.effect.tsx', load: () => import('../../effects/trans/X03_zoom-punch.effect') },
@@ -404,6 +417,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X07, effectPath: 'effects/trans/X07_page-curl.effect.ts', load: () => import('../../effects/trans/X07_page-curl.effect') },
   { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
   { meta: meta_X09, effectPath: 'effects/trans/X09_pixelate-cross.effect.ts', load: () => import('../../effects/trans/X09_pixelate-cross.effect') },
+  { meta: meta_X10, effectPath: 'effects/trans/X10_morph-cut.effect.tsx', load: () => import('../../effects/trans/X10_morph-cut.effect') },
   { meta: meta_X11, effectPath: 'effects/trans/X11_shatter-break.effect.ts', load: () => import('../../effects/trans/X11_shatter-break.effect') },
   { meta: meta_X12, effectPath: 'effects/trans/X12_liquid-warp.effect.ts', load: () => import('../../effects/trans/X12_liquid-warp.effect') },
   { meta: meta_X13, effectPath: 'effects/trans/X13_cube-rotate.effect.tsx', load: () => import('../../effects/trans/X13_cube-rotate.effect') },
