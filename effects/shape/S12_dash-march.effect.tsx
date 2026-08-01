@@ -49,6 +49,27 @@ const kernel = {
             strokeDashoffset={-offset * 0.5}
             opacity="0.34"
           />
+          {/* marching head markers: geometry motion for the sweep fingerprint (dashoffset is paint-only) */}
+          {[0, 1, 2, 3].map((i) => {
+            const perim = 2 * (964 + 964);
+            const d = ((phase * laps + i / 4) % 1) * perim;
+            let hx = 18;
+            let hy = 18;
+            if (d < 964) { hx = 18 + d; hy = 18; }
+            else if (d < 1928) { hx = 982; hy = 18 + (d - 964); }
+            else if (d < 2892) { hx = 982 - (d - 1928); hy = 982; }
+            else { hx = 18; hy = 982 - (d - 2892); }
+            return (
+              <circle
+                key={i}
+                cx={hx}
+                cy={hy}
+                r={thickness * 1.6}
+                fill={signal}
+                style={{ filter: `drop-shadow(0 0 ${thickness * 3}px ${signal})` }}
+              />
+            );
+          })}
         </svg>
       </div>
     );

@@ -30,11 +30,17 @@ const kernel = {
         >
           {ctx.subjectNode}
         </div>
+        {/* positioned glow element: geometry motion (mask/gradient position alone is paint-only) */}
         <div
           style={{
             position: 'absolute',
-            inset: 0,
-            background: `radial-gradient(circle at ${x}% ${y}%, ${signal}30 0%, ${signal}12 ${radius * 0.65}%, transparent ${edge}%)`,
+            left: `${x - edge / 2}%`,
+            top: `${y - edge / 2}%`,
+            width: `${edge}%`,
+            height: `${edge}%`,
+            borderRadius: '50%',
+            background: `radial-gradient(circle, ${signal}38 0%, ${signal}14 55%, transparent 78%)`,
+            border: `1.5px solid ${signal}55`,
             mixBlendMode: 'screen',
           }}
         />

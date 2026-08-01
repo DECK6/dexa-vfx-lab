@@ -10,6 +10,22 @@ const kernel = {
     const signal = String(ctx.params.signal ?? '#5EE7F3');
     const phase = (ctx.frame % ctx.durationInFrames) / ctx.durationInFrames;
     const far = 1000 - inset;
+    // Each corner is an L of two arms, total length 2*arm. pointAt(d) walks it (0..1).
+    const cornerPoint = (index: number, u: number) => {
+      const d = u * 2 * arm;
+      const corners = [
+        { sx: inset + arm, sy: inset, cx: inset, cy: inset, ex: inset, ey: inset + arm },
+        { sx: far - arm, sy: inset, cx: far, cy: inset, ex: far, ey: inset + arm },
+        { sx: far - arm, sy: far, cx: far, cy: far, ex: far, ey: far - arm },
+        { sx: inset + arm, sy: far, cx: inset, cy: far, ex: inset, ey: far - arm },
+      ][index];
+      if (d <= arm) {
+        const k = d / arm;
+        return { x: corners.sx + (corners.cx - corners.sx) * k, y: corners.sy };
+      }
+      const k = (d - arm) / arm;
+      return { x: corners.cx, y: corners.cy + (corners.ey - corners.cy) * k };
+    };
     const paths = [
       `M ${inset + arm} ${inset} H ${inset} V ${inset + arm}`,
       `M ${far - arm} ${inset} H ${far} V ${inset + arm}`,
@@ -40,6 +56,11 @@ const kernel = {
                   strokeDashoffset={-localPhase}
                   style={{ filter: `drop-shadow(0 0 ${thickness * 2.2}px ${signal})` }}
                 />
+                {/* trace head: geometry motion for the sweep fingerprint (dashoffset is paint-only) */}
+                {(() => {
+                  const head = cornerPoint(index, (localPhase + traceLength) % 1);
+                  return <circle cx={head.x} cy={head.y} r={thickness * 1.5} fill={signal} />;
+                })()}
               </g>
             );
           })}
