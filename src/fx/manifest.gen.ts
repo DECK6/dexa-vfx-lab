@@ -19,6 +19,14 @@ import meta_B05 from '../../effects/broadcast/B05_title-card.meta';
 import meta_B06 from '../../effects/broadcast/B06_caption-pop.meta';
 import meta_B07 from '../../effects/broadcast/B07_callout-line.meta';
 import meta_B08 from '../../effects/broadcast/B08_score-bug.meta';
+import meta_B09 from '../../effects/broadcast/B09_news-ticker.meta';
+import meta_B10 from '../../effects/broadcast/B10_countdown-clock.meta';
+import meta_B11 from '../../effects/broadcast/B11_hud-frame.meta';
+import meta_B12 from '../../effects/broadcast/B12_live-badge.meta';
+import meta_B13 from '../../effects/broadcast/B13_quote-card.meta';
+import meta_B14 from '../../effects/broadcast/B14_stat-callout.meta';
+import meta_B15 from '../../effects/broadcast/B15_locator-pin.meta';
+import meta_B16 from '../../effects/broadcast/B16_weather-panel.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -291,6 +299,12 @@ import meta_Y03 from '../../effects/stylize/Y03_oil-daub.meta';
 import meta_Y04 from '../../effects/stylize/Y04_pencil-sketch.meta';
 import meta_Y05 from '../../effects/stylize/Y05_cel-shade.meta';
 import meta_Y06 from '../../effects/stylize/Y06_posterize-pop.meta';
+import meta_Y07 from '../../effects/stylize/Y07_ink-outline.meta';
+import meta_Y08 from '../../effects/stylize/Y08_hatch-shade.meta';
+import meta_Y09 from '../../effects/stylize/Y09_stipple-dots.meta';
+import meta_Y10 from '../../effects/stylize/Y10_mosaic-tiles.meta';
+import meta_Y11 from '../../effects/stylize/Y11_stained-glass.meta';
+import meta_Y12 from '../../effects/stylize/Y12_paper-cutout.meta';
 import meta_Y13 from '../../effects/stylize/Y13_blueprint.meta';
 import meta_Y14 from '../../effects/stylize/Y14_thermal-cam.meta';
 import meta_Y15 from '../../effects/stylize/Y15_night-vision.meta';
@@ -338,6 +352,14 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_B06, effectPath: 'effects/broadcast/B06_caption-pop.effect.tsx', load: () => import('../../effects/broadcast/B06_caption-pop.effect') },
   { meta: meta_B07, effectPath: 'effects/broadcast/B07_callout-line.effect.tsx', load: () => import('../../effects/broadcast/B07_callout-line.effect') },
   { meta: meta_B08, effectPath: 'effects/broadcast/B08_score-bug.effect.tsx', load: () => import('../../effects/broadcast/B08_score-bug.effect') },
+  { meta: meta_B09, effectPath: 'effects/broadcast/B09_news-ticker.effect.tsx', load: () => import('../../effects/broadcast/B09_news-ticker.effect') },
+  { meta: meta_B10, effectPath: 'effects/broadcast/B10_countdown-clock.effect.tsx', load: () => import('../../effects/broadcast/B10_countdown-clock.effect') },
+  { meta: meta_B11, effectPath: 'effects/broadcast/B11_hud-frame.effect.tsx', load: () => import('../../effects/broadcast/B11_hud-frame.effect') },
+  { meta: meta_B12, effectPath: 'effects/broadcast/B12_live-badge.effect.tsx', load: () => import('../../effects/broadcast/B12_live-badge.effect') },
+  { meta: meta_B13, effectPath: 'effects/broadcast/B13_quote-card.effect.tsx', load: () => import('../../effects/broadcast/B13_quote-card.effect') },
+  { meta: meta_B14, effectPath: 'effects/broadcast/B14_stat-callout.effect.tsx', load: () => import('../../effects/broadcast/B14_stat-callout.effect') },
+  { meta: meta_B15, effectPath: 'effects/broadcast/B15_locator-pin.effect.tsx', load: () => import('../../effects/broadcast/B15_locator-pin.effect') },
+  { meta: meta_B16, effectPath: 'effects/broadcast/B16_weather-panel.effect.tsx', load: () => import('../../effects/broadcast/B16_weather-panel.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
@@ -610,6 +632,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_Y04, effectPath: 'effects/stylize/Y04_pencil-sketch.effect.ts', load: () => import('../../effects/stylize/Y04_pencil-sketch.effect') },
   { meta: meta_Y05, effectPath: 'effects/stylize/Y05_cel-shade.effect.ts', load: () => import('../../effects/stylize/Y05_cel-shade.effect') },
   { meta: meta_Y06, effectPath: 'effects/stylize/Y06_posterize-pop.effect.ts', load: () => import('../../effects/stylize/Y06_posterize-pop.effect') },
+  { meta: meta_Y07, effectPath: 'effects/stylize/Y07_ink-outline.effect.ts', load: () => import('../../effects/stylize/Y07_ink-outline.effect') },
+  { meta: meta_Y08, effectPath: 'effects/stylize/Y08_hatch-shade.effect.ts', load: () => import('../../effects/stylize/Y08_hatch-shade.effect') },
+  { meta: meta_Y09, effectPath: 'effects/stylize/Y09_stipple-dots.effect.ts', load: () => import('../../effects/stylize/Y09_stipple-dots.effect') },
+  { meta: meta_Y10, effectPath: 'effects/stylize/Y10_mosaic-tiles.effect.ts', load: () => import('../../effects/stylize/Y10_mosaic-tiles.effect') },
+  { meta: meta_Y11, effectPath: 'effects/stylize/Y11_stained-glass.effect.ts', load: () => import('../../effects/stylize/Y11_stained-glass.effect') },
+  { meta: meta_Y12, effectPath: 'effects/stylize/Y12_paper-cutout.effect.tsx', load: () => import('../../effects/stylize/Y12_paper-cutout.effect') },
   { meta: meta_Y13, effectPath: 'effects/stylize/Y13_blueprint.effect.tsx', load: () => import('../../effects/stylize/Y13_blueprint.effect') },
   { meta: meta_Y14, effectPath: 'effects/stylize/Y14_thermal-cam.effect.ts', load: () => import('../../effects/stylize/Y14_thermal-cam.effect') },
   { meta: meta_Y15, effectPath: 'effects/stylize/Y15_night-vision.effect.ts', load: () => import('../../effects/stylize/Y15_night-vision.effect') },
