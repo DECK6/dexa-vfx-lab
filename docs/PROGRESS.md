@@ -1,6 +1,6 @@
 # PROGRESS
-phase: W1
-last-update: 2026-08-01T11:43
+phase: W1-GATE-DONE (사용자 배포 승인 대기)
+last-update: 2026-08-01T11:48
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -15,7 +15,7 @@ last-update: 2026-08-01T11:43
 |---|---|---|---|
 | B1 | wt-a | ✅ 검수 통과·머지 | T01 T02 T04 V02 U01 |
 | B2 | wt-b | ✅ 검수 통과(사후) | L01 S01 S02 S04 V03 |
-| B3 | wt-c | task-ms9r1l1f-zcepb7 | G01 S03 R13 L02 L03 M01 |
+| B3 | wt-c | ✅ 검수 통과·머지(14d824e) | G01 S03 R13 L02 L03 M01 |
 | B4 | wt-d | ✅ 검수 통과(사후) | X01 X02 X03 C01 C03 |
 | B5 | wt-e | ✅ 완료·검수 통과·머지(69a383d) | G02 G03 |
 
@@ -42,6 +42,12 @@ last-update: 2026-08-01T11:43
 | X03 | pass | B4. 스니펫 subject 라벨 제거로 해결 |
 | C01 | pass | B4 |
 | C03 | pass | B4 |
+| G01 | pass | B3. 스니펫 라벨 겹침 → exporter 픽스로 해결 |
+| S03 | pass | B3 |
+| R13 | pass | B3 |
+| L02 | pass | B3 |
+| L03 | pass | B3. 라벨 중복 코스메틱 백로그 |
+| M01 | pass | B3 |
 
 ## 게이트 이력
 | 게이트 | 결과 | 일시 |
@@ -52,6 +58,12 @@ last-update: 2026-08-01T11:43
 | P0-4 remotion still 3종 + thumbs 3장 | pass | 08-01 |
 | P0-5 HyperFrames check 3/3 + P01 실렌더 mp4 | pass | 08-01 |
 | **P0 게이트 (7/7)** | **pass** | 08-01 |
+| W1-1 이펙트 26/26 pass | pass | 08-01 |
+| W1-2 풀 스모크 28/28 | pass | 08-01 |
+| W1-3 부하 QA (스크롤·스래시 에러 0, 예산 동작) | pass | 08-01 |
+| W1-4 번들 QA (갤러리 initial에 remotion 런타임 0) | pass | 08-01 |
+| W1-5 썸네일 26장 + build + deploy 스테이징 | pass | 08-01 |
+| **W1 게이트** | **pass — adxdeck 커밋·푸시만 사용자 승인 대기** | 08-01 |
 | P0-6 3라우트 + DEXA 토큰 (스크린샷 확보) | pass | 08-01 |
 | P0-7 stateful 시크 결정성 (2회 렌더 바이트 동일) | pass | 08-01 |
 
