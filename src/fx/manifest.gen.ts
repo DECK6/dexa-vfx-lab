@@ -65,6 +65,10 @@ import meta_G13 from '../../effects/glitch/G13_color-bleed.meta';
 import meta_G14 from '../../effects/glitch/G14_static-burst.meta';
 import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
 import meta_G16 from '../../effects/glitch/G16_chromatic-shear.meta';
+import meta_K13 from '../../effects/retro/K13_mode7-plane.meta';
+import meta_K14 from '../../effects/retro/K14_cartridge-glitch.meta';
+import meta_K15 from '../../effects/retro/K15_tracker-bars.meta';
+import meta_K16 from '../../effects/retro/K16_console-boot.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
@@ -251,6 +255,10 @@ import meta_Z03 from '../../effects/screen/Z03_split-flap.meta';
 import meta_Z04 from '../../effects/screen/Z04_nixie-tube.meta';
 import meta_Z05 from '../../effects/screen/Z05_eink-refresh.meta';
 import meta_Z06 from '../../effects/screen/Z06_hologram-project.meta';
+import meta_Z13 from '../../effects/screen/Z13_stadium-board.meta';
+import meta_Z14 from '../../effects/screen/Z14_scope-xy.meta';
+import meta_Z15 from '../../effects/screen/Z15_price-board.meta';
+import meta_Z16 from '../../effects/screen/Z16_pager-lcd.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -324,6 +332,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G14, effectPath: 'effects/glitch/G14_static-burst.effect.ts', load: () => import('../../effects/glitch/G14_static-burst.effect') },
   { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
   { meta: meta_G16, effectPath: 'effects/glitch/G16_chromatic-shear.effect.ts', load: () => import('../../effects/glitch/G16_chromatic-shear.effect') },
+  { meta: meta_K13, effectPath: 'effects/retro/K13_mode7-plane.effect.ts', load: () => import('../../effects/retro/K13_mode7-plane.effect') },
+  { meta: meta_K14, effectPath: 'effects/retro/K14_cartridge-glitch.effect.ts', load: () => import('../../effects/retro/K14_cartridge-glitch.effect') },
+  { meta: meta_K15, effectPath: 'effects/retro/K15_tracker-bars.effect.tsx', load: () => import('../../effects/retro/K15_tracker-bars.effect') },
+  { meta: meta_K16, effectPath: 'effects/retro/K16_console-boot.effect.tsx', load: () => import('../../effects/retro/K16_console-boot.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
@@ -510,4 +522,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_Z04, effectPath: 'effects/screen/Z04_nixie-tube.effect.tsx', load: () => import('../../effects/screen/Z04_nixie-tube.effect') },
   { meta: meta_Z05, effectPath: 'effects/screen/Z05_eink-refresh.effect.ts', load: () => import('../../effects/screen/Z05_eink-refresh.effect') },
   { meta: meta_Z06, effectPath: 'effects/screen/Z06_hologram-project.effect.tsx', load: () => import('../../effects/screen/Z06_hologram-project.effect') },
+  { meta: meta_Z13, effectPath: 'effects/screen/Z13_stadium-board.effect.ts', load: () => import('../../effects/screen/Z13_stadium-board.effect') },
+  { meta: meta_Z14, effectPath: 'effects/screen/Z14_scope-xy.effect.ts', load: () => import('../../effects/screen/Z14_scope-xy.effect') },
+  { meta: meta_Z15, effectPath: 'effects/screen/Z15_price-board.effect.tsx', load: () => import('../../effects/screen/Z15_price-board.effect') },
+  { meta: meta_Z16, effectPath: 'effects/screen/Z16_pager-lcd.effect.ts', load: () => import('../../effects/screen/Z16_pager-lcd.effect') },
 ];
