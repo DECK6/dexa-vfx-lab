@@ -35,7 +35,12 @@ import meta_S03 from '../../effects/shape/S03_grid-wave.meta';
 import meta_S04 from '../../effects/shape/S04_radar-sweep.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
+import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
 import meta_T04 from '../../effects/type/T04_mask-reveal.meta';
+import meta_T05 from '../../effects/type/T05_typewriter-caret.meta';
+import meta_T06 from '../../effects/type/T06_word-cascade.meta';
+import meta_T09 from '../../effects/type/T09_char-flip-3d.meta';
+import meta_T10 from '../../effects/type/T10_highlight-sweep.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
@@ -85,7 +90,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S04, effectPath: 'effects/shape/S04_radar-sweep.effect.tsx', load: () => import('../../effects/shape/S04_radar-sweep.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
+  { meta: meta_T03, effectPath: 'effects/type/T03_odometer-roll.effect.tsx', load: () => import('../../effects/type/T03_odometer-roll.effect') },
   { meta: meta_T04, effectPath: 'effects/type/T04_mask-reveal.effect.tsx', load: () => import('../../effects/type/T04_mask-reveal.effect') },
+  { meta: meta_T05, effectPath: 'effects/type/T05_typewriter-caret.effect.tsx', load: () => import('../../effects/type/T05_typewriter-caret.effect') },
+  { meta: meta_T06, effectPath: 'effects/type/T06_word-cascade.effect.tsx', load: () => import('../../effects/type/T06_word-cascade.effect') },
+  { meta: meta_T09, effectPath: 'effects/type/T09_char-flip-3d.effect.tsx', load: () => import('../../effects/type/T09_char-flip-3d.effect') },
+  { meta: meta_T10, effectPath: 'effects/type/T10_highlight-sweep.effect.tsx', load: () => import('../../effects/type/T10_highlight-sweep.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
