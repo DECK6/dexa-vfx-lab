@@ -3,12 +3,15 @@ import {
   cancelRender,
   continueRender,
   delayRender,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
 import { fxRandom } from '../fx/prng';
+import { loadAudioEnvelope, sampleAudioEnvelope, type FxAudioEnvelope } from '../fx/audio';
 import { rasterizeSubject } from '../fx/subject';
 import type { FxContext, FxKernel, FxMeta, FxSubject } from '../fx/types';
+import { WebglRenderer } from '../drivers/live/glRunner';
 
 const BACKGROUND = '#0D0E10';
 const SIGNAL = '#5EE7F3';
@@ -78,10 +81,12 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
   const frame = useCurrentFrame();
   const { fps, durationInFrames, width, height } = useVideoConfig();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const glRendererRef = useRef<WebglRenderer | null>(null);
   const continuedRef = useRef(false);
   const [delayHandle] = useState(() => delayRender(`Loading ${meta.id}`));
   const [kernel, setKernel] = useState<FxKernel | null>(null);
   const [bitmap, setBitmap] = useState<ImageBitmap | null>(null);
+  const [audioEnvelope, setAudioEnvelope] = useState<FxAudioEnvelope | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -89,11 +94,15 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
     Promise.all([
       loadKernel(),
       rasterizeSubject({ kind: 'triad', label: 'DEXA VFX' }, width, height),
+      meta.category === 'audio'
+        ? loadAudioEnvelope(staticFile('audio/sample.envelope.json'))
+        : Promise.resolve(null),
     ])
-      .then(([module, subjectBitmap]) => {
+      .then(([module, subjectBitmap, envelope]) => {
         if (!active) return;
         setKernel(module.default);
         setBitmap(subjectBitmap);
+        setAudioEnvelope(envelope);
       })
       .catch((error: unknown) => {
         if (active) cancelRender(error);
@@ -102,7 +111,7 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
     return () => {
       active = false;
     };
-  }, [delayHandle, height, loadKernel, width]);
+  }, [delayHandle, height, loadKernel, meta.category, width]);
 
   const random = useMemo(() => fxRandom(meta.id), [meta.id]);
   const subject = useMemo<FxSubject>(
@@ -120,8 +129,9 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
       random,
       params,
       subject,
+      audio: audioEnvelope ? sampleAudioEnvelope(audioEnvelope, frame, fps) : undefined,
     }),
-    [durationInFrames, fps, frame, height, params, random, subject, width],
+    [audioEnvelope, durationInFrames, fps, frame, height, params, random, subject, width],
   );
 
   useLayoutEffect(() => {
@@ -151,6 +161,27 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
   }, [bitmap, ctx, delayHandle, frame, kernel]);
 
   useLayoutEffect(() => {
+    if (!kernel || kernel.kind !== 'webgl' || !bitmap) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    try {
+      if (!glRendererRef.current) glRendererRef.current = new WebglRenderer(canvas);
+      const result = glRendererRef.current.render(kernel.shader, ctx);
+      if (!result.ok) {
+        cancelRender(new Error(result.error ?? `WebGL render failed for ${meta.id}`));
+        return;
+      }
+      glRendererRef.current.finish();
+      if (!continuedRef.current) {
+        continuedRef.current = true;
+        continueRender(delayHandle);
+      }
+    } catch (error) {
+      cancelRender(error);
+    }
+  }, [bitmap, ctx, delayHandle, kernel, meta.id]);
+
+  useLayoutEffect(() => {
     if (!kernel || !bitmap || kernel.kind !== 'react' || continuedRef.current) return;
     continuedRef.current = true;
     continueRender(delayHandle);
@@ -168,7 +199,7 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
     });
   }
 
-  if (kernel.kind === 'canvas') {
+  if (kernel.kind === 'canvas' || kernel.kind === 'webgl') {
     return (
       <canvas
         ref={canvasRef}
@@ -179,5 +210,5 @@ export function FxAdapter({ meta, loadKernel, params }: FxAdapterProps) {
     );
   }
 
-  throw new Error(`Remotion WebGL adapter is not implemented for ${meta.id}`);
+  return null;
 }

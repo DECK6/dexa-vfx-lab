@@ -12,8 +12,10 @@ import { defaultParams, type CanvasStatefulKernel, type FxContext, type FxKernel
 import type { FxEntry } from '../../fx/registry';
 import { fxRandom } from '../../fx/prng';
 import { rasterizeSubject } from '../../fx/subject';
+import { loadAudioEnvelope, sampleAudioEnvelope, type FxAudioEnvelope } from '../../fx/audio';
 import { sharedAnimationClock } from './clock';
 import { liveBudgetManager } from './budget';
+import { sharedGlRunner } from './glRunner';
 
 const WIDTH = 320;
 const HEIGHT = 180;
@@ -72,6 +74,7 @@ function makeContext(
   durationInFrames: number,
   params: Record<string, unknown>,
   bitmap?: ImageBitmap,
+  audioEnvelope?: FxAudioEnvelope,
 ): FxContext {
   return {
     frame,
@@ -83,7 +86,51 @@ function makeContext(
     random: fxRandom(entry.meta.id),
     params,
     subject: { kind: 'triad', label: 'DEXA', bitmap },
+    audio: audioEnvelope ? sampleAudioEnvelope(audioEnvelope, frame, fps) : undefined,
   };
+}
+
+function WebglKernelView({
+  kernel,
+  context,
+  autoPlay,
+  audioEnvelope,
+}: {
+  kernel: Extract<FxKernel, { kind: 'webgl' }>;
+  context: FxContext;
+  autoPlay: boolean;
+  audioEnvelope?: FxAudioEnvelope;
+}) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [glError, setGlError] = useState(false);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !context.subject.bitmap) return;
+    const renderFrame = (frame: number) => {
+      const frameContext = {
+        ...context,
+        frame,
+        t: frame / context.durationInFrames,
+        audio: audioEnvelope ? sampleAudioEnvelope(audioEnvelope, frame, context.fps) : context.audio,
+      };
+      const result = sharedGlRunner.render(kernel.shader, frameContext, canvas);
+      setGlError(!result.ok);
+    };
+
+    renderFrame(context.frame);
+    if (!autoPlay) return;
+    let lastFrame = context.frame;
+    return sharedAnimationClock.subscribe((elapsedMs) => {
+      const nextFrame = Math.floor((elapsedMs * context.fps) / 1000) % context.durationInFrames;
+      if (nextFrame === lastFrame) return;
+      lastFrame = nextFrame;
+      renderFrame(nextFrame);
+    });
+  }, [audioEnvelope, autoPlay, context, kernel]);
+
+  if (glError) return <div className="preview-message">GL ERROR</div>;
+  return <canvas ref={canvasRef} className="live-canvas" width={WIDTH} height={HEIGHT} />;
 }
 
 function TriadSubject() {
@@ -123,11 +170,13 @@ function CanvasKernelView({
   context,
   stateKey,
   autoPlay,
+  audioEnvelope,
 }: {
   kernel: Extract<FxKernel, { kind: 'canvas' }>;
   context: FxContext;
   stateKey: string;
   autoPlay: boolean;
+  audioEnvelope?: FxAudioEnvelope;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const runtime = useRef<{ frame: number; value: unknown; key: string } | null>(null);
@@ -138,7 +187,12 @@ function CanvasKernelView({
     if (!canvas || !g || !context.subject.bitmap) return;
 
     const renderFrame = (frame: number) => {
-      const frameContext = { ...context, frame, t: frame / context.durationInFrames };
+      const frameContext = {
+        ...context,
+        frame,
+        t: frame / context.durationInFrames,
+        audio: audioEnvelope ? sampleAudioEnvelope(audioEnvelope, frame, context.fps) : context.audio,
+      };
       g.clearRect(0, 0, WIDTH, HEIGHT);
       if ('draw' in kernel) {
         kernel.draw(g, frameContext);
@@ -166,7 +220,7 @@ function CanvasKernelView({
       lastFrame = nextFrame;
       renderFrame(nextFrame);
     });
-  }, [autoPlay, context, kernel, stateKey]);
+  }, [audioEnvelope, autoPlay, context, kernel, stateKey]);
 
   return <canvas ref={canvasRef} className="live-canvas" width={WIDTH} height={HEIGHT} />;
 }
@@ -183,6 +237,7 @@ export function LivePreview({
   className,
 }: LivePreviewProps) {
   const autoCanvas = active && controlledFrame === undefined && entry.meta.kind === 'canvas';
+  const autoWebgl = active && controlledFrame === undefined && entry.meta.kind === 'webgl';
   const clockFrame = useClockFrame(
     active && controlledFrame === undefined && entry.meta.kind === 'react',
     fps,
@@ -195,11 +250,12 @@ export function LivePreview({
   );
   const [kernel, setKernel] = useState<FxKernel | null>(null);
   const [bitmap, setBitmap] = useState<ImageBitmap | undefined>();
+  const [audioEnvelope, setAudioEnvelope] = useState<FxAudioEnvelope>();
   const [thumbFailed, setThumbFailed] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
-    if (!active || entry.meta.kind === 'webgl') return;
+    if (!active) return;
     let cancelled = false;
     setLoadFailed(false);
     entry.loadKernel().then(
@@ -213,18 +269,27 @@ export function LivePreview({
     rasterizeSubject({ kind: 'triad', label: 'DEXA' }, WIDTH, HEIGHT).then((image) => {
       if (!cancelled) setBitmap(image);
     });
+    if (entry.meta.category === 'audio') {
+      loadAudioEnvelope(`${import.meta.env.BASE_URL}audio/sample.envelope.json`).then(
+        (envelope) => {
+          if (!cancelled) setAudioEnvelope(envelope);
+        },
+        () => {
+          if (!cancelled) setLoadFailed(true);
+        },
+      );
+    }
     return () => {
       cancelled = true;
     };
   }, [active, entry]);
 
   const context = useMemo(
-    () => makeContext(entry, frame, fps, durationInFrames, params, bitmap),
-    [bitmap, durationInFrames, entry, fps, frame, params],
+    () => makeContext(entry, frame, fps, durationInFrames, params, bitmap, audioEnvelope),
+    [audioEnvelope, bitmap, durationInFrames, entry, fps, frame, params],
   );
   const stateKey = useMemo(() => `${JSON.stringify(params)}:${resetKey}`, [params, resetKey]);
   const content: ReactNode = (() => {
-    if (entry.meta.kind === 'webgl') return <div className="preview-message">GL / W2</div>;
     if (!active) {
       return thumbFailed ? (
         <div className="preview-message preview-id">{entry.meta.id}</div>
@@ -238,12 +303,12 @@ export function LivePreview({
       );
     }
     if (loadFailed) return <div className="preview-message">KERNEL ERROR</div>;
-    if (!kernel || (kernel.kind === 'canvas' && !bitmap)) return <div className="preview-message">LOADING {entry.meta.id}</div>;
+    if (!kernel || ((kernel.kind === 'canvas' || kernel.kind === 'webgl') && !bitmap)) return <div className="preview-message">LOADING {entry.meta.id}</div>;
     if (kernel.kind === 'react') return <ReactKernelView kernel={kernel} context={context} />;
     if (kernel.kind === 'canvas') {
-      return <CanvasKernelView kernel={kernel} context={context} stateKey={stateKey} autoPlay={autoCanvas} />;
+      return <CanvasKernelView kernel={kernel} context={context} stateKey={stateKey} autoPlay={autoCanvas} audioEnvelope={audioEnvelope} />;
     }
-    return <div className="preview-message">GL / W2</div>;
+    return <WebglKernelView kernel={kernel} context={context} autoPlay={autoWebgl} audioEnvelope={audioEnvelope} />;
   })();
 
   const style = { '--preview-ratio': `${WIDTH} / ${HEIGHT}` } as CSSProperties;
