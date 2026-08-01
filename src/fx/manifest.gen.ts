@@ -5,6 +5,8 @@ import meta_A01 from '../../effects/audio/A01_waveform-bars.meta';
 import meta_A02 from '../../effects/audio/A02_spectrum-analyzer.meta';
 import meta_A03 from '../../effects/audio/A03_circular-viz.meta';
 import meta_A04 from '../../effects/audio/A04_beat-pulse.meta';
+import meta_A06 from '../../effects/audio/A06_vu-meter.meta';
+import meta_A07 from '../../effects/audio/A07_waveform-line.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -67,7 +69,10 @@ import meta_M02 from '../../effects/mask/M02_gradient-wipe.meta';
 import meta_M03 from '../../effects/mask/M03_text-knockout.meta';
 import meta_M04 from '../../effects/mask/M04_alpha-matte.meta';
 import meta_M05 from '../../effects/mask/M05_spotlight-mask.meta';
+import meta_M06 from '../../effects/mask/M06_brush-stroke.meta';
+import meta_M08 from '../../effects/mask/M08_blind-reveal.meta';
 import meta_M09 from '../../effects/mask/M09_radial-unveil.meta';
+import meta_M11 from '../../effects/mask/M11_split-mask.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
 import meta_N01 from '../../effects/nature/N01_fire-flame.meta';
 import meta_N02 from '../../effects/nature/N02_smoke-plume.meta';
@@ -181,6 +186,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_A02, effectPath: 'effects/audio/A02_spectrum-analyzer.effect.ts', load: () => import('../../effects/audio/A02_spectrum-analyzer.effect') },
   { meta: meta_A03, effectPath: 'effects/audio/A03_circular-viz.effect.ts', load: () => import('../../effects/audio/A03_circular-viz.effect') },
   { meta: meta_A04, effectPath: 'effects/audio/A04_beat-pulse.effect.tsx', load: () => import('../../effects/audio/A04_beat-pulse.effect') },
+  { meta: meta_A06, effectPath: 'effects/audio/A06_vu-meter.effect.tsx', load: () => import('../../effects/audio/A06_vu-meter.effect') },
+  { meta: meta_A07, effectPath: 'effects/audio/A07_waveform-line.effect.tsx', load: () => import('../../effects/audio/A07_waveform-line.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
@@ -243,7 +250,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_M03, effectPath: 'effects/mask/M03_text-knockout.effect.tsx', load: () => import('../../effects/mask/M03_text-knockout.effect') },
   { meta: meta_M04, effectPath: 'effects/mask/M04_alpha-matte.effect.tsx', load: () => import('../../effects/mask/M04_alpha-matte.effect') },
   { meta: meta_M05, effectPath: 'effects/mask/M05_spotlight-mask.effect.tsx', load: () => import('../../effects/mask/M05_spotlight-mask.effect') },
+  { meta: meta_M06, effectPath: 'effects/mask/M06_brush-stroke.effect.tsx', load: () => import('../../effects/mask/M06_brush-stroke.effect') },
+  { meta: meta_M08, effectPath: 'effects/mask/M08_blind-reveal.effect.tsx', load: () => import('../../effects/mask/M08_blind-reveal.effect') },
   { meta: meta_M09, effectPath: 'effects/mask/M09_radial-unveil.effect.tsx', load: () => import('../../effects/mask/M09_radial-unveil.effect') },
+  { meta: meta_M11, effectPath: 'effects/mask/M11_split-mask.effect.tsx', load: () => import('../../effects/mask/M11_split-mask.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
   { meta: meta_N01, effectPath: 'effects/nature/N01_fire-flame.effect.ts', load: () => import('../../effects/nature/N01_fire-flame.effect') },
   { meta: meta_N02, effectPath: 'effects/nature/N02_smoke-plume.effect.ts', load: () => import('../../effects/nature/N02_smoke-plume.effect') },
