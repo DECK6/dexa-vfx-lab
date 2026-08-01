@@ -55,9 +55,11 @@ for (const entry of manifest) {
       window.__vfx!.pause();
       window.__vfx!.seek(0);
     });
+    await page.waitForTimeout(150); // canvas passive-effect draw settles
     const shot0 = await preview.screenshot();
 
     await page.evaluate(() => window.__vfx!.seek(90));
+    await page.waitForTimeout(150);
     const shot90 = await preview.screenshot();
 
     expect(shot0.equals(shot90), `preview static or blank at ${id}`).toBe(false);

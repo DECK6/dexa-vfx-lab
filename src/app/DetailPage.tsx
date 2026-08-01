@@ -1,5 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { LivePreview, subscribeTransportClock } from '../drivers/live/LivePreview';
+
+declare global {
+  interface Window {
+    /** Test hook consumed by tests/smoke.spec.ts (SPEC §9). */
+    __vfx?: { entryId: string; seek: (f: number) => void; pause: () => void };
+  }
+}
 import { exporters } from '../export';
 import { loadSource } from '../fx/sources';
 import { allEffects, registry, type FxEntry } from '../fx/registry';
@@ -62,6 +70,22 @@ function EffectDetail({ entry }: { entry: FxEntry }) {
     fractionalFrames.current = 0;
   };
 
+  useEffect(() => {
+    window.__vfx = {
+      entryId: entry.meta.id,
+      seek: (f) =>
+        flushSync(() => {
+          setPlaying(false);
+          seek(f);
+        }),
+      pause: () => flushSync(() => setPlaying(false)),
+    };
+    return () => {
+      delete window.__vfx;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entry.meta.id]);
+
   return (
     <main className="detail-page">
       <div className="detail-title-row">
@@ -74,7 +98,7 @@ function EffectDetail({ entry }: { entry: FxEntry }) {
 
       <section className="detail-workbench">
         <div className="detail-preview-panel">
-          <div className="preview-bezel detail-bezel">
+          <div className="preview-bezel detail-bezel" data-vfx-preview>
             <LivePreview
               entry={entry}
               mode="detail"
@@ -162,7 +186,7 @@ function ParamControl({ spec, value, onChange }: { spec: FxParamSpec; value: unk
     return (
       <label className="param-control param-toggle mono">
         <span>{spec.label}</span>
-        <input type="checkbox" checked={Boolean(value)} onChange={(event) => onChange(event.target.checked)} />
+        <input data-vfx-param type="checkbox" checked={Boolean(value)} onChange={(event) => onChange(event.target.checked)} />
       </label>
     );
   }
@@ -170,7 +194,7 @@ function ParamControl({ spec, value, onChange }: { spec: FxParamSpec; value: unk
     return (
       <label className="param-control mono">
         <span>{spec.label}</span>
-        <select value={String(value)} onChange={(event) => onChange(event.target.value)}>
+        <select data-vfx-param value={String(value)} onChange={(event) => onChange(event.target.value)}>
           {spec.options.map((option) => <option key={option} value={option}>{option.toUpperCase()}</option>)}
         </select>
       </label>
@@ -190,6 +214,7 @@ function ParamControl({ spec, value, onChange }: { spec: FxParamSpec; value: unk
       <span>{spec.label}</span>
       <output>{Number(value).toFixed(2)}</output>
       <input
+        data-vfx-param
         type="range"
         min={spec.min}
         max={spec.max}
