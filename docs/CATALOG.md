@@ -440,4 +440,73 @@ W1은 각 카테고리 대표작 + DOM/SVG 위주로 뽑아 파이프라인을 �
 | S17 | Gear Train | 기어 트레인 | 맞물린 기어 회전 전달 | RX | ● | shape | W6 |
 | S18 | Origami Fold | 오리가미 폴드 | 종이 접기 단계 변형 | RX | ●● | shape | W6 |
 
-| **합계** | **308(예정)** | | | **244** | | | **244** |
+## W7 — 브로드캐스트 & 시네마 (64종)
+
+| ID | 이름 | 한글명 | 설명 | 커널 | cost | category | wave |
+|---|---|---|---|---|---|---|---|
+| B01 | Lower Third Slide | 로워서드 슬라이드 | 바 슬라이드 인+이름/직함 타이포 스태거 | RX | ● | broadcast | W7 |
+| B02 | Lower Third Glass | 로워서드 글라스 | 반투명 유리 패널+블러 리빌 | RX | ● | broadcast | W7 |
+| B03 | Lower Third Wipe | 로워서드 와이프 | 컬러바 와이프+텍스트 마스크 등장 | RX | ● | broadcast | W7 |
+| B04 | Lower Third Stack | 로워서드 스택 | 2단 정보 스택 순차 전개 | RX | ● | broadcast | W7 |
+| B05 | Title Card | 타이틀 카드 | 풀스크린 타이틀+키커+룰 라인 조판 | RX | ● | broadcast | W7 |
+| B06 | Caption Pop | 캡션 팝 | 말풍선 자막 팝인+꼬리 앵커 | RX | ● | broadcast | W7 |
+| B07 | Callout Line | 콜아웃 라인 | 포인트→절곡 리더선→라벨 전개 | RX | ● | broadcast | W7 |
+| B08 | Score Bug | 스코어 버그 | 경기 스코어 박스+점수 플립 | RX | ● | broadcast | W7 |
+| B09 | News Ticker | 뉴스 티커 | 하단 티커 벨트+BREAKING 플래시 | RX | ● | broadcast | W7 |
+| B10 | Countdown Clock | 카운트다운 | 방송 카운트다운 링+숫자 플립 | RX | ● | broadcast | W7 |
+| B11 | HUD Frame | HUD 프레임 | 코너 브래킷+크로스헤어+텔레메트리 | RX | ● | broadcast | W7 |
+| B12 | Live Badge | 라이브 배지 | LIVE 배지 펄스+REC 도트+타임코드 | RX | ● | broadcast | W7 |
+| B13 | Quote Card | 인용 카드 | 따옴표 확대+인용문 라인 리빌 | RX | ● | broadcast | W7 |
+| B14 | Stat Callout | 스탯 콜아웃 | 큰 숫자 카운트업+단위/라벨 조판 | RX | ● | broadcast | W7 |
+| B15 | Locator Pin | 로케이터 핀 | 지도 핀 드롭+파문+지명 라벨 | RX | ● | broadcast | W7 |
+| B16 | Weather Panel | 웨더 패널 | 날씨 아이콘 모핑+온도 슬라이드 | RX | ●● | broadcast | W7 |
+| B17 | Schedule Board | 편성표 | 프로그램 행 순차 하이라이트 | RX | ● | broadcast | W7 |
+| B18 | Versus Split | 버서스 스플릿 | 대각 분할 대결 구도+VS 스탬프 | RX | ● | broadcast | W7 |
+| B19 | Poll Bars | 투표 바 | 실시간 투표 막대 경합+퍼센트 | RX | ● | broadcast | W7 |
+| B20 | Breaking Slate | 브레이킹 슬레이트 | 속보 전면 슬레이트+경고 스트로브 | RX | ● | broadcast | W7 |
+| F01 | Letterbox Reveal | 레터박스 | 시네마스코프 바 닫힘/열림+타이틀 | RX | ● | cinema | W7 |
+| F02 | Credits Roll | 크레딧 롤 | 엔딩 크레딧 스크롤+섹션 헤더 | RX | ● | cinema | W7 |
+| F03 | Film Burn | 필름 번 | 필름 태움 오렌지 번짐 전환 | GL | ●● | cinema | W7 |
+| F04 | Projector Flicker | 영사기 | 게이트 위브+플리커+먼지·헤어 | CV | ●● | cinema | W7 |
+| F05 | Countdown Leader | 리더 카운트다운 | 아카데미 리더 8→1 카운트 | RX | ● | cinema | W7 |
+| F06 | Anamorphic Bokeh | 아나모픽 보케 | 타원 보케+수평 플레어 심도 | RX | ●● | cinema | W7 |
+| F07 | Day For Night | 데이 포 나이트 | 주간→야간 그레이딩 크로스 | GL | ●● | cinema | W7 |
+| F08 | Split Diopter | 스플릿 디옵터 | 화면 반 포커스 분리 | GL | ●● | cinema | W7 |
+| F09 | Whip Pan | 휩 팬 | 고속 팬 모션블러 전환 | GL | ●● | cinema | W7 |
+| F10 | Iris Pull | 아이리스 풀 | 조리개 보케 조임/개방+노출 시프트 | RX | ● | cinema | W7 |
+| F11 | Slate Clap | 슬레이트 | 클래퍼보드 침+샷 정보 타이포 | RX | ● | cinema | W7 |
+| F12 | Dolly Rig | 달리 리그 | 트랙 달리 왕복+미장센 레이어 | RX | ●● | cinema | W7 |
+| F13 | Film Gate Jam | 게이트 잼 | 필름 걸림 멜트+프레임 튐 | GL | ●● | cinema | W7 |
+| F14 | Silent Era | 무성영화 | 세피아+비네트+간자막 카드 | CV | ●● | cinema | W7 |
+| F15 | Trailer Text | 트레일러 텍스트 | 대문자 타이포 임팩트 컷 리듬 | RX | ● | cinema | W7 |
+| F16 | End Card | 엔드 카드 | 시사 정보 엔드 카드 조판 전개 | RX | ● | cinema | W7 |
+| V15 | Radar Chart | 레이더 차트 | 축 전개+영역 성장+포인트 강조 | RX | ● | data | W7 |
+| V16 | Candlestick | 캔들스틱 | 봉차트 순차 등장+등락 색 | RX | ● | data | W7 |
+| V17 | Funnel Steps | 퍼널 | 단계 축소 벨트+전환율 라벨 | RX | ● | data | W7 |
+| V18 | Gantt Timeline | 간트 | 작업 바 슬라이드+진행 마커 | RX | ● | data | W7 |
+| V19 | Calendar Heat | 캘린더 히트맵 | 날짜 셀 강도 채움 웨이브 | RX | ● | data | W7 |
+| V20 | Network Graph | 네트워크 | 노드 스프링 배치+엣지 드로잉 | CV | ●● | data | W7 |
+| V21 | Donut Multi | 도넛 멀티 | 동심 도넛 3링 순차 스윕 | RX | ● | data | W7 |
+| V22 | Slope Chart | 슬로프 차트 | 두 시점 순위 연결선 기울기 | RX | ● | data | W7 |
+| V23 | Bubble Pack | 버블 팩 | 면적 버블 성장·정렬 | CV | ●● | data | W7 |
+| V24 | Waterfall | 워터폴 | 증감 블록 낙하 누적 | RX | ● | data | W7 |
+| V25 | Radial Bars | 방사 바 | 극좌표 막대 스윕 성장 | RX | ● | data | W7 |
+| V26 | Stream Graph | 스트림그래프 | 유기적 밴드 두께 흐름 | CV | ●● | data | W7 |
+| U13 | Toast Queue | 토스트 큐 | 알림 토스트 적층·만료 스와이프 | RX | ● | ui | W7 |
+| U14 | Stepper Flow | 스테퍼 | 단계 원 진행+체크 전환 | RX | ● | ui | W7 |
+| U15 | Card Carousel | 카드 캐러셀 | 스냅 캐러셀+포커스 스케일 | RX | ● | ui | W7 |
+| U16 | Pull Refresh | 당겨서 새로고침 | 오버스크롤 스피너 트리거 | RX | ● | ui | W7 |
+| U17 | Radial Menu | 방사 메뉴 | FAB 방사 전개+라벨 팝 | RX | ● | ui | W7 |
+| U18 | Search Morph | 서치 모프 | 돋보기→입력바 모핑+타이핑 | RX | ● | ui | W7 |
+| U19 | Slider Snap | 슬라이더 | 값 스냅 이동+툴팁 버블 | RX | ● | ui | W7 |
+| U20 | Rating Stars | 레이팅 | 별점 순차 채움+바운스 | RX | ● | ui | W7 |
+| U21 | Chart Tooltip | 차트 툴팁 | 호버 크로스헤어+툴팁 추적 | RX | ● | ui | W7 |
+| U22 | File Upload | 업로드 | 드롭존 파일 낙하+진행 바+완료 체크 | RX | ● | ui | W7 |
+| U23 | OTP Input | OTP 입력 | 코드 셀 순차 타이핑+검증 플래시 | RX | ● | ui | W7 |
+| U24 | Dark Toggle | 다크 토글 | 라이트↔다크 테마 원형 확산 전환 | RX | ● | ui | W7 |
+| U25 | Dock Magnify | 독 매그니파이 | 아이콘 독 근접 확대 파도 | RX | ● | ui | W7 |
+| U26 | Window Manage | 윈도우 | 창 열림·스냅·최소화 안무 | RX | ● | ui | W7 |
+| U27 | Command Palette | 커맨드 팔레트 | ⌘K 팔레트 필터링 목록 | RX | ● | ui | W7 |
+| U28 | Biometric Scan | 바이오메트릭 | 지문/얼굴 스캔 링 진행+승인 | RX | ● | ui | W7 |
+
+| **합계** | **372(예정)** | | | **244** | | | **244** |
