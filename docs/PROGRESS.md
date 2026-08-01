@@ -1,6 +1,6 @@
 # PROGRESS
-phase: DONE (adxdeck 푸시 승인만 대기)
-last-update: 2026-08-01T15:33
+phase: DONE — dexa.art/vfx 라이브 (adxdeck 6e754e6)
+last-update: 2026-08-01T15:37
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -113,7 +113,7 @@ last-update: 2026-08-01T15:33
 | 갤러리 부하 QA (스크롤 스트레스, 에러 0, 가상화 동작) | ✅ |
 | 번들 QA (엔트리 341KB, remotion 런타임 0) | ✅ |
 | build + adxdeck/vfx 배포 카피 | ✅ |
-| adxdeck 커밋·푸시 | 사용자 승인 대기 |
+| adxdeck 커밋·푸시 (main 6e754e6) | ✅ 라이브 |
 
 메모: T01은 글자 단위가 아닌 피사체 슬라이스 스태거로 구현됨(수용). X02/X03 대비 수정 1회(직접). G01 스모크 오탐 → 테스트 강화로 해소. kernel-js eager 맵이 엔트리에 포함 — W2에서 지연화 검토.
 
