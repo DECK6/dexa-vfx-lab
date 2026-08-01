@@ -13,6 +13,8 @@ import meta_C05 from '../../effects/camera/C05_rack-focus.meta';
 import meta_C06 from '../../effects/camera/C06_orbit-around.meta';
 import meta_C07 from '../../effects/camera/C07_crash-zoom.meta';
 import meta_C08 from '../../effects/camera/C08_tilt-shift.meta';
+import meta_C09 from '../../effects/camera/C09_roll-horizon.meta';
+import meta_C10 from '../../effects/camera/C10_depth-layers-3d.meta';
 import meta_C11 from '../../effects/camera/C11_perspective-card.meta';
 import meta_D01 from '../../effects/distort/D01_displacement-wave.meta';
 import meta_D02 from '../../effects/distort/D02_ripple-circle.meta';
@@ -137,6 +139,9 @@ import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 import meta_V04 from '../../effects/data/V04_line-chart-draw.meta';
 import meta_V05 from '../../effects/data/V05_pie-sweep.meta';
+import meta_V06 from '../../effects/data/V06_sparkline-scroll.meta';
+import meta_V07 from '../../effects/data/V07_heatmap-fill.meta';
+import meta_V08 from '../../effects/data/V08_node-graph.meta';
 import meta_V09 from '../../effects/data/V09_gauge-needle.meta';
 import meta_V11 from '../../effects/data/V11_scatter-settle.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
@@ -174,6 +179,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_C06, effectPath: 'effects/camera/C06_orbit-around.effect.tsx', load: () => import('../../effects/camera/C06_orbit-around.effect') },
   { meta: meta_C07, effectPath: 'effects/camera/C07_crash-zoom.effect.tsx', load: () => import('../../effects/camera/C07_crash-zoom.effect') },
   { meta: meta_C08, effectPath: 'effects/camera/C08_tilt-shift.effect.ts', load: () => import('../../effects/camera/C08_tilt-shift.effect') },
+  { meta: meta_C09, effectPath: 'effects/camera/C09_roll-horizon.effect.tsx', load: () => import('../../effects/camera/C09_roll-horizon.effect') },
+  { meta: meta_C10, effectPath: 'effects/camera/C10_depth-layers-3d.effect.tsx', load: () => import('../../effects/camera/C10_depth-layers-3d.effect') },
   { meta: meta_C11, effectPath: 'effects/camera/C11_perspective-card.effect.tsx', load: () => import('../../effects/camera/C11_perspective-card.effect') },
   { meta: meta_D01, effectPath: 'effects/distort/D01_displacement-wave.effect.ts', load: () => import('../../effects/distort/D01_displacement-wave.effect') },
   { meta: meta_D02, effectPath: 'effects/distort/D02_ripple-circle.effect.ts', load: () => import('../../effects/distort/D02_ripple-circle.effect') },
@@ -298,6 +305,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
   { meta: meta_V04, effectPath: 'effects/data/V04_line-chart-draw.effect.tsx', load: () => import('../../effects/data/V04_line-chart-draw.effect') },
   { meta: meta_V05, effectPath: 'effects/data/V05_pie-sweep.effect.tsx', load: () => import('../../effects/data/V05_pie-sweep.effect') },
+  { meta: meta_V06, effectPath: 'effects/data/V06_sparkline-scroll.effect.tsx', load: () => import('../../effects/data/V06_sparkline-scroll.effect') },
+  { meta: meta_V07, effectPath: 'effects/data/V07_heatmap-fill.effect.tsx', load: () => import('../../effects/data/V07_heatmap-fill.effect') },
+  { meta: meta_V08, effectPath: 'effects/data/V08_node-graph.effect.tsx', load: () => import('../../effects/data/V08_node-graph.effect') },
   { meta: meta_V09, effectPath: 'effects/data/V09_gauge-needle.effect.tsx', load: () => import('../../effects/data/V09_gauge-needle.effect') },
   { meta: meta_V11, effectPath: 'effects/data/V11_scatter-settle.effect.ts', load: () => import('../../effects/data/V11_scatter-settle.effect') },
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
