@@ -1,6 +1,6 @@
 # PROGRESS
-phase: DONE — dexa.art/vfx 라이브 (adxdeck 6e754e6)
-last-update: 2026-08-01T15:37
+phase: DONE — W5 포함 244종 라이브
+last-update: 2026-08-01T21:19
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -25,6 +25,13 @@ last-update: 2026-08-01T15:37
 - 검수 중 exporter 3픽스: webgl 표준 uniform+subject 텍스처+preserveDrawingBuffer, 오디오 인라인, 스니펫 subject 캐논화
 - 배치 계획: docs/BATCHES_W2.md (15배치). 라운드1 발주: GL1(wt-a) GL2(wt-b) CV1(wt-c) CV2(wt-d) RX1(wt-e)
 - Codex 샌드박스 제약 확정: 브라우저·네트워크 게이트 불가 → 배치 검증은 gen/lint/typecheck까지, 렌더·HF·스모크는 오케스트레이터
+
+## W5 — 오브젝트 모션 (08-01 오후)
+- 사용자 피드백: 화면 전체 효과 위주 → 피사체 자체 모션 30종 추가 결정
+- 구현: Codex 대신 **Opus 5 서브에이전트 5기 병렬** (등장 8 · 물리 7 · 아이들 5 · 강조 5 · 텍스트 5)
+- 신규 category 'motion'(order 17) + wave 5 + FxMeta.wave 확장(에이전트 3기가 동일 블로커 리포트 → 오케스트레이터 수정)
+- 게이트: lint 244 · ts OK · 썸네일 244 · 스모크 247/247 · HF 30/30 — 반려 0건
+- **244/244 완료**, 빌드·deploy 카피 완료
 
 ## W4 완료 + 최종 게이트 (08-01)
 - 41종 전부 구현·검수·머지 → **214/214 완료**
