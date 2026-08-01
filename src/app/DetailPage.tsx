@@ -9,6 +9,7 @@ declare global {
   }
 }
 import { exporters } from '../export';
+import { kernelJsLoaders } from '../export/kernel-js.gen';
 import { loadSource } from '../fx/sources';
 import { allEffects, registry, type FxEntry } from '../fx/registry';
 import { defaultParams, type FxParamSpec } from '../fx/types';
@@ -230,11 +231,13 @@ function CodePanel({ entry, params }: { entry: FxEntry; params: Record<string, u
   const available = useMemo(() => exporters.filter((exporter) => exporter.applies(entry.meta)), [entry.meta]);
   const [activeId, setActiveId] = useState<string | null>(available[0]?.id ?? null);
   const [kernelSource, setKernelSource] = useState('');
+  const [kernelJs, setKernelJs] = useState('');
   const [sourceError, setSourceError] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
+    setKernelJs('');
     loadSource(entry.effectPath).then(
       (source) => {
         if (!cancelled) setKernelSource(source);
@@ -242,6 +245,13 @@ function CodePanel({ entry, params }: { entry: FxEntry; params: Record<string, u
       () => {
         if (!cancelled) setSourceError(true);
       },
+    );
+    // kernel JS is code-split per effect (entry-chunk bloat fix) — lazy load for the HYPERFRAMES tab
+    kernelJsLoaders[entry.effectPath]?.().then(
+      (js) => {
+        if (!cancelled) setKernelJs(js);
+      },
+      () => {},
     );
     return () => {
       cancelled = true;
@@ -253,10 +263,17 @@ function CodePanel({ entry, params }: { entry: FxEntry; params: Record<string, u
   }, [activeId, available]);
 
   const active = available.find((exporter) => exporter.id === activeId);
+  const waitingKernelJs = active?.id === 'hyperframes' && !kernelJs;
   let output = '';
-  if (active && kernelSource) {
+  if (active && kernelSource && !waitingKernelJs) {
     try {
-      output = active.generate({ meta: entry.meta, params, kernelSource });
+      output = active.generate({
+        meta: entry.meta,
+        params,
+        kernelSource,
+        effectPath: entry.effectPath,
+        kernelJs: kernelJs || undefined,
+      });
     } catch {
       output = 'EXPORT GENERATION FAILED';
     }
