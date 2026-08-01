@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdirSync, readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
@@ -8,11 +8,32 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const MANIFEST = join(ROOT, 'src/fx/manifest.gen.ts');
 const THUMBS = join(ROOT, 'public/thumbs');
 const CONCURRENCY = 4;
+const FORCE = process.argv.includes('--force') || process.env.FORCE === '1';
 
 const source = readFileSync(MANIFEST, 'utf8');
-const ids = [...source.matchAll(/\{ meta: meta_([A-Z]\d{2}),/g)].map((match) => match[1]);
+const allIds = [...source.matchAll(/\{ meta: meta_([A-Z]\d{2}),/g)].map((match) => match[1]);
+const effectPaths = new Map(
+  [...source.matchAll(/meta: meta_([A-Z]\d{2}), effectPath: '([^']+)'/g)].map((m) => [m[1], m[2]]),
+);
 
 mkdirSync(THUMBS, { recursive: true });
+
+// Incremental: skip thumbs newer than their effect source unless --force.
+const ids = allIds.filter((id) => {
+  if (FORCE) return true;
+  const thumb = join(THUMBS, `${id.toLowerCase()}.webp`);
+  if (!existsSync(thumb)) return true;
+  const effectPath = effectPaths.get(id);
+  if (!effectPath) return true;
+  try {
+    return statSync(join(ROOT, effectPath)).mtimeMs > statSync(thumb).mtimeMs;
+  } catch {
+    return true;
+  }
+});
+if (ids.length < allIds.length) {
+  console.log(`thumbs — skipping ${allIds.length - ids.length} up-to-date (use --force to re-render all)`);
+}
 
 function renderStill(id, workerIndex) {
   const output = join(THUMBS, `${id.toLowerCase()}.webp`);
