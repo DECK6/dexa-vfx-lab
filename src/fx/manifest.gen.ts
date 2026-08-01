@@ -123,12 +123,17 @@ import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
 import meta_U03 from '../../effects/ui/U03_loading-spinner.meta';
 import meta_U04 from '../../effects/ui/U04_skeleton-shimmer.meta';
+import meta_U05 from '../../effects/ui/U05_notification-stack.meta';
+import meta_U06 from '../../effects/ui/U06_tab-slide.meta';
+import meta_U07 from '../../effects/ui/U07_modal-spring.meta';
+import meta_U08 from '../../effects/ui/U08_cursor-trace.meta';
 import meta_V01 from '../../effects/data/V01_bar-race.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 import meta_V04 from '../../effects/data/V04_line-chart-draw.meta';
 import meta_V05 from '../../effects/data/V05_pie-sweep.meta';
 import meta_V09 from '../../effects/data/V09_gauge-needle.meta';
+import meta_V10 from '../../effects/data/V10_stacked-grow.meta';
 import meta_V11 from '../../effects/data/V11_scatter-settle.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
 import meta_X02 from '../../effects/trans/X02_slice-shuffle.meta';
@@ -275,12 +280,17 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
   { meta: meta_U03, effectPath: 'effects/ui/U03_loading-spinner.effect.tsx', load: () => import('../../effects/ui/U03_loading-spinner.effect') },
   { meta: meta_U04, effectPath: 'effects/ui/U04_skeleton-shimmer.effect.tsx', load: () => import('../../effects/ui/U04_skeleton-shimmer.effect') },
+  { meta: meta_U05, effectPath: 'effects/ui/U05_notification-stack.effect.tsx', load: () => import('../../effects/ui/U05_notification-stack.effect') },
+  { meta: meta_U06, effectPath: 'effects/ui/U06_tab-slide.effect.tsx', load: () => import('../../effects/ui/U06_tab-slide.effect') },
+  { meta: meta_U07, effectPath: 'effects/ui/U07_modal-spring.effect.tsx', load: () => import('../../effects/ui/U07_modal-spring.effect') },
+  { meta: meta_U08, effectPath: 'effects/ui/U08_cursor-trace.effect.tsx', load: () => import('../../effects/ui/U08_cursor-trace.effect') },
   { meta: meta_V01, effectPath: 'effects/data/V01_bar-race.effect.tsx', load: () => import('../../effects/data/V01_bar-race.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
   { meta: meta_V04, effectPath: 'effects/data/V04_line-chart-draw.effect.tsx', load: () => import('../../effects/data/V04_line-chart-draw.effect') },
   { meta: meta_V05, effectPath: 'effects/data/V05_pie-sweep.effect.tsx', load: () => import('../../effects/data/V05_pie-sweep.effect') },
   { meta: meta_V09, effectPath: 'effects/data/V09_gauge-needle.effect.tsx', load: () => import('../../effects/data/V09_gauge-needle.effect') },
+  { meta: meta_V10, effectPath: 'effects/data/V10_stacked-grow.effect.tsx', load: () => import('../../effects/data/V10_stacked-grow.effect') },
   { meta: meta_V11, effectPath: 'effects/data/V11_scatter-settle.effect.ts', load: () => import('../../effects/data/V11_scatter-settle.effect') },
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
   { meta: meta_X02, effectPath: 'effects/trans/X02_slice-shuffle.effect.tsx', load: () => import('../../effects/trans/X02_slice-shuffle.effect') },
