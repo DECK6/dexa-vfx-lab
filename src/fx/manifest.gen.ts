@@ -62,6 +62,7 @@ import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M02 from '../../effects/mask/M02_gradient-wipe.meta';
 import meta_M03 from '../../effects/mask/M03_text-knockout.meta';
+import meta_M04 from '../../effects/mask/M04_alpha-matte.meta';
 import meta_M05 from '../../effects/mask/M05_spotlight-mask.meta';
 import meta_M09 from '../../effects/mask/M09_radial-unveil.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
@@ -69,6 +70,7 @@ import meta_N01 from '../../effects/nature/N01_fire-flame.meta';
 import meta_N02 from '../../effects/nature/N02_smoke-plume.meta';
 import meta_N03 from '../../effects/nature/N03_water-surface.meta';
 import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
+import meta_N06 from '../../effects/nature/N06_wind-grass.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
@@ -81,6 +83,7 @@ import meta_P09 from '../../effects/particle/P09_magnetic-field.meta';
 import meta_P10 from '../../effects/particle/P10_orbit-ring.meta';
 import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
+import meta_Q04 from '../../effects/liquid/Q04_viscous-drip.meta';
 import meta_Q08 from '../../effects/liquid/Q08_gel-wobble.meta';
 import meta_Q10 from '../../effects/liquid/Q10_liquid-fill.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
@@ -89,6 +92,7 @@ import meta_R07 from '../../effects/pattern/R07_lissajous.meta';
 import meta_R08 from '../../effects/pattern/R08_phyllotaxis.meta';
 import meta_R10 from '../../effects/pattern/R10_stripe-shift.meta';
 import meta_R11 from '../../effects/pattern/R11_checker-flip.meta';
+import meta_R12 from '../../effects/pattern/R12_hex-grid-pulse.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
 import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
 import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
@@ -123,6 +127,7 @@ import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
 import meta_U03 from '../../effects/ui/U03_loading-spinner.meta';
 import meta_U04 from '../../effects/ui/U04_skeleton-shimmer.meta';
+import meta_U09 from '../../effects/ui/U09_keyboard-press.meta';
 import meta_V01 from '../../effects/data/V01_bar-race.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
@@ -214,6 +219,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M02, effectPath: 'effects/mask/M02_gradient-wipe.effect.tsx', load: () => import('../../effects/mask/M02_gradient-wipe.effect') },
   { meta: meta_M03, effectPath: 'effects/mask/M03_text-knockout.effect.tsx', load: () => import('../../effects/mask/M03_text-knockout.effect') },
+  { meta: meta_M04, effectPath: 'effects/mask/M04_alpha-matte.effect.tsx', load: () => import('../../effects/mask/M04_alpha-matte.effect') },
   { meta: meta_M05, effectPath: 'effects/mask/M05_spotlight-mask.effect.tsx', load: () => import('../../effects/mask/M05_spotlight-mask.effect') },
   { meta: meta_M09, effectPath: 'effects/mask/M09_radial-unveil.effect.tsx', load: () => import('../../effects/mask/M09_radial-unveil.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
@@ -221,6 +227,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_N02, effectPath: 'effects/nature/N02_smoke-plume.effect.ts', load: () => import('../../effects/nature/N02_smoke-plume.effect') },
   { meta: meta_N03, effectPath: 'effects/nature/N03_water-surface.effect.ts', load: () => import('../../effects/nature/N03_water-surface.effect') },
   { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
+  { meta: meta_N06, effectPath: 'effects/nature/N06_wind-grass.effect.tsx', load: () => import('../../effects/nature/N06_wind-grass.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
@@ -233,6 +240,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P10, effectPath: 'effects/particle/P10_orbit-ring.effect.ts', load: () => import('../../effects/particle/P10_orbit-ring.effect') },
   { meta: meta_P11, effectPath: 'effects/particle/P11_trail-emitter.effect.ts', load: () => import('../../effects/particle/P11_trail-emitter.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
+  { meta: meta_Q04, effectPath: 'effects/liquid/Q04_viscous-drip.effect.tsx', load: () => import('../../effects/liquid/Q04_viscous-drip.effect') },
   { meta: meta_Q08, effectPath: 'effects/liquid/Q08_gel-wobble.effect.tsx', load: () => import('../../effects/liquid/Q08_gel-wobble.effect') },
   { meta: meta_Q10, effectPath: 'effects/liquid/Q10_liquid-fill.effect.tsx', load: () => import('../../effects/liquid/Q10_liquid-fill.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
@@ -241,6 +249,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_R08, effectPath: 'effects/pattern/R08_phyllotaxis.effect.ts', load: () => import('../../effects/pattern/R08_phyllotaxis.effect') },
   { meta: meta_R10, effectPath: 'effects/pattern/R10_stripe-shift.effect.tsx', load: () => import('../../effects/pattern/R10_stripe-shift.effect') },
   { meta: meta_R11, effectPath: 'effects/pattern/R11_checker-flip.effect.tsx', load: () => import('../../effects/pattern/R11_checker-flip.effect') },
+  { meta: meta_R12, effectPath: 'effects/pattern/R12_hex-grid-pulse.effect.tsx', load: () => import('../../effects/pattern/R12_hex-grid-pulse.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
   { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
   { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
@@ -275,6 +284,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
   { meta: meta_U03, effectPath: 'effects/ui/U03_loading-spinner.effect.tsx', load: () => import('../../effects/ui/U03_loading-spinner.effect') },
   { meta: meta_U04, effectPath: 'effects/ui/U04_skeleton-shimmer.effect.tsx', load: () => import('../../effects/ui/U04_skeleton-shimmer.effect') },
+  { meta: meta_U09, effectPath: 'effects/ui/U09_keyboard-press.effect.tsx', load: () => import('../../effects/ui/U09_keyboard-press.effect') },
   { meta: meta_V01, effectPath: 'effects/data/V01_bar-race.effect.tsx', load: () => import('../../effects/data/V01_bar-race.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
