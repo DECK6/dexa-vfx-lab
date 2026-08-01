@@ -1,6 +1,6 @@
 # PROGRESS
 phase: W1
-last-update: 2026-08-01T11:24
+last-update: 2026-08-01T11:25
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -9,6 +9,15 @@ last-update: 2026-08-01T11:24
 - Track C: ✅ 완료·검수 통과·master 머지 (verify는 bun 런타임 필요 — node는 확장자 없는 TS import 불가)
 - 검수 스위트(playwright smoke + __vfx 훅 계약) = 오케스트레이터 작성 완료
 - 통합·게이트 실행 = 오케스트레이터
+
+## W1 배치 발주 (08-01)
+| 배치 | 워크트리 | 잡 | 이펙트 |
+|---|---|---|---|
+| B1 | wt-a | task-ms9r1kml-v33s65 | T01 T02 T04 V02 U01 |
+| B2 | wt-b | task-ms9r1ktp-kxyfpw | L01 S01 S02 S04 V03 |
+| B3 | wt-c | task-ms9r1l1f-zcepb7 | G01 S03 R13 L02 L03 M01 |
+| B4 | wt-d | task-ms9r1l9g-w7mfcy | X01 X02 X03 C01 C03 |
+| B5 | wt-e | task-ms9r1ljb-y4zgkt | G02 G03 |
 
 ## 이펙트 상태 (구현 완료된 것만 기록, 나머지는 미착수로 간주)
 | ID | 상태 | 비고 |
