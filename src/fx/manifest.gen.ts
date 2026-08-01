@@ -49,6 +49,9 @@ import meta_S03 from '../../effects/shape/S03_grid-wave.meta';
 import meta_S04 from '../../effects/shape/S04_radar-sweep.meta';
 import meta_S05 from '../../effects/shape/S05_polygon-rotate.meta';
 import meta_S09 from '../../effects/shape/S09_spiral-unfold.meta';
+import meta_S12 from '../../effects/shape/S12_dash-march.meta';
+import meta_S13 from '../../effects/shape/S13_corner-trace.meta';
+import meta_S14 from '../../effects/shape/S14_concentric-pulse.meta';
 import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
 import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
 import meta_T03 from '../../effects/type/T03_odometer-roll.meta';
@@ -64,6 +67,8 @@ import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
 import meta_X02 from '../../effects/trans/X02_slice-shuffle.meta';
 import meta_X03 from '../../effects/trans/X03_zoom-punch.meta';
+import meta_X04 from '../../effects/trans/X04_ink-bleed.meta';
+import meta_X05 from '../../effects/trans/X05_push-slide.meta';
 import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
 import meta_X08 from '../../effects/trans/X08_blinds.meta';
 import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
@@ -126,6 +131,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_S04, effectPath: 'effects/shape/S04_radar-sweep.effect.tsx', load: () => import('../../effects/shape/S04_radar-sweep.effect') },
   { meta: meta_S05, effectPath: 'effects/shape/S05_polygon-rotate.effect.tsx', load: () => import('../../effects/shape/S05_polygon-rotate.effect') },
   { meta: meta_S09, effectPath: 'effects/shape/S09_spiral-unfold.effect.tsx', load: () => import('../../effects/shape/S09_spiral-unfold.effect') },
+  { meta: meta_S12, effectPath: 'effects/shape/S12_dash-march.effect.tsx', load: () => import('../../effects/shape/S12_dash-march.effect') },
+  { meta: meta_S13, effectPath: 'effects/shape/S13_corner-trace.effect.tsx', load: () => import('../../effects/shape/S13_corner-trace.effect') },
+  { meta: meta_S14, effectPath: 'effects/shape/S14_concentric-pulse.effect.tsx', load: () => import('../../effects/shape/S14_concentric-pulse.effect') },
   { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
   { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
   { meta: meta_T03, effectPath: 'effects/type/T03_odometer-roll.effect.tsx', load: () => import('../../effects/type/T03_odometer-roll.effect') },
@@ -141,6 +149,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
   { meta: meta_X02, effectPath: 'effects/trans/X02_slice-shuffle.effect.tsx', load: () => import('../../effects/trans/X02_slice-shuffle.effect') },
   { meta: meta_X03, effectPath: 'effects/trans/X03_zoom-punch.effect.tsx', load: () => import('../../effects/trans/X03_zoom-punch.effect') },
+  { meta: meta_X04, effectPath: 'effects/trans/X04_ink-bleed.effect.tsx', load: () => import('../../effects/trans/X04_ink-bleed.effect') },
+  { meta: meta_X05, effectPath: 'effects/trans/X05_push-slide.effect.tsx', load: () => import('../../effects/trans/X05_push-slide.effect') },
   { meta: meta_X06, effectPath: 'effects/trans/X06_clock-wipe.effect.tsx', load: () => import('../../effects/trans/X06_clock-wipe.effect') },
   { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
   { meta: meta_X13, effectPath: 'effects/trans/X13_cube-rotate.effect.tsx', load: () => import('../../effects/trans/X13_cube-rotate.effect') },
