@@ -11,6 +11,14 @@ import meta_A07 from '../../effects/audio/A07_waveform-line.meta';
 import meta_A08 from '../../effects/audio/A08_frequency-rings.meta';
 import meta_A09 from '../../effects/audio/A09_amplitude-warp.meta';
 import meta_A10 from '../../effects/audio/A10_beat-cut.meta';
+import meta_B01 from '../../effects/broadcast/B01_lower-third-slide.meta';
+import meta_B02 from '../../effects/broadcast/B02_lower-third-glass.meta';
+import meta_B03 from '../../effects/broadcast/B03_lower-third-wipe.meta';
+import meta_B04 from '../../effects/broadcast/B04_lower-third-stack.meta';
+import meta_B05 from '../../effects/broadcast/B05_title-card.meta';
+import meta_B06 from '../../effects/broadcast/B06_caption-pop.meta';
+import meta_B07 from '../../effects/broadcast/B07_callout-line.meta';
+import meta_B08 from '../../effects/broadcast/B08_score-bug.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -255,6 +263,12 @@ import meta_Z03 from '../../effects/screen/Z03_split-flap.meta';
 import meta_Z04 from '../../effects/screen/Z04_nixie-tube.meta';
 import meta_Z05 from '../../effects/screen/Z05_eink-refresh.meta';
 import meta_Z06 from '../../effects/screen/Z06_hologram-project.meta';
+import meta_Z07 from '../../effects/screen/Z07_teletext.meta';
+import meta_Z08 from '../../effects/screen/Z08_ticker-marquee.meta';
+import meta_Z09 from '../../effects/screen/Z09_vfd-display.meta';
+import meta_Z10 from '../../effects/screen/Z10_crt-terminal.meta';
+import meta_Z11 from '../../effects/screen/Z11_lcd-subpixel.meta';
+import meta_Z12 from '../../effects/screen/Z12_dot-flip.meta';
 import meta_Z13 from '../../effects/screen/Z13_stadium-board.meta';
 import meta_Z14 from '../../effects/screen/Z14_scope-xy.meta';
 import meta_Z15 from '../../effects/screen/Z15_price-board.meta';
@@ -278,6 +292,14 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_A08, effectPath: 'effects/audio/A08_frequency-rings.effect.ts', load: () => import('../../effects/audio/A08_frequency-rings.effect') },
   { meta: meta_A09, effectPath: 'effects/audio/A09_amplitude-warp.effect.ts', load: () => import('../../effects/audio/A09_amplitude-warp.effect') },
   { meta: meta_A10, effectPath: 'effects/audio/A10_beat-cut.effect.tsx', load: () => import('../../effects/audio/A10_beat-cut.effect') },
+  { meta: meta_B01, effectPath: 'effects/broadcast/B01_lower-third-slide.effect.tsx', load: () => import('../../effects/broadcast/B01_lower-third-slide.effect') },
+  { meta: meta_B02, effectPath: 'effects/broadcast/B02_lower-third-glass.effect.tsx', load: () => import('../../effects/broadcast/B02_lower-third-glass.effect') },
+  { meta: meta_B03, effectPath: 'effects/broadcast/B03_lower-third-wipe.effect.tsx', load: () => import('../../effects/broadcast/B03_lower-third-wipe.effect') },
+  { meta: meta_B04, effectPath: 'effects/broadcast/B04_lower-third-stack.effect.tsx', load: () => import('../../effects/broadcast/B04_lower-third-stack.effect') },
+  { meta: meta_B05, effectPath: 'effects/broadcast/B05_title-card.effect.tsx', load: () => import('../../effects/broadcast/B05_title-card.effect') },
+  { meta: meta_B06, effectPath: 'effects/broadcast/B06_caption-pop.effect.tsx', load: () => import('../../effects/broadcast/B06_caption-pop.effect') },
+  { meta: meta_B07, effectPath: 'effects/broadcast/B07_callout-line.effect.tsx', load: () => import('../../effects/broadcast/B07_callout-line.effect') },
+  { meta: meta_B08, effectPath: 'effects/broadcast/B08_score-bug.effect.tsx', load: () => import('../../effects/broadcast/B08_score-bug.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
@@ -522,6 +544,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_Z04, effectPath: 'effects/screen/Z04_nixie-tube.effect.tsx', load: () => import('../../effects/screen/Z04_nixie-tube.effect') },
   { meta: meta_Z05, effectPath: 'effects/screen/Z05_eink-refresh.effect.ts', load: () => import('../../effects/screen/Z05_eink-refresh.effect') },
   { meta: meta_Z06, effectPath: 'effects/screen/Z06_hologram-project.effect.tsx', load: () => import('../../effects/screen/Z06_hologram-project.effect') },
+  { meta: meta_Z07, effectPath: 'effects/screen/Z07_teletext.effect.ts', load: () => import('../../effects/screen/Z07_teletext.effect') },
+  { meta: meta_Z08, effectPath: 'effects/screen/Z08_ticker-marquee.effect.tsx', load: () => import('../../effects/screen/Z08_ticker-marquee.effect') },
+  { meta: meta_Z09, effectPath: 'effects/screen/Z09_vfd-display.effect.tsx', load: () => import('../../effects/screen/Z09_vfd-display.effect') },
+  { meta: meta_Z10, effectPath: 'effects/screen/Z10_crt-terminal.effect.ts', load: () => import('../../effects/screen/Z10_crt-terminal.effect') },
+  { meta: meta_Z11, effectPath: 'effects/screen/Z11_lcd-subpixel.effect.ts', load: () => import('../../effects/screen/Z11_lcd-subpixel.effect') },
+  { meta: meta_Z12, effectPath: 'effects/screen/Z12_dot-flip.effect.ts', load: () => import('../../effects/screen/Z12_dot-flip.effect') },
   { meta: meta_Z13, effectPath: 'effects/screen/Z13_stadium-board.effect.ts', load: () => import('../../effects/screen/Z13_stadium-board.effect') },
   { meta: meta_Z14, effectPath: 'effects/screen/Z14_scope-xy.effect.ts', load: () => import('../../effects/screen/Z14_scope-xy.effect') },
   { meta: meta_Z15, effectPath: 'effects/screen/Z15_price-board.effect.tsx', load: () => import('../../effects/screen/Z15_price-board.effect') },
