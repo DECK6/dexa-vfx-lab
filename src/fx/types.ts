@@ -69,7 +69,7 @@ export interface FxMeta {
   category: string;
   kind: FxKind;
   cost: FxCost;
-  wave: 1 | 2 | 3 | 4;
+  wave: 1 | 2 | 3 | 4 | 5;
   tags: string[];
   /** Simulation kernels (init/step/render). Drivers replay from frame 0 on seek. */
   stateful?: boolean;
