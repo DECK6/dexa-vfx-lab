@@ -20,7 +20,8 @@ uniform float u_frame;
 uniform float u_t;
 uniform float u_pixelSize;
 uniform float u_levels;
-uniform float u_amount;
+uniform float u_motionSpeed;
+uniform float u_motionIntensity;
 uniform vec3 u_signal;
 
 float bayer4(vec2 position) {
@@ -58,21 +59,25 @@ void main() {
   vec4 subject = texture2D(u_subject, clamp(sampleUv, 0.0, 1.0));
   float luminance = dot(subject.rgb, vec3(0.2126, 0.7152, 0.0722)) * subject.a;
   float steps = max(1.0, u_levels - 1.0);
-  float threshold = bayer4(logicalPixel) - 0.5;
-  threshold += sin(u_t * TAU) * 0.035;
-  float quantized = floor(clamp(luminance * steps + threshold * u_amount + 0.5, 0.0, steps)) / steps;
+  float phase = u_t * TAU * u_motionSpeed;
+  float patternFlow = u_t * 16.0 * u_motionSpeed;
+  float threshold = bayer4(logicalPixel + vec2(patternFlow)) - 0.5;
+  float brightnessSweep = sin((v_uv.x + v_uv.y) * TAU * 1.5 - phase);
+  threshold += brightnessSweep * u_motionIntensity * 0.65;
+  float quantized = floor(clamp(luminance * steps + threshold * u_motionIntensity + 0.5, 0.0, steps)) / steps;
 
   vec3 background = vec3(0.051, 0.055, 0.063);
   vec3 original = mix(background, subject.rgb, subject.a);
   vec3 dithered = mix(background, u_signal, quantized);
-  vec3 color = mix(original, dithered, u_amount);
+  vec3 color = mix(original, dithered, 0.55 + u_motionIntensity * 0.45);
   gl_FragColor = vec4(color, 1.0);
 }
 `,
     uniforms: (ctx) => ({
       u_pixelSize: Math.min(10, Math.max(1, Math.round(Number(ctx.params.pixelSize ?? 3)))),
       u_levels: Math.min(8, Math.max(2, Math.round(Number(ctx.params.levels ?? 4)))),
-      u_amount: Math.min(1, Math.max(0, Number(ctx.params.amount ?? 0.88))),
+      u_motionSpeed: Math.min(3, Math.max(1, Math.round(Number(ctx.params.motionSpeed ?? 1)))),
+      u_motionIntensity: Math.min(1, Math.max(0.2, Number(ctx.params.motionIntensity ?? 0.85))),
       u_signal: colorToRgb(ctx.params.signal),
     }),
   },

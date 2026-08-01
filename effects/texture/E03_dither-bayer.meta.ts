@@ -12,7 +12,8 @@ const meta = {
   params: {
     pixelSize: { type: 'range', min: 1, max: 10, step: 1, default: 3, label: 'PIXEL SIZE' },
     levels: { type: 'range', min: 2, max: 8, step: 1, default: 4, label: 'LEVELS' },
-    amount: { type: 'range', min: 0, max: 1, step: 0.01, default: 0.88, label: 'AMOUNT' },
+    motionSpeed: { type: 'range', min: 1, max: 3, step: 1, default: 1, label: 'MOTION SPEED' },
+    motionIntensity: { type: 'range', min: 0.2, max: 1, step: 0.05, default: 0.85, label: 'MOTION INTENSITY' },
     signal: { type: 'color', default: '#5EE7F3', label: 'SIGNAL' },
   },
 } satisfies FxMeta;
