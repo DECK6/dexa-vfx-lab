@@ -245,6 +245,12 @@ import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
 import meta_X15 from '../../effects/trans/X15_luma-wipe.meta';
 import meta_X16 from '../../effects/trans/X16_split-open.meta';
+import meta_Z01 from '../../effects/screen/Z01_led-matrix.meta';
+import meta_Z02 from '../../effects/screen/Z02_seven-segment.meta';
+import meta_Z03 from '../../effects/screen/Z03_split-flap.meta';
+import meta_Z04 from '../../effects/screen/Z04_nixie-tube.meta';
+import meta_Z05 from '../../effects/screen/Z05_eink-refresh.meta';
+import meta_Z06 from '../../effects/screen/Z06_hologram-project.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -498,4 +504,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
   { meta: meta_X15, effectPath: 'effects/trans/X15_luma-wipe.effect.ts', load: () => import('../../effects/trans/X15_luma-wipe.effect') },
   { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
+  { meta: meta_Z01, effectPath: 'effects/screen/Z01_led-matrix.effect.ts', load: () => import('../../effects/screen/Z01_led-matrix.effect') },
+  { meta: meta_Z02, effectPath: 'effects/screen/Z02_seven-segment.effect.tsx', load: () => import('../../effects/screen/Z02_seven-segment.effect') },
+  { meta: meta_Z03, effectPath: 'effects/screen/Z03_split-flap.effect.tsx', load: () => import('../../effects/screen/Z03_split-flap.effect') },
+  { meta: meta_Z04, effectPath: 'effects/screen/Z04_nixie-tube.effect.tsx', load: () => import('../../effects/screen/Z04_nixie-tube.effect') },
+  { meta: meta_Z05, effectPath: 'effects/screen/Z05_eink-refresh.effect.ts', load: () => import('../../effects/screen/Z05_eink-refresh.effect') },
+  { meta: meta_Z06, effectPath: 'effects/screen/Z06_hologram-project.effect.tsx', load: () => import('../../effects/screen/Z06_hologram-project.effect') },
 ];
