@@ -68,7 +68,9 @@ import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
 import meta_N01 from '../../effects/nature/N01_fire-flame.meta';
 import meta_N02 from '../../effects/nature/N02_smoke-plume.meta';
 import meta_N03 from '../../effects/nature/N03_water-surface.meta';
+import meta_N04 from '../../effects/nature/N04_cloud-drift.meta';
 import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
+import meta_N07 from '../../effects/nature/N07_aurora-wave.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
@@ -81,10 +83,12 @@ import meta_P09 from '../../effects/particle/P09_magnetic-field.meta';
 import meta_P10 from '../../effects/particle/P10_orbit-ring.meta';
 import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
+import meta_Q02 from '../../effects/liquid/Q02_ink-diffuse.meta';
 import meta_Q08 from '../../effects/liquid/Q08_gel-wobble.meta';
 import meta_Q10 from '../../effects/liquid/Q10_liquid-fill.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
 import meta_R05 from '../../effects/pattern/R05_moire-interference.meta';
+import meta_R06 from '../../effects/pattern/R06_wave-interference.meta';
 import meta_R07 from '../../effects/pattern/R07_lissajous.meta';
 import meta_R08 from '../../effects/pattern/R08_phyllotaxis.meta';
 import meta_R10 from '../../effects/pattern/R10_stripe-shift.meta';
@@ -220,7 +224,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_N01, effectPath: 'effects/nature/N01_fire-flame.effect.ts', load: () => import('../../effects/nature/N01_fire-flame.effect') },
   { meta: meta_N02, effectPath: 'effects/nature/N02_smoke-plume.effect.ts', load: () => import('../../effects/nature/N02_smoke-plume.effect') },
   { meta: meta_N03, effectPath: 'effects/nature/N03_water-surface.effect.ts', load: () => import('../../effects/nature/N03_water-surface.effect') },
+  { meta: meta_N04, effectPath: 'effects/nature/N04_cloud-drift.effect.ts', load: () => import('../../effects/nature/N04_cloud-drift.effect') },
   { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
+  { meta: meta_N07, effectPath: 'effects/nature/N07_aurora-wave.effect.ts', load: () => import('../../effects/nature/N07_aurora-wave.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
@@ -233,10 +239,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P10, effectPath: 'effects/particle/P10_orbit-ring.effect.ts', load: () => import('../../effects/particle/P10_orbit-ring.effect') },
   { meta: meta_P11, effectPath: 'effects/particle/P11_trail-emitter.effect.ts', load: () => import('../../effects/particle/P11_trail-emitter.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
+  { meta: meta_Q02, effectPath: 'effects/liquid/Q02_ink-diffuse.effect.ts', load: () => import('../../effects/liquid/Q02_ink-diffuse.effect') },
   { meta: meta_Q08, effectPath: 'effects/liquid/Q08_gel-wobble.effect.tsx', load: () => import('../../effects/liquid/Q08_gel-wobble.effect') },
   { meta: meta_Q10, effectPath: 'effects/liquid/Q10_liquid-fill.effect.tsx', load: () => import('../../effects/liquid/Q10_liquid-fill.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
   { meta: meta_R05, effectPath: 'effects/pattern/R05_moire-interference.effect.tsx', load: () => import('../../effects/pattern/R05_moire-interference.effect') },
+  { meta: meta_R06, effectPath: 'effects/pattern/R06_wave-interference.effect.ts', load: () => import('../../effects/pattern/R06_wave-interference.effect') },
   { meta: meta_R07, effectPath: 'effects/pattern/R07_lissajous.effect.tsx', load: () => import('../../effects/pattern/R07_lissajous.effect') },
   { meta: meta_R08, effectPath: 'effects/pattern/R08_phyllotaxis.effect.ts', load: () => import('../../effects/pattern/R08_phyllotaxis.effect') },
   { meta: meta_R10, effectPath: 'effects/pattern/R10_stripe-shift.effect.tsx', load: () => import('../../effects/pattern/R10_stripe-shift.effect') },
