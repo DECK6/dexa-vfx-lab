@@ -16,9 +16,13 @@ import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
 import meta_G04 from '../../effects/glitch/G04_signal-loss.meta';
 import meta_G05 from '../../effects/glitch/G05_vhs-tracking.meta';
+import meta_G10 from '../../effects/glitch/G10_ghost-echo.meta';
+import meta_G12 from '../../effects/glitch/G12_sync-roll.meta';
+import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
+import meta_L06 from '../../effects/light/L06_light-leak.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
@@ -41,6 +45,7 @@ import meta_T05 from '../../effects/type/T05_typewriter-caret.meta';
 import meta_T06 from '../../effects/type/T06_word-cascade.meta';
 import meta_T09 from '../../effects/type/T09_char-flip-3d.meta';
 import meta_T10 from '../../effects/type/T10_highlight-sweep.meta';
+import meta_T15 from '../../effects/type/T15_wave-text.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
@@ -71,9 +76,13 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
   { meta: meta_G04, effectPath: 'effects/glitch/G04_signal-loss.effect.ts', load: () => import('../../effects/glitch/G04_signal-loss.effect') },
   { meta: meta_G05, effectPath: 'effects/glitch/G05_vhs-tracking.effect.ts', load: () => import('../../effects/glitch/G05_vhs-tracking.effect') },
+  { meta: meta_G10, effectPath: 'effects/glitch/G10_ghost-echo.effect.tsx', load: () => import('../../effects/glitch/G10_ghost-echo.effect') },
+  { meta: meta_G12, effectPath: 'effects/glitch/G12_sync-roll.effect.tsx', load: () => import('../../effects/glitch/G12_sync-roll.effect') },
+  { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
+  { meta: meta_L06, effectPath: 'effects/light/L06_light-leak.effect.tsx', load: () => import('../../effects/light/L06_light-leak.effect') },
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
@@ -96,6 +105,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T06, effectPath: 'effects/type/T06_word-cascade.effect.tsx', load: () => import('../../effects/type/T06_word-cascade.effect') },
   { meta: meta_T09, effectPath: 'effects/type/T09_char-flip-3d.effect.tsx', load: () => import('../../effects/type/T09_char-flip-3d.effect') },
   { meta: meta_T10, effectPath: 'effects/type/T10_highlight-sweep.effect.tsx', load: () => import('../../effects/type/T10_highlight-sweep.effect') },
+  { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
