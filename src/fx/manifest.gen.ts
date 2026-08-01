@@ -30,10 +30,12 @@ import meta_D08 from '../../effects/distort/D08_melt-drip.meta';
 import meta_D09 from '../../effects/distort/D09_turbulent-noise.meta';
 import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_D12 from '../../effects/distort/D12_kaleidoscope.meta';
+import meta_D14 from '../../effects/distort/D14_time-displace.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
 import meta_E04 from '../../effects/texture/E04_paper-fiber.meta';
+import meta_E05 from '../../effects/texture/E05_scan-print.meta';
 import meta_E06 from '../../effects/texture/E06_duotone-map.meta';
 import meta_E07 from '../../effects/texture/E07_posterize-step.meta';
 import meta_E08 from '../../effects/texture/E08_cross-hatch.meta';
@@ -88,6 +90,7 @@ import meta_N04 from '../../effects/nature/N04_cloud-drift.meta';
 import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
 import meta_N06 from '../../effects/nature/N06_wind-grass.meta';
 import meta_N07 from '../../effects/nature/N07_aurora-wave.meta';
+import meta_N08 from '../../effects/nature/N08_lightning-storm.meta';
 import meta_N10 from '../../effects/nature/N10_bubble-rise.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
@@ -100,6 +103,8 @@ import meta_P08 from '../../effects/particle/P08_swarm-flock.meta';
 import meta_P09 from '../../effects/particle/P09_magnetic-field.meta';
 import meta_P10 from '../../effects/particle/P10_orbit-ring.meta';
 import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
+import meta_P12 from '../../effects/particle/P12_explosion-debris.meta';
+import meta_P13 from '../../effects/particle/P13_attract-repel.meta';
 import meta_P14 from '../../effects/particle/P14_point-cloud-form.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_Q02 from '../../effects/liquid/Q02_ink-diffuse.meta';
@@ -223,10 +228,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_D09, effectPath: 'effects/distort/D09_turbulent-noise.effect.ts', load: () => import('../../effects/distort/D09_turbulent-noise.effect') },
   { meta: meta_D11, effectPath: 'effects/distort/D11_mirror-fold.effect.ts', load: () => import('../../effects/distort/D11_mirror-fold.effect') },
   { meta: meta_D12, effectPath: 'effects/distort/D12_kaleidoscope.effect.ts', load: () => import('../../effects/distort/D12_kaleidoscope.effect') },
+  { meta: meta_D14, effectPath: 'effects/distort/D14_time-displace.effect.ts', load: () => import('../../effects/distort/D14_time-displace.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
   { meta: meta_E04, effectPath: 'effects/texture/E04_paper-fiber.effect.ts', load: () => import('../../effects/texture/E04_paper-fiber.effect') },
+  { meta: meta_E05, effectPath: 'effects/texture/E05_scan-print.effect.ts', load: () => import('../../effects/texture/E05_scan-print.effect') },
   { meta: meta_E06, effectPath: 'effects/texture/E06_duotone-map.effect.tsx', load: () => import('../../effects/texture/E06_duotone-map.effect') },
   { meta: meta_E07, effectPath: 'effects/texture/E07_posterize-step.effect.ts', load: () => import('../../effects/texture/E07_posterize-step.effect') },
   { meta: meta_E08, effectPath: 'effects/texture/E08_cross-hatch.effect.ts', load: () => import('../../effects/texture/E08_cross-hatch.effect') },
@@ -281,6 +288,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
   { meta: meta_N06, effectPath: 'effects/nature/N06_wind-grass.effect.tsx', load: () => import('../../effects/nature/N06_wind-grass.effect') },
   { meta: meta_N07, effectPath: 'effects/nature/N07_aurora-wave.effect.ts', load: () => import('../../effects/nature/N07_aurora-wave.effect') },
+  { meta: meta_N08, effectPath: 'effects/nature/N08_lightning-storm.effect.ts', load: () => import('../../effects/nature/N08_lightning-storm.effect') },
   { meta: meta_N10, effectPath: 'effects/nature/N10_bubble-rise.effect.ts', load: () => import('../../effects/nature/N10_bubble-rise.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
@@ -293,6 +301,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P09, effectPath: 'effects/particle/P09_magnetic-field.effect.ts', load: () => import('../../effects/particle/P09_magnetic-field.effect') },
   { meta: meta_P10, effectPath: 'effects/particle/P10_orbit-ring.effect.ts', load: () => import('../../effects/particle/P10_orbit-ring.effect') },
   { meta: meta_P11, effectPath: 'effects/particle/P11_trail-emitter.effect.ts', load: () => import('../../effects/particle/P11_trail-emitter.effect') },
+  { meta: meta_P12, effectPath: 'effects/particle/P12_explosion-debris.effect.ts', load: () => import('../../effects/particle/P12_explosion-debris.effect') },
+  { meta: meta_P13, effectPath: 'effects/particle/P13_attract-repel.effect.ts', load: () => import('../../effects/particle/P13_attract-repel.effect') },
   { meta: meta_P14, effectPath: 'effects/particle/P14_point-cloud-form.effect.ts', load: () => import('../../effects/particle/P14_point-cloud-form.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_Q02, effectPath: 'effects/liquid/Q02_ink-diffuse.effect.ts', load: () => import('../../effects/liquid/Q02_ink-diffuse.effect') },
