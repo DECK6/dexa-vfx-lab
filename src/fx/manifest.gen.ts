@@ -7,6 +7,8 @@ import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
 import meta_D01 from '../../effects/distort/D01_displacement-wave.meta';
 import meta_D02 from '../../effects/distort/D02_ripple-circle.meta';
+import meta_D05 from '../../effects/distort/D05_wave-shear.meta';
+import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
@@ -23,9 +25,12 @@ import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_M12 from '../../effects/mask/M12_noise-dissolve.meta';
 import meta_N03 from '../../effects/nature/N03_water-surface.meta';
+import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
+import meta_P04 from '../../effects/particle/P04_dust-motes.meta';
+import meta_P06 from '../../effects/particle/P06_snow-fall.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
@@ -62,6 +67,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
   { meta: meta_D01, effectPath: 'effects/distort/D01_displacement-wave.effect.ts', load: () => import('../../effects/distort/D01_displacement-wave.effect') },
   { meta: meta_D02, effectPath: 'effects/distort/D02_ripple-circle.effect.ts', load: () => import('../../effects/distort/D02_ripple-circle.effect') },
+  { meta: meta_D05, effectPath: 'effects/distort/D05_wave-shear.effect.ts', load: () => import('../../effects/distort/D05_wave-shear.effect') },
+  { meta: meta_D11, effectPath: 'effects/distort/D11_mirror-fold.effect.ts', load: () => import('../../effects/distort/D11_mirror-fold.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
@@ -78,9 +85,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_M12, effectPath: 'effects/mask/M12_noise-dissolve.effect.ts', load: () => import('../../effects/mask/M12_noise-dissolve.effect') },
   { meta: meta_N03, effectPath: 'effects/nature/N03_water-surface.effect.ts', load: () => import('../../effects/nature/N03_water-surface.effect') },
+  { meta: meta_N05, effectPath: 'effects/nature/N05_rain-streak.effect.ts', load: () => import('../../effects/nature/N05_rain-streak.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
+  { meta: meta_P04, effectPath: 'effects/particle/P04_dust-motes.effect.ts', load: () => import('../../effects/particle/P04_dust-motes.effect') },
+  { meta: meta_P06, effectPath: 'effects/particle/P06_snow-fall.effect.ts', load: () => import('../../effects/particle/P06_snow-fall.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
