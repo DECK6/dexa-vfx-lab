@@ -53,6 +53,13 @@ const kernel = {
     g.fillRect(0, boundaryY, ctx.width, Math.max(1, stripeHeight * 0.28));
     g.globalAlpha = 1;
 
+    // Rolling resync line — keeps visible motion even while the failure envelope is near zero.
+    const rollY = ((ctx.t * 2) % 1) * ctx.height;
+    g.globalAlpha = 0.16;
+    g.fillStyle = signal;
+    g.fillRect(0, rollY, ctx.width, 2);
+    g.globalAlpha = 1;
+
     const panelWidth = Math.min(230, ctx.width * 0.58);
     g.fillStyle = '#0D0E10E8';
     g.fillRect(14, 12, panelWidth, 38);
@@ -64,7 +71,7 @@ const kernel = {
     g.fillText('HEADER CRC // DECODE FAIL', 24, 28);
     g.fillStyle = signal;
     g.font = '10px monospace';
-    g.fillText(`OFFSET ${Math.floor(failure * 65535).toString(16).toUpperCase().padStart(4, '0')}`, 24, 43);
+    g.fillText(`OFFSET ${((ctx.frame * 1103) % 65536).toString(16).toUpperCase().padStart(4, '0')}`, 24, 43);
   },
 } satisfies FxKernel;
 
