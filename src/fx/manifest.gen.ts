@@ -3,7 +3,12 @@ import type { FxKernel, FxMeta } from './types';
 
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
+import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
+import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
+import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
+import meta_S04 from '../../effects/shape/S04_radar-sweep.meta';
+import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -15,5 +20,10 @@ export interface ManifestEntry {
 export const manifest: ManifestEntry[] = [
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
+  { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
+  { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
+  { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
+  { meta: meta_S04, effectPath: 'effects/shape/S04_radar-sweep.effect.tsx', load: () => import('../../effects/shape/S04_radar-sweep.effect') },
+  { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
 ];
