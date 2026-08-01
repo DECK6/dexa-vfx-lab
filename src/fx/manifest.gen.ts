@@ -4,6 +4,11 @@ import type { FxKernel, FxMeta } from './types';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
+import meta_T01 from '../../effects/type/T01_kinetic-split.meta';
+import meta_T02 from '../../effects/type/T02_scramble-decode.meta';
+import meta_T04 from '../../effects/type/T04_mask-reveal.meta';
+import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
+import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -16,4 +21,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
+  { meta: meta_T01, effectPath: 'effects/type/T01_kinetic-split.effect.tsx', load: () => import('../../effects/type/T01_kinetic-split.effect') },
+  { meta: meta_T02, effectPath: 'effects/type/T02_scramble-decode.effect.tsx', load: () => import('../../effects/type/T02_scramble-decode.effect') },
+  { meta: meta_T04, effectPath: 'effects/type/T04_mask-reveal.effect.tsx', load: () => import('../../effects/type/T04_mask-reveal.effect') },
+  { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
+  { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
 ];
