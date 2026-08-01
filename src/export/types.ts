@@ -10,6 +10,10 @@ export interface FxExportInput {
   params: Record<string, unknown>;
   /** Raw source of the effect file (registry.loadSource) */
   kernelSource: string;
+  /** Repo-relative effect path. HyperFrames uses it to resolve generated JS. */
+  effectPath?: string;
+  /** Pre-transpiled CommonJS kernel, used by generator-independent fixtures. */
+  kernelJs?: string;
 }
 
 export interface FxExporter {
