@@ -3,7 +3,13 @@ import type { FxKernel, FxMeta } from './types';
 
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
+import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
+import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
+import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
+import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
+import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
+import meta_S03 from '../../effects/shape/S03_grid-wave.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -15,5 +21,11 @@ export interface ManifestEntry {
 export const manifest: ManifestEntry[] = [
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
+  { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
+  { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
+  { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
+  { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
+  { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
+  { meta: meta_S03, effectPath: 'effects/shape/S03_grid-wave.effect.tsx', load: () => import('../../effects/shape/S03_grid-wave.effect') },
 ];
