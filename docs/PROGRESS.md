@@ -1,6 +1,6 @@
 # PROGRESS
 phase: W1-GATE-DONE (사용자 배포 승인 대기)
-last-update: 2026-08-01T11:48
+last-update: 2026-08-01T11:50
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -25,6 +25,29 @@ last-update: 2026-08-01T11:48
 | C02 | pass | 레퍼런스(react). still·시각 검수 통과 |
 | E01 | pass | 레퍼런스(canvas 무상태). 그레인 시각 확인 |
 | P01 | pass | 레퍼런스(canvas stateful). 결정성 2회 렌더 바이트 동일 |
+| T01 | pass | B1. still·스모크·hyperframes 통과 |
+| T02 | pass | B1. still·스모크·hyperframes 통과 |
+| T04 | pass | B1. still·스모크·hyperframes 통과 |
+| V02 | pass | B1. still·스모크·hyperframes 통과 |
+| U01 | pass | B1. still·스모크·hyperframes 통과 |
+| L01 | pass | B2. still·스모크·hyperframes 통과 |
+| S01 | pass | B2. still·스모크·hyperframes 통과 |
+| S02 | pass | B2. still·스모크·hyperframes 통과 |
+| S04 | pass | B2. still·스모크·hyperframes 통과 |
+| V03 | pass | B2. still·스모크·hyperframes 통과 |
+| G01 | pass | B3. still·스모크·hyperframes 통과 |
+| S03 | pass | B3. still·스모크·hyperframes 통과 |
+| R13 | pass | B3. still·스모크·hyperframes 통과 |
+| L02 | pass | B3. still·스모크·hyperframes 통과 |
+| L03 | pass | B3. still·스모크·hyperframes 통과 |
+| M01 | pass | B3. still·스모크·hyperframes 통과 |
+| X01 | pass | B4. still·스모크·hyperframes 통과 |
+| X02 | pass | B4. still·스모크·hyperframes 통과 |
+| X03 | pass | B4. still·스모크·hyperframes 통과 |
+| C01 | pass | B4. still·스모크·hyperframes 통과 |
+| C03 | pass | B4. still·스모크·hyperframes 통과 |
+| G02 | pass | B5. still·스모크·hyperframes 통과 |
+| G03 | pass | B5. still·스모크·hyperframes 통과 |
 | G02 | pass | B5. still·시각·HF check·스모크 통과 |
 | G03 | pass | B5. still·시각·HF check·스모크 통과 |
 | T01 | pass | B1 |
@@ -48,6 +71,20 @@ last-update: 2026-08-01T11:48
 | L02 | pass | B3 |
 | L03 | pass | B3. 라벨 중복 코스메틱 백로그 |
 | M01 | pass | B3 |
+
+## W1 완료 게이트 (08-01)
+| 항목 | 결과 |
+|---|---|
+| 26/26 이펙트 pass | ✅ |
+| 스모크 전수 28/28 (3프레임 alive 체크로 강화) | ✅ |
+| HyperFrames check 26/26 | ✅ |
+| 썸네일 26장 | ✅ |
+| 갤러리 부하 QA (스크롤 스트레스, 에러 0, 가상화 동작) | ✅ |
+| 번들 QA (엔트리 341KB, remotion 런타임 0) | ✅ |
+| build + adxdeck/vfx 배포 카피 | ✅ |
+| adxdeck 커밋·푸시 | 사용자 승인 대기 |
+
+메모: T01은 글자 단위가 아닌 피사체 슬라이스 스태거로 구현됨(수용). X02/X03 대비 수정 1회(직접). G01 스모크 오탐 → 테스트 강화로 해소. kernel-js eager 맵이 엔트리에 포함 — W2에서 지연화 검토.
 
 ## 게이트 이력
 | 게이트 | 결과 | 일시 |
