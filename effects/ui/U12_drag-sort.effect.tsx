@@ -14,9 +14,9 @@ const kernel = {
     const items = ['SOURCE', 'MASK', 'SIGNAL', 'OUTPUT', 'ARCHIVE'];
 
     return (
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0D0E10', color: '#F5F8FA', fontFamily: 'Inter, sans-serif' }}>
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0D0E10', color: '#F5F8FA', fontFamily: "'JetBrains Mono', monospace" }}>
         <div style={{ position: 'absolute', inset: 0, opacity: 0.11, transform: 'scale(0.9)' }}>{ctx.subjectNode}</div>
-        <div style={{ position: 'absolute', left: '24%', right: '24%', top: '15%', height: rowGap * items.length }}>
+        <div data-layout-allow-overlap="" data-layout-allow-occlusion="" style={{ position: 'absolute', left: '24%', right: '24%', top: '15%', height: rowGap * items.length }}>
           {items.map((label, index) => {
             const isActive = index === activeIndex;
             const isDisplaced = index > activeIndex && index <= activeIndex + distance;
