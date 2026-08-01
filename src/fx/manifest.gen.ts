@@ -28,12 +28,15 @@ import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
 import meta_G04 from '../../effects/glitch/G04_signal-loss.meta';
 import meta_G05 from '../../effects/glitch/G05_vhs-tracking.meta';
+import meta_G08 from '../../effects/glitch/G08_bit-crush.meta';
 import meta_G10 from '../../effects/glitch/G10_ghost-echo.meta';
 import meta_G12 from '../../effects/glitch/G12_sync-roll.meta';
 import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
+import meta_L04 from '../../effects/light/L04_anamorphic-flare.meta';
+import meta_L05 from '../../effects/light/L05_god-rays.meta';
 import meta_L06 from '../../effects/light/L06_light-leak.meta';
 import meta_L09 from '../../effects/light/L09_strobe-cut.meta';
 import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
@@ -97,6 +100,7 @@ import meta_X04 from '../../effects/trans/X04_ink-bleed.meta';
 import meta_X05 from '../../effects/trans/X05_push-slide.meta';
 import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
 import meta_X08 from '../../effects/trans/X08_blinds.meta';
+import meta_X09 from '../../effects/trans/X09_pixelate-cross.meta';
 import meta_X12 from '../../effects/trans/X12_liquid-warp.meta';
 import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
@@ -138,12 +142,15 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
   { meta: meta_G04, effectPath: 'effects/glitch/G04_signal-loss.effect.ts', load: () => import('../../effects/glitch/G04_signal-loss.effect') },
   { meta: meta_G05, effectPath: 'effects/glitch/G05_vhs-tracking.effect.ts', load: () => import('../../effects/glitch/G05_vhs-tracking.effect') },
+  { meta: meta_G08, effectPath: 'effects/glitch/G08_bit-crush.effect.ts', load: () => import('../../effects/glitch/G08_bit-crush.effect') },
   { meta: meta_G10, effectPath: 'effects/glitch/G10_ghost-echo.effect.tsx', load: () => import('../../effects/glitch/G10_ghost-echo.effect') },
   { meta: meta_G12, effectPath: 'effects/glitch/G12_sync-roll.effect.tsx', load: () => import('../../effects/glitch/G12_sync-roll.effect') },
   { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
+  { meta: meta_L04, effectPath: 'effects/light/L04_anamorphic-flare.effect.ts', load: () => import('../../effects/light/L04_anamorphic-flare.effect') },
+  { meta: meta_L05, effectPath: 'effects/light/L05_god-rays.effect.ts', load: () => import('../../effects/light/L05_god-rays.effect') },
   { meta: meta_L06, effectPath: 'effects/light/L06_light-leak.effect.tsx', load: () => import('../../effects/light/L06_light-leak.effect') },
   { meta: meta_L09, effectPath: 'effects/light/L09_strobe-cut.effect.tsx', load: () => import('../../effects/light/L09_strobe-cut.effect') },
   { meta: meta_L12, effectPath: 'effects/light/L12_spotlight-track.effect.tsx', load: () => import('../../effects/light/L12_spotlight-track.effect') },
@@ -207,6 +214,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X05, effectPath: 'effects/trans/X05_push-slide.effect.tsx', load: () => import('../../effects/trans/X05_push-slide.effect') },
   { meta: meta_X06, effectPath: 'effects/trans/X06_clock-wipe.effect.tsx', load: () => import('../../effects/trans/X06_clock-wipe.effect') },
   { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
+  { meta: meta_X09, effectPath: 'effects/trans/X09_pixelate-cross.effect.ts', load: () => import('../../effects/trans/X09_pixelate-cross.effect') },
   { meta: meta_X12, effectPath: 'effects/trans/X12_liquid-warp.effect.ts', load: () => import('../../effects/trans/X12_liquid-warp.effect') },
   { meta: meta_X13, effectPath: 'effects/trans/X13_cube-rotate.effect.tsx', load: () => import('../../effects/trans/X13_cube-rotate.effect') },
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
