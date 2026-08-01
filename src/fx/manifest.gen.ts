@@ -3,6 +3,8 @@ import type { FxKernel, FxMeta } from './types';
 
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
+import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
+import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 
 export interface ManifestEntry {
@@ -15,5 +17,7 @@ export interface ManifestEntry {
 export const manifest: ManifestEntry[] = [
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
+  { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
+  { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
 ];
