@@ -11,10 +11,9 @@ const kernel = {
     const raw = Math.min(1, Math.max(0, (ctx.t - 0.12) / duration));
     const progress = raw * raw * (3 - 2 * raw);
     const outro = Math.min(1, Math.max(0, (1 - ctx.t) / 0.1));
-    const clipPath = direction === 'right'
-      ? `inset(0 0 0 ${(1 - progress) * 100}%)`
-      : `inset(0 ${(1 - progress) * 100}% 0 0)`;
     const textSize = Math.max(16, Math.min(ctx.width * 0.065, ctx.height * 0.2));
+    // Band is a translucent signal glow strip; text stays light throughout.
+    // (Checker resolves text backdrop from ancestors, so sibling-band inversion can't pass.)
 
     return (
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0D0E10' }}>
@@ -39,36 +38,29 @@ const kernel = {
           }}
         >
           <div
+            data-layout-allow-overlap=""
+            data-layout-allow-occlusion=""
             style={{
               position: 'absolute',
               left: '-3%',
               right: '-3%',
               top: `${50 - thickness * 37}%`,
               height: `${thickness * 74}%`,
-              clipPath,
+              clipPath: direction === 'right'
+                ? `inset(0 0 0 ${(1 - progress) * 100}%)`
+                : `inset(0 ${(1 - progress) * 100}% 0 0)`,
+              background: `${signal}2E`,
+              borderTop: `2px solid ${signal}`,
+              borderBottom: `2px solid ${signal}`,
+              transform: `skewX(-8deg) rotate(${direction === 'right' ? 1.2 : -1.2}deg)`,
+              boxShadow: `0 0 26px ${signal}66, inset 0 0 18px ${signal}40`,
             }}
-          >
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: signal,
-                opacity: 0.68,
-                transform: `skewX(-8deg) rotate(${direction === 'right' ? 1.2 : -1.2}deg)`,
-                boxShadow: `0 0 20px ${signal}52`,
-              }}
-            />
-          </div>
-          <div style={{ position: 'relative', color: '#E7EBEF', textShadow: '0 2px 2px #0D0E10A6' }}>
-            {phrase}
-          </div>
+          />
           <div
             style={{
-              position: 'absolute',
-              inset: 0,
-              color: '#0D0E10',
-              clipPath,
-              opacity: 0.86,
+              position: 'relative',
+              color: '#E7EBEF',
+              textShadow: '0 2px 3px #0D0E10C0',
             }}
           >
             {phrase}
