@@ -1,6 +1,6 @@
 # PROGRESS
-phase: W2-GATE-DONE (배포 승인 대기) → W3 준비
-last-update: 2026-08-01T12:47
+phase: W3 (라운드1/4 발주 중 · W1+W2 배포 승인 대기)
+last-update: 2026-08-01T12:49
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -25,6 +25,11 @@ last-update: 2026-08-01T12:47
 - 검수 중 exporter 3픽스: webgl 표준 uniform+subject 텍스처+preserveDrawingBuffer, 오디오 인라인, 스니펫 subject 캐논화
 - 배치 계획: docs/BATCHES_W2.md (15배치). 라운드1 발주: GL1(wt-a) GL2(wt-b) CV1(wt-c) CV2(wt-d) RX1(wt-e)
 - Codex 샌드박스 제약 확정: 브라우저·네트워크 게이트 불가 → 배치 검증은 gen/lint/typecheck까지, 렌더·HF·스모크는 오케스트레이터
+
+## W3 진행 (08-01)
+- 배치 계획: docs/BATCHES_W3.md — 17배치(GL 5 · CV 6 · RX 6), 76종
+- 라운드1 발주: 3GL1(wt-a) 3GL2(wt-b) 3CV1(wt-c) 3CV2(wt-d) 3RX1(wt-e)
+- 배치 템플릿에 모션 가시성 규칙(지오메트리/픽셀 변화 필수) + GL 무상태 근사 규칙 반영
 
 ## 이펙트 상태 (구현 완료된 것만 기록, 나머지는 미착수로 간주)
 | ID | 상태 | 비고 |
