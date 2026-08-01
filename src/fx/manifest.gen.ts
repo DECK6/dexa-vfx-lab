@@ -103,6 +103,31 @@ import meta_N09 from '../../effects/nature/N09_sand-flow.meta';
 import meta_N10 from '../../effects/nature/N10_bubble-rise.meta';
 import meta_N11 from '../../effects/nature/N11_crystal-grow.meta';
 import meta_N12 from '../../effects/nature/N12_erosion-fade.meta';
+import meta_O01 from '../../effects/motion/O01_pop-in.meta';
+import meta_O02 from '../../effects/motion/O02_drop-bounce.meta';
+import meta_O03 from '../../effects/motion/O03_swing-in.meta';
+import meta_O04 from '../../effects/motion/O04_flip-reveal.meta';
+import meta_O05 from '../../effects/motion/O05_slide-snap.meta';
+import meta_O06 from '../../effects/motion/O06_fold-unfold.meta';
+import meta_O07 from '../../effects/motion/O07_focus-pop.meta';
+import meta_O08 from '../../effects/motion/O08_peel-in.meta';
+import meta_O09 from '../../effects/motion/O09_jelly-wobble.meta';
+import meta_O10 from '../../effects/motion/O10_pendulum-swing.meta';
+import meta_O11 from '../../effects/motion/O11_spring-chain.meta';
+import meta_O12 from '../../effects/motion/O12_gravity-toss.meta';
+import meta_O13 from '../../effects/motion/O13_magnetic-snap.meta';
+import meta_O14 from '../../effects/motion/O14_rubber-band.meta';
+import meta_O15 from '../../effects/motion/O15_inertia-drift.meta';
+import meta_O16 from '../../effects/motion/O16_float-hover.meta';
+import meta_O17 from '../../effects/motion/O17_breathe-pulse.meta';
+import meta_O18 from '../../effects/motion/O18_self-orbit.meta';
+import meta_O19 from '../../effects/motion/O19_tilt-sway.meta';
+import meta_O20 from '../../effects/motion/O20_heartbeat.meta';
+import meta_O21 from '../../effects/motion/O21_attention-shake.meta';
+import meta_O22 from '../../effects/motion/O22_tada-burst.meta';
+import meta_O23 from '../../effects/motion/O23_stamp-slam.meta';
+import meta_O24 from '../../effects/motion/O24_ring-focus.meta';
+import meta_O25 from '../../effects/motion/O25_glitch-pop.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
@@ -173,6 +198,11 @@ import meta_T13 from '../../effects/type/T13_outline-fill.meta';
 import meta_T14 from '../../effects/type/T14_letter-explode.meta';
 import meta_T15 from '../../effects/type/T15_wave-text.meta';
 import meta_T16 from '../../effects/type/T16_justify-snap.meta';
+import meta_T17 from '../../effects/type/T17_char-bounce-wave.meta';
+import meta_T18 from '../../effects/type/T18_char-swarm-assemble.meta';
+import meta_T19 from '../../effects/type/T19_word-swap-roll.meta';
+import meta_T20 from '../../effects/type/T20_char-gravity-fall.meta';
+import meta_T21 from '../../effects/type/T21_elastic-tracking.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
 import meta_U02 from '../../effects/ui/U02_toggle-switch.meta';
 import meta_U03 from '../../effects/ui/U03_loading-spinner.meta';
@@ -326,6 +356,31 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_N10, effectPath: 'effects/nature/N10_bubble-rise.effect.ts', load: () => import('../../effects/nature/N10_bubble-rise.effect') },
   { meta: meta_N11, effectPath: 'effects/nature/N11_crystal-grow.effect.ts', load: () => import('../../effects/nature/N11_crystal-grow.effect') },
   { meta: meta_N12, effectPath: 'effects/nature/N12_erosion-fade.effect.ts', load: () => import('../../effects/nature/N12_erosion-fade.effect') },
+  { meta: meta_O01, effectPath: 'effects/motion/O01_pop-in.effect.tsx', load: () => import('../../effects/motion/O01_pop-in.effect') },
+  { meta: meta_O02, effectPath: 'effects/motion/O02_drop-bounce.effect.tsx', load: () => import('../../effects/motion/O02_drop-bounce.effect') },
+  { meta: meta_O03, effectPath: 'effects/motion/O03_swing-in.effect.tsx', load: () => import('../../effects/motion/O03_swing-in.effect') },
+  { meta: meta_O04, effectPath: 'effects/motion/O04_flip-reveal.effect.tsx', load: () => import('../../effects/motion/O04_flip-reveal.effect') },
+  { meta: meta_O05, effectPath: 'effects/motion/O05_slide-snap.effect.tsx', load: () => import('../../effects/motion/O05_slide-snap.effect') },
+  { meta: meta_O06, effectPath: 'effects/motion/O06_fold-unfold.effect.tsx', load: () => import('../../effects/motion/O06_fold-unfold.effect') },
+  { meta: meta_O07, effectPath: 'effects/motion/O07_focus-pop.effect.tsx', load: () => import('../../effects/motion/O07_focus-pop.effect') },
+  { meta: meta_O08, effectPath: 'effects/motion/O08_peel-in.effect.tsx', load: () => import('../../effects/motion/O08_peel-in.effect') },
+  { meta: meta_O09, effectPath: 'effects/motion/O09_jelly-wobble.effect.tsx', load: () => import('../../effects/motion/O09_jelly-wobble.effect') },
+  { meta: meta_O10, effectPath: 'effects/motion/O10_pendulum-swing.effect.tsx', load: () => import('../../effects/motion/O10_pendulum-swing.effect') },
+  { meta: meta_O11, effectPath: 'effects/motion/O11_spring-chain.effect.tsx', load: () => import('../../effects/motion/O11_spring-chain.effect') },
+  { meta: meta_O12, effectPath: 'effects/motion/O12_gravity-toss.effect.tsx', load: () => import('../../effects/motion/O12_gravity-toss.effect') },
+  { meta: meta_O13, effectPath: 'effects/motion/O13_magnetic-snap.effect.tsx', load: () => import('../../effects/motion/O13_magnetic-snap.effect') },
+  { meta: meta_O14, effectPath: 'effects/motion/O14_rubber-band.effect.tsx', load: () => import('../../effects/motion/O14_rubber-band.effect') },
+  { meta: meta_O15, effectPath: 'effects/motion/O15_inertia-drift.effect.tsx', load: () => import('../../effects/motion/O15_inertia-drift.effect') },
+  { meta: meta_O16, effectPath: 'effects/motion/O16_float-hover.effect.tsx', load: () => import('../../effects/motion/O16_float-hover.effect') },
+  { meta: meta_O17, effectPath: 'effects/motion/O17_breathe-pulse.effect.tsx', load: () => import('../../effects/motion/O17_breathe-pulse.effect') },
+  { meta: meta_O18, effectPath: 'effects/motion/O18_self-orbit.effect.tsx', load: () => import('../../effects/motion/O18_self-orbit.effect') },
+  { meta: meta_O19, effectPath: 'effects/motion/O19_tilt-sway.effect.tsx', load: () => import('../../effects/motion/O19_tilt-sway.effect') },
+  { meta: meta_O20, effectPath: 'effects/motion/O20_heartbeat.effect.tsx', load: () => import('../../effects/motion/O20_heartbeat.effect') },
+  { meta: meta_O21, effectPath: 'effects/motion/O21_attention-shake.effect.tsx', load: () => import('../../effects/motion/O21_attention-shake.effect') },
+  { meta: meta_O22, effectPath: 'effects/motion/O22_tada-burst.effect.tsx', load: () => import('../../effects/motion/O22_tada-burst.effect') },
+  { meta: meta_O23, effectPath: 'effects/motion/O23_stamp-slam.effect.tsx', load: () => import('../../effects/motion/O23_stamp-slam.effect') },
+  { meta: meta_O24, effectPath: 'effects/motion/O24_ring-focus.effect.tsx', load: () => import('../../effects/motion/O24_ring-focus.effect') },
+  { meta: meta_O25, effectPath: 'effects/motion/O25_glitch-pop.effect.tsx', load: () => import('../../effects/motion/O25_glitch-pop.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
@@ -396,6 +451,11 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T14, effectPath: 'effects/type/T14_letter-explode.effect.tsx', load: () => import('../../effects/type/T14_letter-explode.effect') },
   { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
   { meta: meta_T16, effectPath: 'effects/type/T16_justify-snap.effect.tsx', load: () => import('../../effects/type/T16_justify-snap.effect') },
+  { meta: meta_T17, effectPath: 'effects/type/T17_char-bounce-wave.effect.tsx', load: () => import('../../effects/type/T17_char-bounce-wave.effect') },
+  { meta: meta_T18, effectPath: 'effects/type/T18_char-swarm-assemble.effect.tsx', load: () => import('../../effects/type/T18_char-swarm-assemble.effect') },
+  { meta: meta_T19, effectPath: 'effects/type/T19_word-swap-roll.effect.tsx', load: () => import('../../effects/type/T19_word-swap-roll.effect') },
+  { meta: meta_T20, effectPath: 'effects/type/T20_char-gravity-fall.effect.tsx', load: () => import('../../effects/type/T20_char-gravity-fall.effect') },
+  { meta: meta_T21, effectPath: 'effects/type/T21_elastic-tracking.effect.tsx', load: () => import('../../effects/type/T21_elastic-tracking.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
   { meta: meta_U02, effectPath: 'effects/ui/U02_toggle-switch.effect.tsx', load: () => import('../../effects/ui/U02_toggle-switch.effect') },
   { meta: meta_U03, effectPath: 'effects/ui/U03_loading-spinner.effect.tsx', load: () => import('../../effects/ui/U03_loading-spinner.effect') },
