@@ -14,6 +14,7 @@ import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
 import meta_E07 from '../../effects/texture/E07_posterize-step.meta';
+import meta_E10 from '../../effects/texture/E10_vignette-breathe.meta';
 import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
@@ -62,8 +63,12 @@ import meta_T09 from '../../effects/type/T09_char-flip-3d.meta';
 import meta_T10 from '../../effects/type/T10_highlight-sweep.meta';
 import meta_T15 from '../../effects/type/T15_wave-text.meta';
 import meta_U01 from '../../effects/ui/U01_terminal-boot.meta';
+import meta_V01 from '../../effects/data/V01_bar-race.meta';
 import meta_V02 from '../../effects/data/V02_counter-odometer.meta';
 import meta_V03 from '../../effects/data/V03_progress-ring.meta';
+import meta_V04 from '../../effects/data/V04_line-chart-draw.meta';
+import meta_V05 from '../../effects/data/V05_pie-sweep.meta';
+import meta_V09 from '../../effects/data/V09_gauge-needle.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
 import meta_X02 from '../../effects/trans/X02_slice-shuffle.meta';
 import meta_X03 from '../../effects/trans/X03_zoom-punch.meta';
@@ -96,6 +101,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
   { meta: meta_E07, effectPath: 'effects/texture/E07_posterize-step.effect.ts', load: () => import('../../effects/texture/E07_posterize-step.effect') },
+  { meta: meta_E10, effectPath: 'effects/texture/E10_vignette-breathe.effect.tsx', load: () => import('../../effects/texture/E10_vignette-breathe.effect') },
   { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
@@ -144,8 +150,12 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_T10, effectPath: 'effects/type/T10_highlight-sweep.effect.tsx', load: () => import('../../effects/type/T10_highlight-sweep.effect') },
   { meta: meta_T15, effectPath: 'effects/type/T15_wave-text.effect.tsx', load: () => import('../../effects/type/T15_wave-text.effect') },
   { meta: meta_U01, effectPath: 'effects/ui/U01_terminal-boot.effect.tsx', load: () => import('../../effects/ui/U01_terminal-boot.effect') },
+  { meta: meta_V01, effectPath: 'effects/data/V01_bar-race.effect.tsx', load: () => import('../../effects/data/V01_bar-race.effect') },
   { meta: meta_V02, effectPath: 'effects/data/V02_counter-odometer.effect.tsx', load: () => import('../../effects/data/V02_counter-odometer.effect') },
   { meta: meta_V03, effectPath: 'effects/data/V03_progress-ring.effect.tsx', load: () => import('../../effects/data/V03_progress-ring.effect') },
+  { meta: meta_V04, effectPath: 'effects/data/V04_line-chart-draw.effect.tsx', load: () => import('../../effects/data/V04_line-chart-draw.effect') },
+  { meta: meta_V05, effectPath: 'effects/data/V05_pie-sweep.effect.tsx', load: () => import('../../effects/data/V05_pie-sweep.effect') },
+  { meta: meta_V09, effectPath: 'effects/data/V09_gauge-needle.effect.tsx', load: () => import('../../effects/data/V09_gauge-needle.effect') },
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
   { meta: meta_X02, effectPath: 'effects/trans/X02_slice-shuffle.effect.tsx', load: () => import('../../effects/trans/X02_slice-shuffle.effect') },
   { meta: meta_X03, effectPath: 'effects/trans/X03_zoom-punch.effect.tsx', load: () => import('../../effects/trans/X03_zoom-punch.effect') },
