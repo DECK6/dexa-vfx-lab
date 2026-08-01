@@ -178,6 +178,12 @@ export class WebglRenderer {
     const texture = this.gl.createTexture();
     if (!texture) throw new Error('Unable to create subject texture');
     this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
+    // UNPACK_FLIP_Y_WEBGL is spec-ignored for ImageBitmap sources — route through a
+    // scratch 2D canvas so the flip actually applies (otherwise subjects render upside down).
+    const scratch = document.createElement('canvas');
+    scratch.width = bitmap.width;
+    scratch.height = bitmap.height;
+    scratch.getContext('2d')!.drawImage(bitmap, 0, 0);
     this.gl.pixelStorei(this.gl.UNPACK_FLIP_Y_WEBGL, 1);
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
@@ -189,7 +195,7 @@ export class WebglRenderer {
       this.gl.RGBA,
       this.gl.RGBA,
       this.gl.UNSIGNED_BYTE,
-      bitmap,
+      scratch,
     );
     this.textures.set(bitmap, texture);
     return texture;
