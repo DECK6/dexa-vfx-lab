@@ -22,4 +22,5 @@ export const categories: FxCategory[] = [
   { key: 'liquid', label: 'LIQUID', order: 14 },
   { key: 'mask', label: 'MASK', order: 15 },
   { key: 'audio', label: 'AUDIO', order: 16 },
+  { key: 'motion', label: 'MOTION', order: 17 },
 ];

@@ -335,4 +335,40 @@ W1은 각 카테고리 대표작 + DOM/SVG 위주로 뽑아 파이프라인을 �
 | LIQUID | 10 | | | | | | |
 | MASK | 12 | | | | | | |
 | AUDIO | 10 | | | | | | |
-| **합계** | **214** | | | **214** | | | **214** |
+
+## W5 — 오브젝트 모션 (30종)
+
+| ID | 이름 | 한글명 | 설명 | 커널 | cost | category | wave |
+|---|---|---|---|---|---|---|---|
+| O01 | Pop In | 팝 인 | 스케일 0→오버슈트 스프링 등장 | RX | ● | motion | W5 |
+| O02 | Drop Bounce | 드롭 바운스 | 낙하 + 스쿼시&스트레치 바운스 착지 | RX | ● | motion | W5 |
+| O03 | Swing In | 스윙 인 | 상단 힌지 회전 진입, 감쇠 스윙 | RX | ● | motion | W5 |
+| O04 | Flip Reveal | 플립 리빌 | Y축 3D 플립 등장 | RX | ● | motion | W5 |
+| O05 | Slide Snap | 슬라이드 스냅 | 측면 슬라이드 + 오버슈트 스냅 | RX | ● | motion | W5 |
+| O06 | Fold Unfold | 폴드 언폴드 | 종이 접힘 펼침 등장 | RX | ● | motion | W5 |
+| O07 | Focus Pop | 포커스 팝 | 블러+확대에서 초점 맞으며 안착 | RX | ● | motion | W5 |
+| O08 | Peel In | 필 인 | 모서리 말림이 펼쳐지며 등장 | RX | ● | motion | W5 |
+| O09 | Jelly Wobble | 젤리 워블 | X/Y 스케일 위상차 탄성 진동 | RX | ● | motion | W5 |
+| O10 | Pendulum Swing | 펜듈럼 스윙 | 진자 스윙 감쇠 | RX | ● | motion | W5 |
+| O11 | Spring Chain | 스프링 체인 | 지연 스프링 추종 레이어 체인 | RX | ● | motion | W5 |
+| O12 | Gravity Toss | 그래비티 토스 | 포물선 토스 + 회전 + 착지 바운스 | RX | ● | motion | W5 |
+| O13 | Magnetic Snap | 마그네틱 스냅 | 자석 가속 → 철컥 스냅 + 진동 | RX | ● | motion | W5 |
+| O14 | Rubber Band | 러버 밴드 | 고무줄 당김 → 탄성 발사 | RX | ● | motion | W5 |
+| O15 | Inertia Drift | 이너셔 드리프트 | 급정거 관성 드리프트 + 정착 | RX | ● | motion | W5 |
+| O16 | Float Hover | 플로트 호버 | 무중력 부유, 다주파수 사인 합성 | RX | ● | motion | W5 |
+| O17 | Breathe Pulse | 브리드 펄스 | 호흡 스케일 + 그림자 연동 | RX | ● | motion | W5 |
+| O18 | Self Orbit | 셀프 오빗 | 제자리 소원 궤도 + 기울기 | RX | ● | motion | W5 |
+| O19 | Tilt Sway | 틸트 스웨이 | 바람 기울기 스웨이 | RX | ● | motion | W5 |
+| O20 | Heartbeat | 하트비트 | 더블 펄스 + 링 파동 | RX | ● | motion | W5 |
+| O21 | Attention Shake | 어텐션 셰이크 | 좌우 셰이크 알림 흔들기 | RX | ● | motion | W5 |
+| O22 | Tada Burst | 타다 버스트 | 스케일+회전 타다 + 스파크 방사 | RX | ●● | motion | W5 |
+| O23 | Stamp Slam | 스탬프 슬램 | 도장 쾅 임팩트 + 먼지 퍼프 | RX | ●● | motion | W5 |
+| O24 | Ring Focus | 링 포커스 | 수축 링 포커스 꽂힘 | RX | ● | motion | W5 |
+| O25 | Glitch Pop | 글리치 팝 | 순간 확대 + RGB 스플릿 팝 | RX | ● | motion | W5 |
+| T17 | Char Bounce Wave | 글자 바운스 웨이브 | 글자 점프 도미노 물결 | RX | ● | type | W5 |
+| T18 | Char Swarm Assemble | 글자 스웜 어셈블 | 흩어진 글자가 날아와 정렬 | RX | ● | type | W5 |
+| T19 | Word Swap Roll | 워드 스왑 롤 | 단어 순환 교체 롤 | RX | ● | type | W5 |
+| T20 | Char Gravity Fall | 글자 중력 낙하 | 글자 개별 낙하 + 바운스 착지 | RX | ● | type | W5 |
+| T21 | Elastic Tracking | 일래스틱 트래킹 | 자간 밀집↔확산 탄성 | RX | ● | type | W5 |
+
+| **합계** | **244** | | | **244** | | | **244** |
