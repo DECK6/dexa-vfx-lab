@@ -10,9 +10,11 @@ import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
 import meta_C04 from '../../effects/camera/C04_dolly-zoom.meta';
 import meta_C05 from '../../effects/camera/C05_rack-focus.meta';
 import meta_C07 from '../../effects/camera/C07_crash-zoom.meta';
+import meta_C08 from '../../effects/camera/C08_tilt-shift.meta';
 import meta_C11 from '../../effects/camera/C11_perspective-card.meta';
 import meta_D01 from '../../effects/distort/D01_displacement-wave.meta';
 import meta_D02 from '../../effects/distort/D02_ripple-circle.meta';
+import meta_D03 from '../../effects/distort/D03_twirl-vortex.meta';
 import meta_D05 from '../../effects/distort/D05_wave-shear.meta';
 import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
@@ -95,8 +97,10 @@ import meta_X04 from '../../effects/trans/X04_ink-bleed.meta';
 import meta_X05 from '../../effects/trans/X05_push-slide.meta';
 import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
 import meta_X08 from '../../effects/trans/X08_blinds.meta';
+import meta_X12 from '../../effects/trans/X12_liquid-warp.meta';
 import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
+import meta_X15 from '../../effects/trans/X15_luma-wipe.meta';
 import meta_X16 from '../../effects/trans/X16_split-open.meta';
 
 export interface ManifestEntry {
@@ -116,9 +120,11 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_C04, effectPath: 'effects/camera/C04_dolly-zoom.effect.tsx', load: () => import('../../effects/camera/C04_dolly-zoom.effect') },
   { meta: meta_C05, effectPath: 'effects/camera/C05_rack-focus.effect.tsx', load: () => import('../../effects/camera/C05_rack-focus.effect') },
   { meta: meta_C07, effectPath: 'effects/camera/C07_crash-zoom.effect.tsx', load: () => import('../../effects/camera/C07_crash-zoom.effect') },
+  { meta: meta_C08, effectPath: 'effects/camera/C08_tilt-shift.effect.ts', load: () => import('../../effects/camera/C08_tilt-shift.effect') },
   { meta: meta_C11, effectPath: 'effects/camera/C11_perspective-card.effect.tsx', load: () => import('../../effects/camera/C11_perspective-card.effect') },
   { meta: meta_D01, effectPath: 'effects/distort/D01_displacement-wave.effect.ts', load: () => import('../../effects/distort/D01_displacement-wave.effect') },
   { meta: meta_D02, effectPath: 'effects/distort/D02_ripple-circle.effect.ts', load: () => import('../../effects/distort/D02_ripple-circle.effect') },
+  { meta: meta_D03, effectPath: 'effects/distort/D03_twirl-vortex.effect.ts', load: () => import('../../effects/distort/D03_twirl-vortex.effect') },
   { meta: meta_D05, effectPath: 'effects/distort/D05_wave-shear.effect.ts', load: () => import('../../effects/distort/D05_wave-shear.effect') },
   { meta: meta_D11, effectPath: 'effects/distort/D11_mirror-fold.effect.ts', load: () => import('../../effects/distort/D11_mirror-fold.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
@@ -201,7 +207,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X05, effectPath: 'effects/trans/X05_push-slide.effect.tsx', load: () => import('../../effects/trans/X05_push-slide.effect') },
   { meta: meta_X06, effectPath: 'effects/trans/X06_clock-wipe.effect.tsx', load: () => import('../../effects/trans/X06_clock-wipe.effect') },
   { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
+  { meta: meta_X12, effectPath: 'effects/trans/X12_liquid-warp.effect.ts', load: () => import('../../effects/trans/X12_liquid-warp.effect') },
   { meta: meta_X13, effectPath: 'effects/trans/X13_cube-rotate.effect.tsx', load: () => import('../../effects/trans/X13_cube-rotate.effect') },
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
+  { meta: meta_X15, effectPath: 'effects/trans/X15_luma-wipe.effect.ts', load: () => import('../../effects/trans/X15_luma-wipe.effect') },
   { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
 ];
