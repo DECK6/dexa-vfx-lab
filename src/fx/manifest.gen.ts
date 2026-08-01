@@ -245,6 +245,12 @@ import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
 import meta_X15 from '../../effects/trans/X15_luma-wipe.meta';
 import meta_X16 from '../../effects/trans/X16_split-open.meta';
+import meta_Y07 from '../../effects/stylize/Y07_ink-outline.meta';
+import meta_Y08 from '../../effects/stylize/Y08_hatch-shade.meta';
+import meta_Y09 from '../../effects/stylize/Y09_stipple-dots.meta';
+import meta_Y10 from '../../effects/stylize/Y10_mosaic-tiles.meta';
+import meta_Y11 from '../../effects/stylize/Y11_stained-glass.meta';
+import meta_Y12 from '../../effects/stylize/Y12_paper-cutout.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -498,4 +504,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
   { meta: meta_X15, effectPath: 'effects/trans/X15_luma-wipe.effect.ts', load: () => import('../../effects/trans/X15_luma-wipe.effect') },
   { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
+  { meta: meta_Y07, effectPath: 'effects/stylize/Y07_ink-outline.effect.ts', load: () => import('../../effects/stylize/Y07_ink-outline.effect') },
+  { meta: meta_Y08, effectPath: 'effects/stylize/Y08_hatch-shade.effect.ts', load: () => import('../../effects/stylize/Y08_hatch-shade.effect') },
+  { meta: meta_Y09, effectPath: 'effects/stylize/Y09_stipple-dots.effect.ts', load: () => import('../../effects/stylize/Y09_stipple-dots.effect') },
+  { meta: meta_Y10, effectPath: 'effects/stylize/Y10_mosaic-tiles.effect.ts', load: () => import('../../effects/stylize/Y10_mosaic-tiles.effect') },
+  { meta: meta_Y11, effectPath: 'effects/stylize/Y11_stained-glass.effect.ts', load: () => import('../../effects/stylize/Y11_stained-glass.effect') },
+  { meta: meta_Y12, effectPath: 'effects/stylize/Y12_paper-cutout.effect.tsx', load: () => import('../../effects/stylize/Y12_paper-cutout.effect') },
 ];
