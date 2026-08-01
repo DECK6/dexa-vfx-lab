@@ -240,11 +240,28 @@ function reactRuntime(input: FxExportInput, kernelJs: string): string {
     }
 
     function makeSubjectNode() {
-      return h('svg', { viewBox: '0 0 480 240', width: 480, height: 240, 'aria-label': 'DEXA triad' },
-        h('polygon', { points: '240,24 314,146 166,146', fill: '#5ee7f3' }),
-        h('polygon', { points: '166,146 240,80 240,202', fill: '#ff5a1f' }),
-        h('polygon', { points: '314,146 240,80 240,202', fill: '#f5f1e6' }),
-        h('text', { x: 240, y: 232, fill: '#f5f1e6', 'text-anchor': 'middle', 'font-size': 22, 'font-weight': 700 }, 'DEXA')
+      // Canonical DEXA triad: nested outline triangles, innermost filled cyan (dark-canvas palette).
+      // Subject is a decorative prop — effects may legitimately cover it, so opt out of
+      // occlusion/overlap layout findings (data-layout-allow-*), keeping checks for effect text.
+      function tri(r, attrs) {
+        const pts = [0, 1, 2].map(function (v) {
+          const a = -Math.PI / 2 + (v * 2 * Math.PI) / 3;
+          return (240 + r * Math.cos(a)).toFixed(1) + ',' + (118 + r * Math.sin(a)).toFixed(1);
+        }).join(' ');
+        return h('polygon', Object.assign({ points: pts }, attrs));
+      }
+      return h('svg', {
+        viewBox: '0 0 480 240', width: 480, height: 240, 'aria-label': 'DEXA triad',
+        'data-layout-allow-occlusion': '', 'data-layout-allow-overlap': '',
+      },
+        tri(78, { fill: 'none', stroke: '#f7fafc', 'stroke-width': 5 }),
+        tri(54, { fill: 'none', stroke: '#f7fafc', 'stroke-width': 5 }),
+        tri(30, { fill: '#5ee7f3' }),
+        h('text', {
+          x: 240, y: 232, fill: '#8a8d93', 'text-anchor': 'middle',
+          'font-size': 16, 'font-weight': 600, 'letter-spacing': '0.1em',
+          'data-layout-allow-occlusion': '', 'data-layout-allow-overlap': '',
+        }, 'DEXA')
       );
     }
 
