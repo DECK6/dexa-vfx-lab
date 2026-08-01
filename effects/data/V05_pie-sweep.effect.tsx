@@ -53,6 +53,40 @@ const kernel = {
             filter: `drop-shadow(0 0 ${size * 0.035}px ${colorWithAlpha(signal, 0.38)})`,
           }}
         />
+        {/* sweep needle + tip dot: geometry motion (conic mask animation is paint-only) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            width: 2.5,
+            height: size / 2,
+            background: '#F7FAFC',
+            opacity: 0.9,
+            transformOrigin: '50% 0%',
+            transform: `translate(-50%, 0) rotate(${180 + progress * 360}deg)`,
+          }}
+        />
+        {(() => {
+          const a = (progress * 360 - 90) * (Math.PI / 180);
+          const r = size / 2;
+          return (
+            <div
+              style={{
+                position: 'absolute',
+                left: `calc(50% + ${Math.cos(a) * r}px)`,
+                top: `calc(50% + ${Math.sin(a) * r}px)`,
+                width: 10,
+                height: 10,
+                marginLeft: -5,
+                marginTop: -5,
+                borderRadius: '50%',
+                background: signal,
+                boxShadow: `0 0 12px ${signal}`,
+              }}
+            />
+          );
+        })()}
       </div>
     );
   },

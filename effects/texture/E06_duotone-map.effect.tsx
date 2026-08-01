@@ -9,7 +9,8 @@ const kernel = {
     const signal = String(ctx.params.signal ?? '#5EE7F3');
     const turn = ctx.t * Math.PI * 2;
     const breathingContrast = contrast * (0.94 + Math.sin(turn) * 0.06);
-    const split = 50 + Math.sin(turn) * 7;
+    // Wipe divider travels the full frame — geometry motion (gradient position is paint-only)
+    const wipe = 50 + Math.sin(turn) * 46;
 
     return (
       <div
@@ -30,13 +31,31 @@ const kernel = {
         >
           {ctx.subjectNode}
         </div>
+        {/* duotone tint applies left of the traveling divider — width animates (geometry) */}
         <div
           style={{
             position: 'absolute',
-            inset: 0,
-            background: `linear-gradient(118deg, ${shadow} ${split - 22}%, ${signal} ${split + 22}%)`,
+            top: 0,
+            bottom: 0,
+            left: 0,
+            width: `${wipe}%`,
+            overflow: 'hidden',
+            background: `linear-gradient(118deg, ${shadow} 0%, ${signal} 130%)`,
             mixBlendMode: 'multiply',
             opacity: mix,
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: `${wipe}%`,
+            width: 2,
+            marginLeft: -1,
+            background: signal,
+            opacity: 0.85,
+            boxShadow: `0 0 14px ${signal}`,
           }}
         />
         <div
