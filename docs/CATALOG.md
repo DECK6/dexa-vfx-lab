@@ -578,4 +578,73 @@ W1은 각 카테고리 대표작 + DOM/SVG 위주로 뽑아 파이프라인을 �
 | A23 | Speaker Cone | 스피커 콘 | 우퍼 콘 진동+공기 파문 | RX | ● | audio | W8 |
 | A24 | Chromagram | 크로마그램 | 12색상환 밴드 매핑 회전 | CV | ●● | audio | W8 |
 
-| **합계** | **436(예정)** | | | **244** | | | **244** |
+## W9 — 배경 & 마감 밸런스 (64종)
+
+| ID | 이름 | 한글명 | 설명 | 커널 | cost | category | wave |
+|---|---|---|---|---|---|---|---|
+| H01 | Gradient Mesh | 그라디언트 메시 | 유기적 색 블롭 메시 부유 | GL | ●● | bg | W9 |
+| H02 | Aurora Veil | 오로라 베일 | 커튼 오로라 파동(N07과 달리 배경 전용 수직 커튼) | GL | ●● | bg | W9 |
+| H03 | Grid Horizon | 그리드 호라이즌 | 신스웨이브 지평 그리드 스크롤 | RX | ● | bg | W9 |
+| H04 | Starfield Drift | 스타필드 드리프트 | 심도 3층 별밭 저속 표류 | CV | ● | bg | W9 |
+| H05 | Topo Lines | 토포 라인 | 등고선 필드 서서히 변형 | CV | ●● | bg | W9 |
+| H06 | Bokeh Field | 보케 필드 | 대구경 보케 배경 심도 부유 | RX | ● | bg | W9 |
+| H07 | Noise Flow BG | 노이즈 플로우 | 저대비 유동 노이즈 필드 | GL | ● | bg | W9 |
+| H08 | Halftone Drift | 하프톤 드리프트 | 망점 크기 그라디언트 이동 | GL | ● | bg | W9 |
+| H09 | Ray Burst BG | 레이 버스트 | 방사 광선 회전 배경 | RX | ● | bg | W9 |
+| H10 | Blueprint Grid | 블루프린트 그리드 | 도면 격자+미세 치수 마커 패닝 | RX | ● | bg | W9 |
+| H11 | Bubble Column | 버블 컬럼 | 기포 기둥 상승 배경 | CV | ● | bg | W9 |
+| H12 | Silk Waves | 실크 웨이브 | 견직 곡선 밴드 유동 | GL | ●● | bg | W9 |
+| H13 | Particle Net | 파티클 넷 | 근접 연결선 입자망 부유 | CV | ●● | bg | W9 |
+| H14 | Diamond Sweep | 다이아 스윕 | 마름모 타일 광택 스윕 벨트 | RX | ● | bg | W9 |
+| H15 | Ink Wash BG | 잉크 워시 | 수묵 번짐 층 배경 | GL | ●● | bg | W9 |
+| H16 | Circuit Trace | 서킷 트레이스 | 회로 트레이스 신호 주행 | CV | ●● | bg | W9 |
+| H17 | Sun Rays Dust | 선레이 더스트 | 사광 광선+부유 먼지 | RX | ● | bg | W9 |
+| H18 | Wave Bands | 웨이브 밴드 | 다층 사인 밴드 시차 흐름 | RX | ● | bg | W9 |
+| H19 | Nebula Cloud | 네뷸라 | 성운 가스 층 회전 심도 | GL | ●● | bg | W9 |
+| H20 | Confetti Float | 컨페티 플로트 | 저속 색종이 부유(P02 낙하와 달리 무중력 표류) | CV | ● | bg | W9 |
+| T22 | Neon Trace | 네온 트레이스 | 글자 획 네온 관 순차 점등 | RX | ●● | type | W9 |
+| T23 | Liquid Fill Text | 리퀴드 필 | 글자 내부 액체 채움 출렁임 | RX | ●● | type | W9 |
+| T24 | Shadow Pop 3D | 섀도 팝 | 다층 그림자 압출 팝+회전 | RX | ● | type | W9 |
+| T25 | Glitch Type | 글리치 타입 | 글자 슬라이스 시프트+치환 플래시 | RX | ● | type | W9 |
+| T26 | Handwrite Trace | 핸드라이트 | 필기 획 그려짐(dash 마스크) | RX | ●● | type | W9 |
+| T27 | Emboss Press | 엠보스 프레스 | 종이 눌림 음각→양각 전환 | RX | ● | type | W9 |
+| T28 | Split Reveal Text | 스플릿 리빌 | 상하 반쪽 어긋남→정합 | RX | ● | type | W9 |
+| T29 | Ticker Digits | 티커 디지트 | 숫자 열 개별 슬롯 스핀 정렬 | RX | ● | type | W9 |
+| T30 | Smoke Disperse | 스모크 디스퍼스 | 글자 연기화 산화 소멸·재응집 | CV | ●● | type | W9 |
+| T31 | Magnet Letters | 마그넷 레터 | 냉장고 자석 글자 흩뿌림→정렬 | RX | ● | type | W9 |
+| T32 | Stencil Spray | 스텐실 스프레이 | 스프레이 분사 스텐실 채움 | CV | ●● | type | W9 |
+| T33 | Ribbon Text | 리본 텍스트 | 리본 밴드 위 글자 흐름 통과 | RX | ● | type | W9 |
+| T34 | Echo Zoom Text | 에코 줌 | 글자 확대 에코 사본 트레일 | RX | ● | type | W9 |
+| T35 | Braille Dots | 브라유 도트 | 도트 매트릭스 글자 형성(R13과 달리 글자 전용 6점 셀) | RX | ● | type | W9 |
+| R15 | Penrose Tile | 펜로즈 타일 | 비주기 타일 성장 전개 | CV | ●● | pattern | W9 |
+| R16 | Moire Rings | 무아레 링 | 동심원 겹침 간섭 이동 | CV | ● | pattern | W9 |
+| R17 | Weave Cross | 위브 크로스 | 직조 교차 패턴 짜임 진행 | CV | ●● | pattern | W9 |
+| R18 | Spiro Curve | 스피로 커브 | 스피로그래프 궤적 드로잉 | CV | ● | pattern | W9 |
+| R19 | Quasicrystal | 준결정 | 평면파 합성 준결정 문양 위상 | GL | ●● | pattern | W9 |
+| R20 | Op Art Pulse | 옵아트 펄스 | 체커 왜곡 착시 맥동 | GL | ●● | pattern | W9 |
+| R21 | Rose Curves | 로즈 커브 | 극좌표 장미 곡선 모프 | RX | ● | pattern | W9 |
+| R22 | Pinwheel Fractal | 핀휠 프랙탈 | 삼각 분할 재귀 회전 심화 | CV | ●● | pattern | W9 |
+| S19 | Chevron March | 셰브론 마치 | 방향 셰브론 행진 벨트 | RX | ● | shape | W9 |
+| S20 | Squircle Morph | 스쿼클 모프 | 원↔사각 초타원 보간 그리드 | RX | ● | shape | W9 |
+| S21 | Starburst Spin | 스타버스트 | 성표 광선 수 변조 회전 | RX | ● | shape | W9 |
+| S22 | Nested Frames | 네스티드 프레임 | 액자식 프레임 무한 줌 | RX | ● | shape | W9 |
+| S23 | Arrow Flock | 애로우 플록 | 화살표 무리 방향 정렬 전환 | CV | ●● | shape | W9 |
+| S24 | Pill Stack | 필 스택 | 알약 셰이프 낙하 적층 정렬 | RX | ● | shape | W9 |
+| S25 | Ouroboros Dash | 우로보로스 | 고리 대시 추적 가감속 순환 | RX | ● | shape | W9 |
+| M13 | Venetian Sweep | 베네시안 스윕 | 사선 블라인드 회전 리빌(M08 수평과 차별) | RX | ● | mask | W9 |
+| M14 | Keyhole Zoom | 키홀 줌 | 열쇠구멍 실루엣 진입 줌 | RX | ● | mask | W9 |
+| M15 | Shatter Mask | 셰터 마스크 | 깨진 유리 조각별 리빌 | CV | ●● | mask | W9 |
+| M16 | Liquid Mask | 리퀴드 마스크 | 점성 유체 경계 차오름 리빌 | GL | ●● | mask | W9 |
+| X17 | Cube Rotate Trans | 큐브 전환 | 3D 큐브 면 회전 장면 교체 | RX | ●● | trans | W9 |
+| X18 | Doorway Open | 도어웨이 | 양문 개방 장면 진입 | RX | ● | trans | W9 |
+| X19 | Ink Bleed Trans | 잉크 블리드 전환 | 잉크 번짐 확산 장면 교체 | GL | ●● | trans | W9 |
+| X20 | Pixel Melt | 픽셀 멜트 | 픽셀 열 낙하 용해 전환 | CV | ●● | trans | W9 |
+| C13 | Snap Zoom Chain | 스냅 줌 체인 | 다단 스냅 줌 인·아웃 리듬 | RX | ● | camera | W9 |
+| C14 | Vertigo Rise | 버티고 라이즈 | 상승+역줌 현기증 리그 | RX | ●● | camera | W9 |
+| C15 | Drone Orbit | 드론 오빗 | 고도 상승 나선 궤도 부감 | RX | ●● | camera | W9 |
+| G21 | Feedback Loop | 피드백 루프 | 모니터 재귀 피드백 터널(결정적 반복 합성) | CV | ●● | glitch | W9 |
+| G22 | Pixel Drift | 픽셀 드리프트 | 행별 픽셀 유실 흘러내림 | CV | ●● | glitch | W9 |
+| E15 | Hologram Foil | 홀로 포일 | 각도 변조 무지개 포일 반사 | GL | ●● | texture | W9 |
+| E16 | Static Wool | 스태틱 울 | 정전기 섬유 결 흐름 | CV | ●● | texture | W9 |
+
+| **합계** | **500(예정)** | | | **244** | | | **244** |
