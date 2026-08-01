@@ -256,12 +256,10 @@ function reactRuntime(input: FxExportInput, kernelJs: string): string {
       },
         tri(78, { fill: 'none', stroke: '#f7fafc', 'stroke-width': 5 }),
         tri(54, { fill: 'none', stroke: '#f7fafc', 'stroke-width': 5 }),
-        tri(30, { fill: '#5ee7f3' }),
-        h('text', {
-          x: 240, y: 232, fill: '#8a8d93', 'text-anchor': 'middle',
-          'font-size': 16, 'font-weight': 600, 'letter-spacing': '0.1em',
-          'data-layout-allow-occlusion': '', 'data-layout-allow-overlap': '',
-        }, 'DEXA')
+        tri(30, { fill: '#5ee7f3' })
+        // No label text in snippets: transition effects sweep bright content under it,
+        // which can never satisfy the WCAG contrast gate for every frame. The label is a
+        // gallery affordance only — snippet users swap in their own subject anyway.
       );
     }
 
