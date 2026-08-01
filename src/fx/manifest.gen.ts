@@ -65,6 +65,10 @@ import meta_G13 from '../../effects/glitch/G13_color-bleed.meta';
 import meta_G14 from '../../effects/glitch/G14_static-burst.meta';
 import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
 import meta_G16 from '../../effects/glitch/G16_chromatic-shear.meta';
+import meta_G17 from '../../effects/glitch/G17_corrupt-header.meta';
+import meta_G18 from '../../effects/glitch/G18_wave-tear.meta';
+import meta_G19 from '../../effects/glitch/G19_time-quantize.meta';
+import meta_G20 from '../../effects/glitch/G20_macroblock.meta';
 import meta_K01 from '../../effects/retro/K01_pixel-quantize.meta';
 import meta_K02 from '../../effects/retro/K02_bayer-dither.meta';
 import meta_K03 from '../../effects/retro/K03_floyd-dither.meta';
@@ -251,6 +255,10 @@ import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
 import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
 import meta_X15 from '../../effects/trans/X15_luma-wipe.meta';
 import meta_X16 from '../../effects/trans/X16_split-open.meta';
+import meta_Y13 from '../../effects/stylize/Y13_blueprint.meta';
+import meta_Y14 from '../../effects/stylize/Y14_thermal-cam.meta';
+import meta_Y15 from '../../effects/stylize/Y15_night-vision.meta';
+import meta_Y16 from '../../effects/stylize/Y16_comic-panel.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -324,6 +332,10 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G14, effectPath: 'effects/glitch/G14_static-burst.effect.ts', load: () => import('../../effects/glitch/G14_static-burst.effect') },
   { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
   { meta: meta_G16, effectPath: 'effects/glitch/G16_chromatic-shear.effect.ts', load: () => import('../../effects/glitch/G16_chromatic-shear.effect') },
+  { meta: meta_G17, effectPath: 'effects/glitch/G17_corrupt-header.effect.ts', load: () => import('../../effects/glitch/G17_corrupt-header.effect') },
+  { meta: meta_G18, effectPath: 'effects/glitch/G18_wave-tear.effect.ts', load: () => import('../../effects/glitch/G18_wave-tear.effect') },
+  { meta: meta_G19, effectPath: 'effects/glitch/G19_time-quantize.effect.ts', load: () => import('../../effects/glitch/G19_time-quantize.effect') },
+  { meta: meta_G20, effectPath: 'effects/glitch/G20_macroblock.effect.ts', load: () => import('../../effects/glitch/G20_macroblock.effect') },
   { meta: meta_K01, effectPath: 'effects/retro/K01_pixel-quantize.effect.ts', load: () => import('../../effects/retro/K01_pixel-quantize.effect') },
   { meta: meta_K02, effectPath: 'effects/retro/K02_bayer-dither.effect.ts', load: () => import('../../effects/retro/K02_bayer-dither.effect') },
   { meta: meta_K03, effectPath: 'effects/retro/K03_floyd-dither.effect.ts', load: () => import('../../effects/retro/K03_floyd-dither.effect') },
@@ -510,4 +522,8 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
   { meta: meta_X15, effectPath: 'effects/trans/X15_luma-wipe.effect.ts', load: () => import('../../effects/trans/X15_luma-wipe.effect') },
   { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
+  { meta: meta_Y13, effectPath: 'effects/stylize/Y13_blueprint.effect.tsx', load: () => import('../../effects/stylize/Y13_blueprint.effect') },
+  { meta: meta_Y14, effectPath: 'effects/stylize/Y14_thermal-cam.effect.ts', load: () => import('../../effects/stylize/Y14_thermal-cam.effect') },
+  { meta: meta_Y15, effectPath: 'effects/stylize/Y15_night-vision.effect.ts', load: () => import('../../effects/stylize/Y15_night-vision.effect') },
+  { meta: meta_Y16, effectPath: 'effects/stylize/Y16_comic-panel.effect.tsx', load: () => import('../../effects/stylize/Y16_comic-panel.effect') },
 ];
