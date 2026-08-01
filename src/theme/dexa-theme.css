@@ -191,6 +191,12 @@ img { max-width: 100%; display: block; }
 .about-grid p { margin: 0; color: var(--muted); line-height: 1.7; }
 .about-note { margin-top: 20px; padding: 18px; display: flex; gap: 30px; border: 1px solid var(--line); background: var(--ink); color: var(--ink-text); font-size: 10px; }
 .about-note span { color: var(--cyan); }
+.about-repo-link { color: var(--ink-text); text-decoration: none; border-bottom: 1px solid var(--cyan); }
+.about-repo-link:hover { color: var(--cyan); }
+.about-hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.lang-toggle { display: flex; border: 1px solid var(--line); }
+.lang-toggle button { padding: 6px 12px; font-size: 10px; letter-spacing: 0.08em; background: var(--paper); color: var(--muted); border: none; cursor: pointer; }
+.lang-toggle button.active { background: var(--ink); color: var(--cyan); }
 .not-found { min-height: calc(100vh - 68px); display: grid; place-content: center; gap: 20px; text-align: center; }
 .action-button { padding: 12px 18px; background: var(--orange); color: var(--paper); font-size: 10px; }
 
