@@ -25,10 +25,13 @@ import meta_D03 from '../../effects/distort/D03_twirl-vortex.meta';
 import meta_D04 from '../../effects/distort/D04_bulge-pinch.meta';
 import meta_D05 from '../../effects/distort/D05_wave-shear.meta';
 import meta_D06 from '../../effects/distort/D06_lens-barrel.meta';
+import meta_D07 from '../../effects/distort/D07_mesh-warp.meta';
 import meta_D08 from '../../effects/distort/D08_melt-drip.meta';
 import meta_D09 from '../../effects/distort/D09_turbulent-noise.meta';
+import meta_D10 from '../../effects/distort/D10_fisheye.meta';
 import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_D12 from '../../effects/distort/D12_kaleidoscope.meta';
+import meta_D13 from '../../effects/distort/D13_polar-coord.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
@@ -83,6 +86,7 @@ import meta_N05 from '../../effects/nature/N05_rain-streak.meta';
 import meta_N06 from '../../effects/nature/N06_wind-grass.meta';
 import meta_N07 from '../../effects/nature/N07_aurora-wave.meta';
 import meta_N10 from '../../effects/nature/N10_bubble-rise.meta';
+import meta_N12 from '../../effects/nature/N12_erosion-fade.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
 import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
 import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
@@ -103,6 +107,7 @@ import meta_Q10 from '../../effects/liquid/Q10_liquid-fill.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
 import meta_R02 from '../../effects/pattern/R02_flow-field.meta';
 import meta_R03 from '../../effects/pattern/R03_cellular-automata.meta';
+import meta_R04 from '../../effects/pattern/R04_reaction-diffusion.meta';
 import meta_R05 from '../../effects/pattern/R05_moire-interference.meta';
 import meta_R06 from '../../effects/pattern/R06_wave-interference.meta';
 import meta_R07 from '../../effects/pattern/R07_lissajous.meta';
@@ -166,6 +171,7 @@ import meta_X03 from '../../effects/trans/X03_zoom-punch.meta';
 import meta_X04 from '../../effects/trans/X04_ink-bleed.meta';
 import meta_X05 from '../../effects/trans/X05_push-slide.meta';
 import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
+import meta_X07 from '../../effects/trans/X07_page-curl.meta';
 import meta_X08 from '../../effects/trans/X08_blinds.meta';
 import meta_X09 from '../../effects/trans/X09_pixelate-cross.meta';
 import meta_X11 from '../../effects/trans/X11_shatter-break.meta';
@@ -207,10 +213,13 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_D04, effectPath: 'effects/distort/D04_bulge-pinch.effect.ts', load: () => import('../../effects/distort/D04_bulge-pinch.effect') },
   { meta: meta_D05, effectPath: 'effects/distort/D05_wave-shear.effect.ts', load: () => import('../../effects/distort/D05_wave-shear.effect') },
   { meta: meta_D06, effectPath: 'effects/distort/D06_lens-barrel.effect.ts', load: () => import('../../effects/distort/D06_lens-barrel.effect') },
+  { meta: meta_D07, effectPath: 'effects/distort/D07_mesh-warp.effect.ts', load: () => import('../../effects/distort/D07_mesh-warp.effect') },
   { meta: meta_D08, effectPath: 'effects/distort/D08_melt-drip.effect.ts', load: () => import('../../effects/distort/D08_melt-drip.effect') },
   { meta: meta_D09, effectPath: 'effects/distort/D09_turbulent-noise.effect.ts', load: () => import('../../effects/distort/D09_turbulent-noise.effect') },
+  { meta: meta_D10, effectPath: 'effects/distort/D10_fisheye.effect.ts', load: () => import('../../effects/distort/D10_fisheye.effect') },
   { meta: meta_D11, effectPath: 'effects/distort/D11_mirror-fold.effect.ts', load: () => import('../../effects/distort/D11_mirror-fold.effect') },
   { meta: meta_D12, effectPath: 'effects/distort/D12_kaleidoscope.effect.ts', load: () => import('../../effects/distort/D12_kaleidoscope.effect') },
+  { meta: meta_D13, effectPath: 'effects/distort/D13_polar-coord.effect.ts', load: () => import('../../effects/distort/D13_polar-coord.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
@@ -265,6 +274,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_N06, effectPath: 'effects/nature/N06_wind-grass.effect.tsx', load: () => import('../../effects/nature/N06_wind-grass.effect') },
   { meta: meta_N07, effectPath: 'effects/nature/N07_aurora-wave.effect.ts', load: () => import('../../effects/nature/N07_aurora-wave.effect') },
   { meta: meta_N10, effectPath: 'effects/nature/N10_bubble-rise.effect.ts', load: () => import('../../effects/nature/N10_bubble-rise.effect') },
+  { meta: meta_N12, effectPath: 'effects/nature/N12_erosion-fade.effect.ts', load: () => import('../../effects/nature/N12_erosion-fade.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
   { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
   { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
@@ -285,6 +295,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
   { meta: meta_R02, effectPath: 'effects/pattern/R02_flow-field.effect.ts', load: () => import('../../effects/pattern/R02_flow-field.effect') },
   { meta: meta_R03, effectPath: 'effects/pattern/R03_cellular-automata.effect.ts', load: () => import('../../effects/pattern/R03_cellular-automata.effect') },
+  { meta: meta_R04, effectPath: 'effects/pattern/R04_reaction-diffusion.effect.ts', load: () => import('../../effects/pattern/R04_reaction-diffusion.effect') },
   { meta: meta_R05, effectPath: 'effects/pattern/R05_moire-interference.effect.tsx', load: () => import('../../effects/pattern/R05_moire-interference.effect') },
   { meta: meta_R06, effectPath: 'effects/pattern/R06_wave-interference.effect.ts', load: () => import('../../effects/pattern/R06_wave-interference.effect') },
   { meta: meta_R07, effectPath: 'effects/pattern/R07_lissajous.effect.tsx', load: () => import('../../effects/pattern/R07_lissajous.effect') },
@@ -348,6 +359,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X04, effectPath: 'effects/trans/X04_ink-bleed.effect.tsx', load: () => import('../../effects/trans/X04_ink-bleed.effect') },
   { meta: meta_X05, effectPath: 'effects/trans/X05_push-slide.effect.tsx', load: () => import('../../effects/trans/X05_push-slide.effect') },
   { meta: meta_X06, effectPath: 'effects/trans/X06_clock-wipe.effect.tsx', load: () => import('../../effects/trans/X06_clock-wipe.effect') },
+  { meta: meta_X07, effectPath: 'effects/trans/X07_page-curl.effect.ts', load: () => import('../../effects/trans/X07_page-curl.effect') },
   { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
   { meta: meta_X09, effectPath: 'effects/trans/X09_pixelate-cross.effect.ts', load: () => import('../../effects/trans/X09_pixelate-cross.effect') },
   { meta: meta_X11, effectPath: 'effects/trans/X11_shatter-break.effect.ts', load: () => import('../../effects/trans/X11_shatter-break.effect') },
