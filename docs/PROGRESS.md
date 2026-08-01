@@ -1,12 +1,13 @@
 # PROGRESS
 phase: P0
-last-update: 2026-08-01T10:40
+last-update: 2026-08-01T10:26
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
 - Track A (wt-a, task-ms9osl2x-mikl3a): 앱 셸 + 라이브 드라이버 + params UI — 진행 중
 - Track B (wt-b, task-ms9osl9j-hx6ur2): Remotion 어댑터 + 썸네일 + 레퍼런스 3종(C02/E01/P01) — 진행 중
-- Track C (wt-c): 내보내기 제너레이터 — HyperFrames 리서치(R 에이전트) 완료 후 발주 대기
+- Track C (wt-c, task-ms9owlk8-pvtsgb): 내보내기 제너레이터 5종 — 진행 중 (R 리서치 완료: docs/HYPERFRAMES_NOTES.md)
+- 검수 스위트(playwright smoke + __vfx 훅 계약) = 오케스트레이터 작성 완료
 - 통합·게이트 실행 = 오케스트레이터
 
 ## 이펙트 상태 (구현 완료된 것만 기록, 나머지는 미착수로 간주)
