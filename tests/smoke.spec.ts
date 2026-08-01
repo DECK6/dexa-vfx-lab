@@ -51,18 +51,19 @@ for (const entry of manifest) {
     // kernel chunks + subject rasterization settle
     await page.waitForTimeout(400);
 
-    await page.evaluate(() => {
-      window.__vfx!.pause();
-      window.__vfx!.seek(0);
-    });
-    await page.waitForTimeout(150); // canvas passive-effect draw settles
-    const shot0 = await preview.screenshot();
-
-    await page.evaluate(() => window.__vfx!.seek(90));
-    await page.waitForTimeout(150);
-    const shot90 = await preview.screenshot();
-
-    expect(shot0.equals(shot90), `preview static or blank at ${id}`).toBe(false);
+    // 3 sample frames (0, 67, 133 — prime-ish offsets) so a periodic effect whose
+    // terms all zero at t=0/0.5 (e.g. sin(12πt)) is not misread as static.
+    const shots: Buffer[] = [];
+    for (const f of [0, 67, 133]) {
+      await page.evaluate((frame) => {
+        window.__vfx!.pause();
+        window.__vfx!.seek(frame);
+      }, f);
+      await page.waitForTimeout(150); // canvas passive-effect draw settles
+      shots.push(await preview.screenshot());
+    }
+    const allEqual = shots[0].equals(shots[1]) && shots[1].equals(shots[2]);
+    expect(allEqual, `preview static or blank at ${id}`).toBe(false);
 
     // one param mutation must not crash (first control if present)
     const control = page.locator('[data-vfx-param]').first();
