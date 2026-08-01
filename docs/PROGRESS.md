@@ -1,6 +1,6 @@
 # PROGRESS
-phase: DONE — W5 포함 244종 라이브
-last-update: 2026-08-01T21:19
+phase: W6~W9 확장 중 (골: 500종 + 검수 + 양측 푸시 확인)
+last-update: 2026-08-02T07:31
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -25,6 +25,13 @@ last-update: 2026-08-01T21:19
 - 검수 중 exporter 3픽스: webgl 표준 uniform+subject 텍스처+preserveDrawingBuffer, 오디오 인라인, 스니펫 subject 캐논화
 - 배치 계획: docs/BATCHES_W2.md (15배치). 라운드1 발주: GL1(wt-a) GL2(wt-b) CV1(wt-c) CV2(wt-d) RX1(wt-e)
 - Codex 샌드박스 제약 확정: 브라우저·네트워크 게이트 불가 → 배치 검증은 gen/lint/typecheck까지, 렌더·HF·스모크는 오케스트레이터
+
+## 500 확장 골 (08-02 시작)
+- /goal: 500종 확장 + 검수 + GitHub·dexa.art 양측 푸시 확인 시 종료 (푸시 사전 승인됨)
+- 로드맵: W6 64(screen/retro/stylize+심화) → W7 64(broadcast/cinema+data/ui) → W8 64(three+motion/nature/audio) → W9 64(bg+type/pattern+보강) = 500
+- 구현: Codex gpt-5.6-sol, 워크트리 8기(wt-a~h) 병렬
+- 신규 게이트: 근접 이웃(중복 반려)·증분 썸네일·성능 예산(엔트리<500K)
+- 사고 기록: W6 1차 발주 6기 즉사 — 재생성된 워크트리의 구 inode를 문 스테일 codex 브로커/앱서버가 원인. 스테일 121 프로세스 정리 후 재발주 성공. **워크트리 삭제 시 관련 데몬도 함께 정리할 것**
 
 ## W5 — 오브젝트 모션 (08-01 오후)
 - 사용자 피드백: 화면 전체 효과 위주 → 피사체 자체 모션 30종 추가 결정
