@@ -20,9 +20,13 @@ import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_E02 from '../../effects/texture/E02_halftone-dot.meta';
 import meta_E03 from '../../effects/texture/E03_dither-bayer.meta';
+import meta_E04 from '../../effects/texture/E04_paper-fiber.meta';
 import meta_E06 from '../../effects/texture/E06_duotone-map.meta';
 import meta_E07 from '../../effects/texture/E07_posterize-step.meta';
+import meta_E09 from '../../effects/texture/E09_risograph.meta';
 import meta_E10 from '../../effects/texture/E10_vignette-breathe.meta';
+import meta_E11 from '../../effects/texture/E11_chromatic-grain.meta';
+import meta_E12 from '../../effects/texture/E12_ascii-map.meta';
 import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
@@ -108,6 +112,7 @@ import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 import meta_V04 from '../../effects/data/V04_line-chart-draw.meta';
 import meta_V05 from '../../effects/data/V05_pie-sweep.meta';
 import meta_V09 from '../../effects/data/V09_gauge-needle.meta';
+import meta_V11 from '../../effects/data/V11_scatter-settle.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
 import meta_X02 from '../../effects/trans/X02_slice-shuffle.meta';
 import meta_X03 from '../../effects/trans/X03_zoom-punch.meta';
@@ -149,9 +154,13 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
   { meta: meta_E02, effectPath: 'effects/texture/E02_halftone-dot.effect.ts', load: () => import('../../effects/texture/E02_halftone-dot.effect') },
   { meta: meta_E03, effectPath: 'effects/texture/E03_dither-bayer.effect.ts', load: () => import('../../effects/texture/E03_dither-bayer.effect') },
+  { meta: meta_E04, effectPath: 'effects/texture/E04_paper-fiber.effect.ts', load: () => import('../../effects/texture/E04_paper-fiber.effect') },
   { meta: meta_E06, effectPath: 'effects/texture/E06_duotone-map.effect.tsx', load: () => import('../../effects/texture/E06_duotone-map.effect') },
   { meta: meta_E07, effectPath: 'effects/texture/E07_posterize-step.effect.ts', load: () => import('../../effects/texture/E07_posterize-step.effect') },
+  { meta: meta_E09, effectPath: 'effects/texture/E09_risograph.effect.ts', load: () => import('../../effects/texture/E09_risograph.effect') },
   { meta: meta_E10, effectPath: 'effects/texture/E10_vignette-breathe.effect.tsx', load: () => import('../../effects/texture/E10_vignette-breathe.effect') },
+  { meta: meta_E11, effectPath: 'effects/texture/E11_chromatic-grain.effect.ts', load: () => import('../../effects/texture/E11_chromatic-grain.effect') },
+  { meta: meta_E12, effectPath: 'effects/texture/E12_ascii-map.effect.ts', load: () => import('../../effects/texture/E12_ascii-map.effect') },
   { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
@@ -237,6 +246,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_V04, effectPath: 'effects/data/V04_line-chart-draw.effect.tsx', load: () => import('../../effects/data/V04_line-chart-draw.effect') },
   { meta: meta_V05, effectPath: 'effects/data/V05_pie-sweep.effect.tsx', load: () => import('../../effects/data/V05_pie-sweep.effect') },
   { meta: meta_V09, effectPath: 'effects/data/V09_gauge-needle.effect.tsx', load: () => import('../../effects/data/V09_gauge-needle.effect') },
+  { meta: meta_V11, effectPath: 'effects/data/V11_scatter-settle.effect.ts', load: () => import('../../effects/data/V11_scatter-settle.effect') },
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
   { meta: meta_X02, effectPath: 'effects/trans/X02_slice-shuffle.effect.tsx', load: () => import('../../effects/trans/X02_slice-shuffle.effect') },
   { meta: meta_X03, effectPath: 'effects/trans/X03_zoom-punch.effect.tsx', load: () => import('../../effects/trans/X03_zoom-punch.effect') },
