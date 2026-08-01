@@ -52,6 +52,11 @@ import meta_V03 from '../../effects/data/V03_progress-ring.meta';
 import meta_X01 from '../../effects/trans/X01_iris-wipe.meta';
 import meta_X02 from '../../effects/trans/X02_slice-shuffle.meta';
 import meta_X03 from '../../effects/trans/X03_zoom-punch.meta';
+import meta_X06 from '../../effects/trans/X06_clock-wipe.meta';
+import meta_X08 from '../../effects/trans/X08_blinds.meta';
+import meta_X13 from '../../effects/trans/X13_cube-rotate.meta';
+import meta_X14 from '../../effects/trans/X14_whip-pan.meta';
+import meta_X16 from '../../effects/trans/X16_split-open.meta';
 
 export interface ManifestEntry {
   meta: FxMeta;
@@ -112,4 +117,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_X01, effectPath: 'effects/trans/X01_iris-wipe.effect.tsx', load: () => import('../../effects/trans/X01_iris-wipe.effect') },
   { meta: meta_X02, effectPath: 'effects/trans/X02_slice-shuffle.effect.tsx', load: () => import('../../effects/trans/X02_slice-shuffle.effect') },
   { meta: meta_X03, effectPath: 'effects/trans/X03_zoom-punch.effect.tsx', load: () => import('../../effects/trans/X03_zoom-punch.effect') },
+  { meta: meta_X06, effectPath: 'effects/trans/X06_clock-wipe.effect.tsx', load: () => import('../../effects/trans/X06_clock-wipe.effect') },
+  { meta: meta_X08, effectPath: 'effects/trans/X08_blinds.effect.tsx', load: () => import('../../effects/trans/X08_blinds.effect') },
+  { meta: meta_X13, effectPath: 'effects/trans/X13_cube-rotate.effect.tsx', load: () => import('../../effects/trans/X13_cube-rotate.effect') },
+  { meta: meta_X14, effectPath: 'effects/trans/X14_whip-pan.effect.tsx', load: () => import('../../effects/trans/X14_whip-pan.effect') },
+  { meta: meta_X16, effectPath: 'effects/trans/X16_split-open.effect.tsx', load: () => import('../../effects/trans/X16_split-open.effect') },
 ];
