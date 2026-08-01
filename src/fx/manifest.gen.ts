@@ -25,13 +25,18 @@ import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
 import meta_G04 from '../../effects/glitch/G04_signal-loss.meta';
 import meta_G05 from '../../effects/glitch/G05_vhs-tracking.meta';
+import meta_G06 from '../../effects/glitch/G06_pixel-sort.meta';
+import meta_G07 from '../../effects/glitch/G07_block-corrupt.meta';
+import meta_G09 from '../../effects/glitch/G09_interlace-tear.meta';
 import meta_G10 from '../../effects/glitch/G10_ghost-echo.meta';
 import meta_G12 from '../../effects/glitch/G12_sync-roll.meta';
+import meta_G14 from '../../effects/glitch/G14_static-burst.meta';
 import meta_G15 from '../../effects/glitch/G15_frame-drop.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
 import meta_L06 from '../../effects/light/L06_light-leak.meta';
+import meta_L08 from '../../effects/light/L08_lightning-arc.meta';
 import meta_L09 from '../../effects/light/L09_strobe-cut.meta';
 import meta_L12 from '../../effects/light/L12_spotlight-track.meta';
 import meta_L13 from '../../effects/light/L13_glow-trail.meta';
@@ -127,13 +132,18 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
   { meta: meta_G04, effectPath: 'effects/glitch/G04_signal-loss.effect.ts', load: () => import('../../effects/glitch/G04_signal-loss.effect') },
   { meta: meta_G05, effectPath: 'effects/glitch/G05_vhs-tracking.effect.ts', load: () => import('../../effects/glitch/G05_vhs-tracking.effect') },
+  { meta: meta_G06, effectPath: 'effects/glitch/G06_pixel-sort.effect.ts', load: () => import('../../effects/glitch/G06_pixel-sort.effect') },
+  { meta: meta_G07, effectPath: 'effects/glitch/G07_block-corrupt.effect.ts', load: () => import('../../effects/glitch/G07_block-corrupt.effect') },
+  { meta: meta_G09, effectPath: 'effects/glitch/G09_interlace-tear.effect.ts', load: () => import('../../effects/glitch/G09_interlace-tear.effect') },
   { meta: meta_G10, effectPath: 'effects/glitch/G10_ghost-echo.effect.tsx', load: () => import('../../effects/glitch/G10_ghost-echo.effect') },
   { meta: meta_G12, effectPath: 'effects/glitch/G12_sync-roll.effect.tsx', load: () => import('../../effects/glitch/G12_sync-roll.effect') },
+  { meta: meta_G14, effectPath: 'effects/glitch/G14_static-burst.effect.ts', load: () => import('../../effects/glitch/G14_static-burst.effect') },
   { meta: meta_G15, effectPath: 'effects/glitch/G15_frame-drop.effect.tsx', load: () => import('../../effects/glitch/G15_frame-drop.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
   { meta: meta_L06, effectPath: 'effects/light/L06_light-leak.effect.tsx', load: () => import('../../effects/light/L06_light-leak.effect') },
+  { meta: meta_L08, effectPath: 'effects/light/L08_lightning-arc.effect.ts', load: () => import('../../effects/light/L08_lightning-arc.effect') },
   { meta: meta_L09, effectPath: 'effects/light/L09_strobe-cut.effect.tsx', load: () => import('../../effects/light/L09_strobe-cut.effect') },
   { meta: meta_L12, effectPath: 'effects/light/L12_spotlight-track.effect.tsx', load: () => import('../../effects/light/L12_spotlight-track.effect') },
   { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
