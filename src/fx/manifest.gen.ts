@@ -46,6 +46,11 @@ import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
 import meta_P04 from '../../effects/particle/P04_dust-motes.meta';
 import meta_P05 from '../../effects/particle/P05_bokeh-drift.meta';
 import meta_P06 from '../../effects/particle/P06_snow-fall.meta';
+import meta_P07 from '../../effects/particle/P07_ember-rise.meta';
+import meta_P08 from '../../effects/particle/P08_swarm-flock.meta';
+import meta_P09 from '../../effects/particle/P09_magnetic-field.meta';
+import meta_P10 from '../../effects/particle/P10_orbit-ring.meta';
+import meta_P11 from '../../effects/particle/P11_trail-emitter.meta';
 import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_Q08 from '../../effects/liquid/Q08_gel-wobble.meta';
 import meta_Q10 from '../../effects/liquid/Q10_liquid-fill.meta';
@@ -148,6 +153,11 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_P04, effectPath: 'effects/particle/P04_dust-motes.effect.ts', load: () => import('../../effects/particle/P04_dust-motes.effect') },
   { meta: meta_P05, effectPath: 'effects/particle/P05_bokeh-drift.effect.tsx', load: () => import('../../effects/particle/P05_bokeh-drift.effect') },
   { meta: meta_P06, effectPath: 'effects/particle/P06_snow-fall.effect.ts', load: () => import('../../effects/particle/P06_snow-fall.effect') },
+  { meta: meta_P07, effectPath: 'effects/particle/P07_ember-rise.effect.ts', load: () => import('../../effects/particle/P07_ember-rise.effect') },
+  { meta: meta_P08, effectPath: 'effects/particle/P08_swarm-flock.effect.ts', load: () => import('../../effects/particle/P08_swarm-flock.effect') },
+  { meta: meta_P09, effectPath: 'effects/particle/P09_magnetic-field.effect.ts', load: () => import('../../effects/particle/P09_magnetic-field.effect') },
+  { meta: meta_P10, effectPath: 'effects/particle/P10_orbit-ring.effect.ts', load: () => import('../../effects/particle/P10_orbit-ring.effect') },
+  { meta: meta_P11, effectPath: 'effects/particle/P11_trail-emitter.effect.ts', load: () => import('../../effects/particle/P11_trail-emitter.effect') },
   { meta: meta_Q01, effectPath: 'effects/liquid/Q01_metaball-merge.effect.ts', load: () => import('../../effects/liquid/Q01_metaball-merge.effect') },
   { meta: meta_Q08, effectPath: 'effects/liquid/Q08_gel-wobble.effect.tsx', load: () => import('../../effects/liquid/Q08_gel-wobble.effect') },
   { meta: meta_Q10, effectPath: 'effects/liquid/Q10_liquid-fill.effect.tsx', load: () => import('../../effects/liquid/Q10_liquid-fill.effect') },
