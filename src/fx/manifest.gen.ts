@@ -10,11 +10,16 @@ import meta_E01 from '../../effects/texture/E01_film-grain.meta';
 import meta_G01 from '../../effects/glitch/G01_rgb-split.meta';
 import meta_G02 from '../../effects/glitch/G02_datamosh-slice.meta';
 import meta_G03 from '../../effects/glitch/G03_crt-scanline.meta';
+import meta_G04 from '../../effects/glitch/G04_signal-loss.meta';
+import meta_G05 from '../../effects/glitch/G05_vhs-tracking.meta';
 import meta_L01 from '../../effects/light/L01_bloom-pulse.meta';
 import meta_L02 from '../../effects/light/L02_specular-sweep.meta';
 import meta_L03 from '../../effects/light/L03_neon-flicker.meta';
+import meta_L13 from '../../effects/light/L13_glow-trail.meta';
 import meta_M01 from '../../effects/mask/M01_shape-reveal.meta';
 import meta_P01 from '../../effects/particle/P01_particle-burst.meta';
+import meta_P02 from '../../effects/particle/P02_confetti-rain.meta';
+import meta_P03 from '../../effects/particle/P03_spark-shower.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
 import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
 import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
@@ -47,11 +52,16 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_G01, effectPath: 'effects/glitch/G01_rgb-split.effect.tsx', load: () => import('../../effects/glitch/G01_rgb-split.effect') },
   { meta: meta_G02, effectPath: 'effects/glitch/G02_datamosh-slice.effect.ts', load: () => import('../../effects/glitch/G02_datamosh-slice.effect') },
   { meta: meta_G03, effectPath: 'effects/glitch/G03_crt-scanline.effect.ts', load: () => import('../../effects/glitch/G03_crt-scanline.effect') },
+  { meta: meta_G04, effectPath: 'effects/glitch/G04_signal-loss.effect.ts', load: () => import('../../effects/glitch/G04_signal-loss.effect') },
+  { meta: meta_G05, effectPath: 'effects/glitch/G05_vhs-tracking.effect.ts', load: () => import('../../effects/glitch/G05_vhs-tracking.effect') },
   { meta: meta_L01, effectPath: 'effects/light/L01_bloom-pulse.effect.tsx', load: () => import('../../effects/light/L01_bloom-pulse.effect') },
   { meta: meta_L02, effectPath: 'effects/light/L02_specular-sweep.effect.tsx', load: () => import('../../effects/light/L02_specular-sweep.effect') },
   { meta: meta_L03, effectPath: 'effects/light/L03_neon-flicker.effect.tsx', load: () => import('../../effects/light/L03_neon-flicker.effect') },
+  { meta: meta_L13, effectPath: 'effects/light/L13_glow-trail.effect.ts', load: () => import('../../effects/light/L13_glow-trail.effect') },
   { meta: meta_M01, effectPath: 'effects/mask/M01_shape-reveal.effect.tsx', load: () => import('../../effects/mask/M01_shape-reveal.effect') },
   { meta: meta_P01, effectPath: 'effects/particle/P01_particle-burst.effect.ts', load: () => import('../../effects/particle/P01_particle-burst.effect') },
+  { meta: meta_P02, effectPath: 'effects/particle/P02_confetti-rain.effect.ts', load: () => import('../../effects/particle/P02_confetti-rain.effect') },
+  { meta: meta_P03, effectPath: 'effects/particle/P03_spark-shower.effect.ts', load: () => import('../../effects/particle/P03_spark-shower.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
   { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
   { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
