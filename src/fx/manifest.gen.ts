@@ -8,6 +8,7 @@ import meta_A04 from '../../effects/audio/A04_beat-pulse.meta';
 import meta_A05 from '../../effects/audio/A05_oscilloscope.meta';
 import meta_A06 from '../../effects/audio/A06_vu-meter.meta';
 import meta_A07 from '../../effects/audio/A07_waveform-line.meta';
+import meta_A09 from '../../effects/audio/A09_amplitude-warp.meta';
 import meta_C01 from '../../effects/camera/C01_parallax-layers.meta';
 import meta_C02 from '../../effects/camera/C02_ken-burns.meta';
 import meta_C03 from '../../effects/camera/C03_handheld-shake.meta';
@@ -98,6 +99,9 @@ import meta_Q01 from '../../effects/liquid/Q01_metaball-merge.meta';
 import meta_Q02 from '../../effects/liquid/Q02_ink-diffuse.meta';
 import meta_Q03 from '../../effects/liquid/Q03_paint-splatter.meta';
 import meta_Q04 from '../../effects/liquid/Q04_viscous-drip.meta';
+import meta_Q05 from '../../effects/liquid/Q05_fluid-sim.meta';
+import meta_Q06 from '../../effects/liquid/Q06_wave-tank.meta';
+import meta_Q07 from '../../effects/liquid/Q07_oil-slick.meta';
 import meta_Q08 from '../../effects/liquid/Q08_gel-wobble.meta';
 import meta_Q10 from '../../effects/liquid/Q10_liquid-fill.meta';
 import meta_R01 from '../../effects/pattern/R01_perlin-field.meta';
@@ -111,6 +115,7 @@ import meta_R10 from '../../effects/pattern/R10_stripe-shift.meta';
 import meta_R11 from '../../effects/pattern/R11_checker-flip.meta';
 import meta_R12 from '../../effects/pattern/R12_hex-grid-pulse.meta';
 import meta_R13 from '../../effects/pattern/R13_dot-matrix.meta';
+import meta_R14 from '../../effects/pattern/R14_chladni-figure.meta';
 import meta_S01 from '../../effects/shape/S01_stroke-draw.meta';
 import meta_S02 from '../../effects/shape/S02_blob-morph.meta';
 import meta_S03 from '../../effects/shape/S03_grid-wave.meta';
@@ -190,6 +195,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_A05, effectPath: 'effects/audio/A05_oscilloscope.effect.ts', load: () => import('../../effects/audio/A05_oscilloscope.effect') },
   { meta: meta_A06, effectPath: 'effects/audio/A06_vu-meter.effect.tsx', load: () => import('../../effects/audio/A06_vu-meter.effect') },
   { meta: meta_A07, effectPath: 'effects/audio/A07_waveform-line.effect.tsx', load: () => import('../../effects/audio/A07_waveform-line.effect') },
+  { meta: meta_A09, effectPath: 'effects/audio/A09_amplitude-warp.effect.ts', load: () => import('../../effects/audio/A09_amplitude-warp.effect') },
   { meta: meta_C01, effectPath: 'effects/camera/C01_parallax-layers.effect.tsx', load: () => import('../../effects/camera/C01_parallax-layers.effect') },
   { meta: meta_C02, effectPath: 'effects/camera/C02_ken-burns.effect.tsx', load: () => import('../../effects/camera/C02_ken-burns.effect') },
   { meta: meta_C03, effectPath: 'effects/camera/C03_handheld-shake.effect.tsx', load: () => import('../../effects/camera/C03_handheld-shake.effect') },
@@ -280,6 +286,9 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_Q02, effectPath: 'effects/liquid/Q02_ink-diffuse.effect.ts', load: () => import('../../effects/liquid/Q02_ink-diffuse.effect') },
   { meta: meta_Q03, effectPath: 'effects/liquid/Q03_paint-splatter.effect.ts', load: () => import('../../effects/liquid/Q03_paint-splatter.effect') },
   { meta: meta_Q04, effectPath: 'effects/liquid/Q04_viscous-drip.effect.tsx', load: () => import('../../effects/liquid/Q04_viscous-drip.effect') },
+  { meta: meta_Q05, effectPath: 'effects/liquid/Q05_fluid-sim.effect.ts', load: () => import('../../effects/liquid/Q05_fluid-sim.effect') },
+  { meta: meta_Q06, effectPath: 'effects/liquid/Q06_wave-tank.effect.ts', load: () => import('../../effects/liquid/Q06_wave-tank.effect') },
+  { meta: meta_Q07, effectPath: 'effects/liquid/Q07_oil-slick.effect.ts', load: () => import('../../effects/liquid/Q07_oil-slick.effect') },
   { meta: meta_Q08, effectPath: 'effects/liquid/Q08_gel-wobble.effect.tsx', load: () => import('../../effects/liquid/Q08_gel-wobble.effect') },
   { meta: meta_Q10, effectPath: 'effects/liquid/Q10_liquid-fill.effect.tsx', load: () => import('../../effects/liquid/Q10_liquid-fill.effect') },
   { meta: meta_R01, effectPath: 'effects/pattern/R01_perlin-field.effect.ts', load: () => import('../../effects/pattern/R01_perlin-field.effect') },
@@ -293,6 +302,7 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_R11, effectPath: 'effects/pattern/R11_checker-flip.effect.tsx', load: () => import('../../effects/pattern/R11_checker-flip.effect') },
   { meta: meta_R12, effectPath: 'effects/pattern/R12_hex-grid-pulse.effect.tsx', load: () => import('../../effects/pattern/R12_hex-grid-pulse.effect') },
   { meta: meta_R13, effectPath: 'effects/pattern/R13_dot-matrix.effect.tsx', load: () => import('../../effects/pattern/R13_dot-matrix.effect') },
+  { meta: meta_R14, effectPath: 'effects/pattern/R14_chladni-figure.effect.ts', load: () => import('../../effects/pattern/R14_chladni-figure.effect') },
   { meta: meta_S01, effectPath: 'effects/shape/S01_stroke-draw.effect.tsx', load: () => import('../../effects/shape/S01_stroke-draw.effect') },
   { meta: meta_S02, effectPath: 'effects/shape/S02_blob-morph.effect.tsx', load: () => import('../../effects/shape/S02_blob-morph.effect') },
   { meta: meta_S03, effectPath: 'effects/shape/S03_grid-wave.effect.tsx', load: () => import('../../effects/shape/S03_grid-wave.effect') },
