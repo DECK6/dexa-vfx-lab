@@ -15,7 +15,11 @@ import meta_C11 from '../../effects/camera/C11_perspective-card.meta';
 import meta_D01 from '../../effects/distort/D01_displacement-wave.meta';
 import meta_D02 from '../../effects/distort/D02_ripple-circle.meta';
 import meta_D03 from '../../effects/distort/D03_twirl-vortex.meta';
+import meta_D04 from '../../effects/distort/D04_bulge-pinch.meta';
 import meta_D05 from '../../effects/distort/D05_wave-shear.meta';
+import meta_D06 from '../../effects/distort/D06_lens-barrel.meta';
+import meta_D08 from '../../effects/distort/D08_melt-drip.meta';
+import meta_D09 from '../../effects/distort/D09_turbulent-noise.meta';
 import meta_D11 from '../../effects/distort/D11_mirror-fold.meta';
 import meta_D12 from '../../effects/distort/D12_kaleidoscope.meta';
 import meta_E01 from '../../effects/texture/E01_film-grain.meta';
@@ -148,7 +152,11 @@ export const manifest: ManifestEntry[] = [
   { meta: meta_D01, effectPath: 'effects/distort/D01_displacement-wave.effect.ts', load: () => import('../../effects/distort/D01_displacement-wave.effect') },
   { meta: meta_D02, effectPath: 'effects/distort/D02_ripple-circle.effect.ts', load: () => import('../../effects/distort/D02_ripple-circle.effect') },
   { meta: meta_D03, effectPath: 'effects/distort/D03_twirl-vortex.effect.ts', load: () => import('../../effects/distort/D03_twirl-vortex.effect') },
+  { meta: meta_D04, effectPath: 'effects/distort/D04_bulge-pinch.effect.ts', load: () => import('../../effects/distort/D04_bulge-pinch.effect') },
   { meta: meta_D05, effectPath: 'effects/distort/D05_wave-shear.effect.ts', load: () => import('../../effects/distort/D05_wave-shear.effect') },
+  { meta: meta_D06, effectPath: 'effects/distort/D06_lens-barrel.effect.ts', load: () => import('../../effects/distort/D06_lens-barrel.effect') },
+  { meta: meta_D08, effectPath: 'effects/distort/D08_melt-drip.effect.ts', load: () => import('../../effects/distort/D08_melt-drip.effect') },
+  { meta: meta_D09, effectPath: 'effects/distort/D09_turbulent-noise.effect.ts', load: () => import('../../effects/distort/D09_turbulent-noise.effect') },
   { meta: meta_D11, effectPath: 'effects/distort/D11_mirror-fold.effect.ts', load: () => import('../../effects/distort/D11_mirror-fold.effect') },
   { meta: meta_D12, effectPath: 'effects/distort/D12_kaleidoscope.effect.ts', load: () => import('../../effects/distort/D12_kaleidoscope.effect') },
   { meta: meta_E01, effectPath: 'effects/texture/E01_film-grain.effect.ts', load: () => import('../../effects/texture/E01_film-grain.effect') },
