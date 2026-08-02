@@ -1,6 +1,6 @@
 # PROGRESS
-phase: 500종 구현·로컬 검수 완료 (GitHub·dexa.art 전달 중)
-last-update: 2026-08-02T11:06+09:00
+phase: 완료 (500종 + 전수 검수 + GitHub·dexa.art 양측 전달 확인)
+last-update: 2026-08-02T11:11+09:00
 
 ## W6~W9 최종 인수 결과 (08-02, Codex)
 - 현재 `master`를 유일한 정본으로 삼아 기존 워크트리의 소유권·상태를 먼저 확인하고, 고유 구현만 보존해 통합했다. 오래된 워크트리와 프로세스는 재사용하거나 삭제하지 않았다.
@@ -11,7 +11,9 @@ last-update: 2026-08-02T11:06+09:00
 - 시각 검수: `bun run audit:contact-sheets`로 W6~W9 각 64장, 총 256장을 원본 해상도 접촉시트로 확인해 빈 화면·깨짐·클리핑 없음.
 - 결정성·성능 smoke: `bun run test:e2e` → **503 passed**. 갤러리/상세/GL 공유 컨텍스트, 3프레임 생존, 반복 시크 픽셀 결정성, 파라미터 변이를 포함한다.
 - 전체 빌드: `bun run build` 통과(1,556 modules). 엔트리 376,165 bytes(<500K), Remotion leak 0, 전체 assets 5,277,260 bytes.
-- 외부 전달: 소스와 dexa.art 배포 저장소의 커밋·push 및 라이브 자산 확인 후 이 절에 최종 증거를 추가한다.
+- 외부 전달: `DECK6/dexa-vfx-lab` `master` 구현 커밋 **b7dc9f0** push·원격 ref 일치. `DECK6/adxdeck` `main` 배포 커밋 **691b88e** push·원격 ref 일치.
+- Pages·라이브: GitHub Pages run **30728309215** 성공. `https://dexa.art/vfx/` HTTP 200 및 새 엔트리 `index-DMu1P8mk.js`; A24/H20/T35/X20 신규 썸네일의 라이브 SHA-256이 로컬과 각각 일치.
+- 배포 안전성: 낡은 해시 자산 148개는 영구 삭제하지 않고 macOS Trash로 이동(복구 가능). 배포 디렉터리는 `dist`와 일치하고 썸네일 500장·0바이트 0·CNAME `dexa.art`를 확인했다.
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
