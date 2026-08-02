@@ -69,6 +69,10 @@ const kernel = {
     g.fillStyle = signal;
     g.fillRect(screenX + pixelSize, screenY + pixelSize, pixelSize * 3, Math.max(1, pixelSize * 0.45));
     g.fillRect(screenX + pixelSize, screenY + pixelSize * 1.8, pixelSize * 2, Math.max(1, pixelSize * 0.45));
+    g.globalAlpha = 0.52;
+    g.fillStyle = signal;
+    const refreshX = screenX + phase * screenWidth;
+    g.fillRect(refreshX - 2, screenY, 4, screenHeight);
     g.globalAlpha = 1;
     g.fillStyle = '#0D0E10';
     g.fillRect(caseX + caseWidth * 0.73, caseY - 4, caseWidth * 0.16, 7);

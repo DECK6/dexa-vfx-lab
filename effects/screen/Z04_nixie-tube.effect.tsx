@@ -26,6 +26,7 @@ const kernel = {
                 <div style={{ position: 'absolute', left: '22%', right: '22%', top: '9%', bottom: '8%', border: '1px dashed #74706A44', borderRadius: '45%' }} />
                 {Array.from({ length: 10 }, (_, number) => {
                   const active = number === digit;
+                  if (!active) return null;
                   return <div key={number} style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', transform: `translateX(${(number - 4.5) * 0.16}px) scaleX(${0.78 + number * 0.004})`, color: active ? ember : '#5C4638', opacity: active ? power : 0.07, fontFamily: 'Georgia, serif', fontSize: tubeHeight * 0.56, fontWeight: 400, textShadow: active ? `0 0 3px #FFF1C9, 0 0 ${tubeWidth * 0.18}px ${ember}, 0 0 ${tubeWidth * 0.45}px ${ember}` : 'none', zIndex: active ? 4 : 1 }}>{number}</div>;
                 })}
                 <div style={{ position: 'absolute', left: '18%', top: '4%', width: '22%', height: '78%', borderLeft: '2px solid #FFFFFF1F', borderRadius: '50%', transform: 'rotate(8deg)', zIndex: 7 }} />

@@ -6,12 +6,16 @@
   "scripts": {
     "gen": "node scripts/gen-manifest.mjs",
     "dev": "bun run gen && vite",
-    "build": "bun run gen && bun run lint:registry && tsc --noEmit && vite build",
+    "build": "bun run gen && bun run lint:registry && bun run lint:catalog && bun run lint:neighbors && tsc --noEmit && vite build && bun run check:bundle",
     "preview": "vite preview",
     "typecheck": "bun run gen && tsc --noEmit",
     "lint:registry": "node scripts/lint-registry.mjs",
+    "lint:catalog": "node scripts/lint-catalog.mjs",
+    "lint:neighbors": "node scripts/lint-neighbors.mjs",
+    "check:bundle": "node scripts/check-bundle.mjs",
     "studio": "bun run gen && remotion studio src/remotion/index.ts",
-    "thumbs": "bun run gen && node scripts/thumbs.mjs",
+    "thumbs": "bun run gen && bun scripts/thumbs.mjs",
+    "audit:contact-sheets": "bun scripts/contact-sheets.mjs",
     "test:e2e": "playwright test",
     "deploy": "bash scripts/deploy.sh"
   },

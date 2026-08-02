@@ -4,7 +4,7 @@
  * Output is code-split: one module per effect (src/export/kernel-js/<ID>.ts) plus a
  * lazy loader map (kernel-js.gen.ts) so kernel JS never lands in the entry chunk.
  */
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { transform } from 'esbuild';
@@ -40,8 +40,8 @@ for (const file of effectFiles) {
   entries.push({ id, effectPath: relative(ROOT, file).split(sep).join('/'), source: result.code });
 }
 
-// per-effect modules (rewrite dir from scratch so removed effects disappear)
-rmSync(OUT_DIR, { recursive: true, force: true });
+// Per-effect modules. The generated loader map is authoritative; unreferenced old
+// files are harmless and intentionally preserved so generation is non-destructive.
 mkdirSync(OUT_DIR, { recursive: true });
 for (const e of entries) {
   writeFileSync(

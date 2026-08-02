@@ -1,20 +1,25 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, mkdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const MANIFEST = join(ROOT, 'src/fx/manifest.gen.ts');
 const THUMBS = join(ROOT, 'public/thumbs');
 const CONCURRENCY = 4;
 const FORCE = process.argv.includes('--force') || process.env.FORCE === '1';
+const DRY_RUN = process.argv.includes('--dry-run');
+const SCRIPT_MTIME = statSync(fileURLToPath(import.meta.url)).mtimeMs;
 
-const source = readFileSync(MANIFEST, 'utf8');
-const allIds = [...source.matchAll(/\{ meta: meta_([A-Z]\d{2}),/g)].map((match) => match[1]);
-const effectPaths = new Map(
-  [...source.matchAll(/meta: meta_([A-Z]\d{2}), effectPath: '([^']+)'/g)].map((m) => [m[1], m[2]]),
-);
+const { manifest } = await import('../src/fx/manifest.gen.ts');
+const allIds = manifest.map((entry) => entry.meta.id);
+const effectPaths = new Map(manifest.map((entry) => [entry.meta.id, entry.effectPath]));
+
+function thumbFrame(effectPath = '') {
+  // Reveal/transition kernels can be visually complete (and therefore blank or
+  // indistinct) at the old midpoint. Capture an earlier, informative phase.
+  return /effects\/(?:trans|mask)\//.test(effectPath) ? 67 : 90;
+}
 
 mkdirSync(THUMBS, { recursive: true });
 
@@ -26,7 +31,9 @@ const ids = allIds.filter((id) => {
   const effectPath = effectPaths.get(id);
   if (!effectPath) return true;
   try {
-    return statSync(join(ROOT, effectPath)).mtimeMs > statSync(thumb).mtimeMs;
+    const thumbMtime = statSync(thumb).mtimeMs;
+    if (thumbFrame(effectPath) !== 90 && SCRIPT_MTIME > thumbMtime) return true;
+    return statSync(join(ROOT, effectPath)).mtimeMs > thumbMtime;
   } catch {
     return true;
   }
@@ -34,16 +41,21 @@ const ids = allIds.filter((id) => {
 if (ids.length < allIds.length) {
   console.log(`thumbs — skipping ${allIds.length - ids.length} up-to-date (use --force to re-render all)`);
 }
+if (DRY_RUN) {
+  console.log(`thumbs — dry run (${ids.length} render, ${allIds.length - ids.length} skip, ${allIds.length} total)`);
+  process.exit(0);
+}
 
 function renderStill(id, workerIndex) {
   const output = join(THUMBS, `${id.toLowerCase()}.webp`);
+  const frame = thumbFrame(effectPaths.get(id));
   const args = [
     'remotion',
     'still',
     'src/remotion/index.ts',
     id,
     output,
-    '--frame=90',
+    `--frame=${frame}`,
     `--port=${41000 + workerIndex}`,
   ];
 

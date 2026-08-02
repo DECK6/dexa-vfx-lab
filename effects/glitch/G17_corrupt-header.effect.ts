@@ -55,9 +55,9 @@ const kernel = {
 
     // Rolling resync line — keeps visible motion even while the failure envelope is near zero.
     const rollY = ((ctx.t * 2) % 1) * ctx.height;
-    g.globalAlpha = 0.16;
+    g.globalAlpha = 0.48;
     g.fillStyle = signal;
-    g.fillRect(0, rollY, ctx.width, 2);
+    g.fillRect(0, rollY, ctx.width, 4);
     g.globalAlpha = 1;
 
     const panelWidth = Math.min(230, ctx.width * 0.58);

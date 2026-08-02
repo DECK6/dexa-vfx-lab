@@ -1,0 +1,23 @@
+import type { FxKernel } from '../../src/fx/types';
+
+const kernel = {
+  kind: 'react',
+  render: (ctx) => {
+    const rise = Number(ctx.params.rise ?? 0.48);
+    const vertigo = Number(ctx.params.vertigo ?? 0.42);
+    const horizon = Number(ctx.params.horizon ?? 54);
+    const signal = String(ctx.params.signal ?? '#5EE7F3');
+    const phase = (1 - Math.cos(ctx.t * Math.PI * 2)) * 0.5;
+    const worldScale = 0.75 + phase * vertigo;
+    const subjectScale = 1.22 - phase * vertigo * 0.52;
+    return (
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0D0E10', perspective: 800 }}>
+        <div style={{ position: 'absolute', left: '-30%', right: '-30%', top: `${horizon}%`, bottom: '-60%', transformOrigin: 'center top', transform: `rotateX(66deg) translateY(${phase * rise * 120}px) scale(${worldScale})`, backgroundImage: `linear-gradient(${signal}44 1px,transparent 1px),linear-gradient(90deg,${signal}44 1px,transparent 1px)`, backgroundSize: '58px 58px', boxShadow: `0 -8px 30px ${signal}22` }} />
+        <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', transform: `translateY(${-phase * rise * ctx.height * 0.28}px) scale(${subjectScale})`, filter: `drop-shadow(0 ${14 + phase * 24}px ${16 + phase * 22}px #000) drop-shadow(0 0 8px ${signal})` }}>{ctx.subjectNode}</div>
+        <div style={{ position: 'absolute', left: '7%', top: `${horizon}%`, width: '86%', height: 2, background: signal, opacity: 0.32 }} />
+      </div>
+    );
+  },
+} satisfies FxKernel;
+
+export default kernel;

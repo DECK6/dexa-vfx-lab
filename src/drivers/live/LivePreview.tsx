@@ -304,7 +304,10 @@ export function LivePreview({
     }
     if (loadFailed) return <div className="preview-message">KERNEL ERROR</div>;
     if (!kernel || ((kernel.kind === 'canvas' || kernel.kind === 'webgl') && !bitmap)) return <div className="preview-message">LOADING {entry.meta.id}</div>;
-    if (kernel.kind === 'react') return <ReactKernelView kernel={kernel} context={context} />;
+    // Explicit seeks increment resetKey. Remounting the React kernel clears
+    // compositor/raster history so the same requested frame is seek-order safe,
+    // matching the state replay contract used by stateful canvas kernels.
+    if (kernel.kind === 'react') return <ReactKernelView key={resetKey} kernel={kernel} context={context} />;
     if (kernel.kind === 'canvas') {
       return <CanvasKernelView kernel={kernel} context={context} stateKey={stateKey} autoPlay={autoCanvas} audioEnvelope={audioEnvelope} />;
     }

@@ -55,6 +55,8 @@ void main() {
   vec3 hatchInk = mix(background * 0.34, u_signal * 0.16, exposure * 0.4);
   vec3 color = mix(field, hatchInk, shade * 0.96);
   color += u_signal * subject.a * step(0.56, darkness) * exposure * 0.12;
+  float hatchSweep = exp(-abs(v_uv.x - lightCenter.x) * 22.0);
+  color += u_signal * hatchSweep * (0.022 + subject.a * 0.1);
   gl_FragColor = vec4(color, 1.0);
 }
 `,

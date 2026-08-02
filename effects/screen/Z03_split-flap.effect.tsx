@@ -30,7 +30,7 @@ const kernel = {
             const glyphStyle = { position: 'absolute' as const, left: 0, width: '100%', height: cellHeight, display: 'grid', placeItems: 'center', color: '#F5F7F8', fontFamily: 'JetBrains Mono, monospace', fontSize: cellHeight * 0.62, fontWeight: 800, lineHeight: 1 };
             const displayChar = locked ? ALPHABET[targetIndex] : currentChar;
             return (
-              <div key={index} style={{ position: 'relative', width: cellWidth, height: cellHeight, background: '#17191C', border: '1px solid #34383C', borderRadius: 3, overflow: 'hidden', transformStyle: 'preserve-3d' }}>
+              <div key={index} data-layout-allow-overlap data-layout-allow-occlusion style={{ position: 'relative', width: cellWidth, height: cellHeight, background: '#17191C', border: '1px solid #34383C', borderRadius: 3, overflow: 'hidden', transformStyle: 'preserve-3d' }}>
                 <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}><div style={glyphStyle}>{nextChar}</div></div>
                 <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '50%', overflow: 'hidden', background: '#202327' }}><div style={glyphStyle}>{displayChar}</div></div>
                 <div style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: '50%', overflow: 'hidden', background: '#151719' }}><div style={{ ...glyphStyle, bottom: 0 }}>{nextChar}</div></div>

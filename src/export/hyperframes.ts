@@ -1,4 +1,4 @@
-import sampleEnvelope from '../../public/audio/sample.envelope.json';
+import sampleEnvelope from '../audio/sample.envelope.json';
 import type { FxExportInput, FxExporter } from './types';
 
 const WIDTH = 1280;

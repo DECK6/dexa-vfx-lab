@@ -42,9 +42,12 @@ const kernel = {
           }}
         >
           <div
+            aria-hidden="true"
+            data-layout-allow-overlap
             style={{
               ...textStyle,
-              color: 'transparent',
+              color: '#0D0E10',
+              WebkitTextFillColor: '#0D0E10',
               WebkitTextStroke: `${outlineWidth}px ${signal}`,
               textShadow: `0 0 ${glow}px ${signal}52`,
             }}
@@ -52,6 +55,7 @@ const kernel = {
             {phrase}
           </div>
           <div
+            data-layout-allow-overflow
             style={{
               position: 'absolute',
               left: 0,
@@ -62,6 +66,7 @@ const kernel = {
             }}
           >
             <div
+              data-layout-allow-overlap
               style={{
                 ...textStyle,
                 width: textBoxWidth,

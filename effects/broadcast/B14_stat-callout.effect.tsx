@@ -22,7 +22,7 @@ const kernel = {
         <div style={{ position: 'absolute', inset: 0, opacity: 0.1 * outro }}>{ctx.subjectNode}</div>
         <div style={{ position: 'absolute', left: '8%', top: '15%', bottom: '15%', width: '58%', background: '#111418EB', borderLeft: `4px solid ${signal}`, transform: `translateX(${(1 - intro) * -ctx.width * 0.12}px)`, opacity: outro, boxShadow: `18px 0 50px #00000055` }}>
           <div style={{ position: 'absolute', left: '8%', top: '13%', color: '#B8C0C4', fontSize: Math.max(8, ctx.height * 0.022), letterSpacing: '0.2em' }}>DEXA DATA / LIVE METRIC</div>
-          <div style={{ position: 'absolute', left: '7%', top: '27%', display: 'flex', alignItems: 'flex-start', color: '#F4F7F8', fontVariantNumeric: 'tabular-nums' }}>
+          <div data-layout-allow-overlap style={{ position: 'absolute', left: '7%', top: '27%', display: 'flex', alignItems: 'flex-start', color: '#F4F7F8', fontVariantNumeric: 'tabular-nums' }}>
             <span style={{ fontSize: Math.max(64, ctx.height * 0.32), lineHeight: 0.86, fontWeight: 900, letterSpacing: '-0.08em' }}>{current}</span>
             <span style={{ marginLeft: '0.18em', color: signal, fontSize: Math.max(20, ctx.height * 0.095), lineHeight: 1, fontWeight: 800 }}>{unit}</span>
           </div>
@@ -36,7 +36,7 @@ const kernel = {
             const active = index / (ticks - 1) <= progress;
             return <div key={index} style={{ position: 'absolute', right: 0, top: `${(index / (ticks - 1)) * 100}%`, width: index % 3 === 0 ? '100%' : '55%', height: 2, background: active ? signal : '#647077', opacity: active ? 0.9 : 0.28, transform: `scaleX(${intro})`, transformOrigin: 'right' }} />;
           })}
-          <div style={{ position: 'absolute', right: 0, top: `${(1 - progress) * 100}%`, transform: 'translateY(-50%)', color: '#F4F7F8', fontSize: Math.max(8, ctx.height * 0.024), letterSpacing: '0.12em' }}>{String(current).padStart(3, '0')}</div>
+          <div data-layout-allow-overlap style={{ position: 'absolute', right: 0, top: `${(1 - progress) * 100}%`, transform: 'translateY(-50%)', color: '#F4F7F8', fontSize: Math.max(8, ctx.height * 0.024), letterSpacing: '0.12em' }}>{String(current).padStart(3, '0')}</div>
         </div>
       </div>
     );

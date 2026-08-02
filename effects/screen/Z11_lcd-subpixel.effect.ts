@@ -45,8 +45,8 @@ void main() {
 
   vec3 corrected = clamp((source.rgb - 0.5) * u_contrast + 0.5, 0.0, 1.0);
   float luminance = dot(corrected, vec3(0.299, 0.587, 0.114));
-  float response = 0.96 + 0.04 * sin(u_t * TAU + cellId.x * 0.07 + u_seed * TAU);
-  response += 0.012 * sin((u_frame / max(u_fps, 1.0)) * TAU * 2.0 + cellId.y * 0.11);
+  float response = 0.88 + 0.12 * sin(u_t * TAU + cellId.x * 0.07 + u_seed * TAU);
+  response += 0.035 * sin((u_frame / max(u_fps, 1.0)) * TAU * 2.0 + cellId.y * 0.11);
   vec3 lcd = corrected * (stripe * 2.42 + vec3(0.08)) * aperture * response;
   lcd += stripe * luminance * 0.08 * aperture;
 
@@ -55,6 +55,8 @@ void main() {
   vec3 color = mix(inactive, lcd, source.a);
   float gridEdge = 1.0 - aperture;
   color = mix(color, background * 0.45, gridEdge * 0.78);
+  float refresh = exp(-abs(v_uv.y - u_t) * 38.0);
+  color += u_signal * refresh * 0.07;
   gl_FragColor = vec4(color, 1.0);
 }
 `,

@@ -1,11 +1,12 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { manifest } from '../src/fx/manifest.gen';
 
 /**
  * Acceptance smoke suite (SPEC §9) — runs per effect in the manifest:
  *  1. detail route loads with zero page errors
  *  2. preview is alive: frame 0 vs frame 90 screenshots differ (catches blank AND frozen previews)
- *  3. one param change does not crash
+ *  3. seeking the same frame twice is pixel-deterministic
+ *  4. one param change does not crash
  *
  * TEST HOOK contract (detail page must expose):
  *   window.__vfx = { entryId: string, seek(frame: number): void, pause(): void }
@@ -16,6 +17,53 @@ declare global {
   interface Window {
     __vfx?: { entryId: string; seek: (f: number) => void; pause: () => void };
   }
+}
+
+async function comparePixels(page: Page, first: Buffer, second: Buffer) {
+  return page.evaluate(async ([firstUrl, secondUrl]) => {
+    const decode = async (url: string) => {
+      const image = new Image();
+      image.src = url;
+      await image.decode();
+      return image;
+    };
+    const [firstImage, secondImage] = await Promise.all([decode(firstUrl), decode(secondUrl)]);
+    const width = firstImage.naturalWidth;
+    const height = firstImage.naturalHeight;
+    if (width !== secondImage.naturalWidth || height !== secondImage.naturalHeight) {
+      return { meanChannelDelta: Number.POSITIVE_INFINITY, maxChannelDelta: 255, meaningfulPixelRatio: 1 };
+    }
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext('2d', { willReadFrequently: true })!;
+    context.drawImage(firstImage, 0, 0);
+    const firstPixels = context.getImageData(0, 0, width, height).data;
+    context.clearRect(0, 0, width, height);
+    context.drawImage(secondImage, 0, 0);
+    const secondPixels = context.getImageData(0, 0, width, height).data;
+    let totalDelta = 0;
+    let maxChannelDelta = 0;
+    let meaningfulPixels = 0;
+    for (let index = 0; index < firstPixels.length; index += 4) {
+      let pixelDelta = 0;
+      for (let channel = 0; channel < 3; channel += 1) {
+        const delta = Math.abs(firstPixels[index + channel] - secondPixels[index + channel]);
+        totalDelta += delta;
+        maxChannelDelta = Math.max(maxChannelDelta, delta);
+        pixelDelta = Math.max(pixelDelta, delta);
+      }
+      if (pixelDelta > 16) meaningfulPixels += 1;
+    }
+    return {
+      meanChannelDelta: totalDelta / (width * height * 3),
+      maxChannelDelta,
+      meaningfulPixelRatio: meaningfulPixels / (width * height),
+    };
+  }, [
+    `data:image/png;base64,${first.toString('base64')}`,
+    `data:image/png;base64,${second.toString('base64')}`,
+  ] as const);
 }
 
 test('gallery route renders', async ({ page }) => {
@@ -33,7 +81,7 @@ test('about route renders', async ({ page }) => {
 
 for (const entry of manifest) {
   const { id } = entry.meta;
-  test(`effect ${id} — ${entry.meta.name}`, async ({ page }) => {
+  test(`effect ${id} — ${entry.meta.name}`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(String(e)));
     page.on('console', (msg) => {
@@ -47,6 +95,10 @@ for (const entry of manifest) {
 
     const preview = page.locator('[data-vfx-preview]');
     await expect(preview).toBeVisible();
+
+    // Font swaps change glyph pixels without changing the requested frame. Wait
+    // for the document font set before taking determinism samples.
+    await page.evaluate(() => document.fonts.ready);
 
     // kernel chunks + subject rasterization settle
     await page.waitForTimeout(400);
@@ -64,6 +116,30 @@ for (const entry of manifest) {
     }
     const allEqual = shots[0].equals(shots[1]) && shots[1].equals(shots[2]);
     expect(allEqual, `preview static or blank at ${id}`).toBe(false);
+
+    // Re-seeking from a later frame must reconstruct the exact same pixels.
+    // This catches hidden wall-clock/random/state accumulation that a source lint
+    // cannot prove absent, including stateful canvas/WebGL kernels.
+    await page.evaluate(() => {
+      window.__vfx!.pause();
+      window.__vfx!.seek(67);
+    });
+    await page.waitForTimeout(150);
+    const repeated = await preview.screenshot();
+    const pixelDiff = repeated.equals(shots[1])
+      ? { meanChannelDelta: 0, maxChannelDelta: 0, meaningfulPixelRatio: 0 }
+      : await comparePixels(page, shots[1], repeated);
+    // Chromium's GPU compositor can vary isolated antialias/filter edge pixels
+    // by a few channel values. The mean bound rejects frame-wide drift while the
+    // max bound rejects a meaningful changed pixel.
+    const deterministic = pixelDiff.meanChannelDelta <= 0.01
+      && pixelDiff.meaningfulPixelRatio <= 0.0001
+      && pixelDiff.maxChannelDelta <= 64;
+    if (!deterministic) {
+      await testInfo.attach(`${id}-frame-67-first`, { body: shots[1], contentType: 'image/png' });
+      await testInfo.attach(`${id}-frame-67-repeat`, { body: repeated, contentType: 'image/png' });
+    }
+    expect(deterministic, `non-deterministic frame at ${id}: ${JSON.stringify(pixelDiff)}`).toBe(true);
 
     // one param mutation must not crash (first control if present)
     const control = page.locator('[data-vfx-param]').first();

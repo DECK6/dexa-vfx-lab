@@ -29,6 +29,8 @@ const kernel = {
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0D0E10', fontFamily: "'JetBrains Mono', monospace" }}>
         <div style={{ position: 'absolute', inset: 0, opacity: 0.1 * outro }}>{ctx.subjectNode}</div>
         <div
+          data-layout-allow-overlap
+          data-layout-allow-occlusion
           style={{
             position: 'absolute',
             left: '5%',
@@ -70,6 +72,9 @@ const kernel = {
           }}
         >
           <div
+            data-layout-allow-overlap
+            data-layout-allow-overflow
+            data-layout-allow-occlusion
             style={{
               position: 'absolute',
               left: 0,
@@ -97,12 +102,13 @@ const kernel = {
               top: 0,
               bottom: 0,
               overflow: 'hidden',
-              WebkitMaskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
             }}
           >
             {[0, 1].map((copy) => (
               <div
                 key={copy}
+                data-layout-allow-overflow
+                data-layout-allow-occlusion
                 style={{
                   position: 'absolute',
                   left: copy * beltWidth - travel,
@@ -117,7 +123,7 @@ const kernel = {
                 }}
               >
                 {stories.map((story, index) => (
-                  <div key={story} style={{ display: 'flex', alignItems: 'center' }}>
+                  <div key={story} style={{ display: 'flex', alignItems: 'center', color: '#FFFFFF', background: '#15181C' }}>
                     <span style={{ width: 7, height: 7, margin: '0 1.4em', background: signal, transform: 'rotate(45deg)', flex: '0 0 auto' }} />
                     <span>{String(index + 1).padStart(2, '0')} / {story}</span>
                   </div>

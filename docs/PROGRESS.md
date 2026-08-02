@@ -1,6 +1,17 @@
 # PROGRESS
-phase: W6~W9 확장 중 (골: 500종 + 검수 + 양측 푸시 확인)
-last-update: 2026-08-02T07:31
+phase: 500종 구현·로컬 검수 완료 (GitHub·dexa.art 전달 중)
+last-update: 2026-08-02T11:06+09:00
+
+## W6~W9 최종 인수 결과 (08-02, Codex)
+- 현재 `master`를 유일한 정본으로 삼아 기존 워크트리의 소유권·상태를 먼저 확인하고, 고유 구현만 보존해 통합했다. 오래된 워크트리와 프로세스는 재사용하거나 삭제하지 않았다.
+- 구현 수: **500/500** (`meta`/`effect` 쌍 일치), 24개 카테고리. 웨이브별 **W0~W9 = 26 / 71 / 76 / 41 / 30 / 64 / 64 / 64 / 64**.
+- 카탈로그·근접 중복: `bun scripts/lint-catalog.mjs` 500/500, `bun scripts/lint-neighbors.mjs` 500 effects / 5,443 relevant pairs 통과.
+- HyperFrames: `HF_CONCURRENCY=16 HF_QUIET=1 HF_SUMMARY_ONLY=1 bun scripts/verify-hyperframes.mjs` → **500 passed, 0 failed**.
+- 증분 썸네일: `bun run thumbs` → 신규 213장 렌더·287장 재사용, 최종 WebP **500장**; 후속 dry-run은 0 render / 500 skip. TRANS·MASK는 가시 타이밍 프레임 67을 사용한다.
+- 시각 검수: `bun run audit:contact-sheets`로 W6~W9 각 64장, 총 256장을 원본 해상도 접촉시트로 확인해 빈 화면·깨짐·클리핑 없음.
+- 결정성·성능 smoke: `bun run test:e2e` → **503 passed**. 갤러리/상세/GL 공유 컨텍스트, 3프레임 생존, 반복 시크 픽셀 결정성, 파라미터 변이를 포함한다.
+- 전체 빌드: `bun run build` 통과(1,556 modules). 엔트리 376,165 bytes(<500K), Remotion leak 0, 전체 assets 5,277,260 bytes.
+- 외부 전달: 소스와 dexa.art 배포 저장소의 커밋·push 및 라이브 자산 확인 후 이 절에 최종 증거를 추가한다.
 
 ## 체제: 병렬 트랙 (모놀리식 1차 발주 실패 후 전환)
 - 파운데이션(커널 계약·매니페스트 코드젠·subject 래스터라이저·린트·배포 스크립트) = 오케스트레이터 직접 구현, master 76e863c+
@@ -162,10 +173,9 @@ last-update: 2026-08-02T07:31
 - T10: 형제 요소 백드롭 미인식으로 반전 컨셉 불가 → 글로우 스트립 재설계
 - E07: 플랫 subject엔 포스터화 비가시 → 그라디언트 필드 합성
 
-## 미해결 이슈
-- 1차 P0 모놀리식 발주 graphify 대기 중 사망 → 병렬 트랙으로 전환 완료
-- 디스크 풀 사태(08-01): 부트 볼륨 0바이트로 전 작업 중단 → 해소. bunx hyperframes는 캐시 공간 요구 큼
-- entry 번들 652K(raw) — kernel-js eager 맵이 원인, 214종이면 배가됨 → W3에서 지연 로딩 최적화
-- TRANS 계열 썸네일 프레임(90=전환 완료 후) → 카테고리별 썸네일 프레임 튜닝 백로그
-- 상세 프리뷰를 라이브 드라이버 트랜스포트로 구현(A). Remotion Player 전환은 통합 단계에서 판단 — SPEC §6과 차이, 사용자 보고 필요
-- import.meta.glob은 Vite 전용 → 매니페스트 코드젠으로 교체(SPEC §4의 glob 서술은 코드젠으로 갱신 필요)
+## 잔여 운영 메모
+- 1차 P0 모놀리식 발주 실패와 디스크 풀 사태는 해소됐다. bunx HyperFrames 캐시는 여전히 충분한 여유 공간이 필요하다.
+- 오래된 병렬 워크트리는 소유권 불명 상태에서 건드리지 않는 정책에 따라 그대로 보존했다. 정리가 필요하면 별도 소유권 확인 후 Trash로 이동한다.
+- 상세 프리뷰는 라이브 드라이버 트랜스포트를 유지한다. 반복 시크 픽셀 결정성·파라미터 변이 smoke를 추가해 현재 계약을 검증했다.
+- kernel-js 지연 로딩과 메타데이터 인라인 매니페스트로 엔트리를 376,165 bytes까지 낮췄고, 코드젠 계약은 SPEC §4에 반영했다.
+- TRANS·MASK 증분 썸네일은 가시 타이밍 프레임 67 정책으로 조정했다.

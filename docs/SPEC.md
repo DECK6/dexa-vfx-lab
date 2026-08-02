@@ -1,6 +1,6 @@
 # DEXA VFX LAB — 설계 스펙 v1
 
-2026-08-01. 카탈로그: [CATALOG.md](./CATALOG.md) (16 카테고리 / 214종, append-only 확장)
+2026-08-02. 카탈로그: [CATALOG.md](./CATALOG.md) (24 카테고리 / 500종, append-only 확장)
 
 ## 1. 개요
 
@@ -15,7 +15,7 @@
 1. **커널은 프레임워크를 import하지 않는다.** `remotion`, `@remotion/*`, hyperframes 관련 코드가 `effects/` 안에 나타나면 빌드 실패. React JSX는 허용하되 훅·상태 금지.
 2. **소스 1개 → 실행처 전부.** 같은 커널 파일이 갤러리 라이브 재생, Remotion Player, `remotion render`, HyperFrames 스니펫의 유일한 소스다.
 3. **결정성.** 같은 `frame` 입력 → 같은 픽셀. `Math.random`·`Date.now` 사용 금지(린트로 차단), 주입된 시드 PRNG만 사용.
-4. **확장 = 파일 드롭.** 이펙트·카테고리 추가에 기존 코드 수정이 필요하면 설계 위반. 카탈로그 문서와의 개수 대조 검증은 하지 않는다(append-only).
+4. **확장 = 파일 드롭 + 코드젠.** 이펙트·카테고리 추가에 수기 레지스트리 수정이 필요하면 설계 위반. 생성 매니페스트와 카탈로그 문서의 ID·wave·개수는 빌드에서 대조한다(append-only).
 
 ## 3. 커널 계약
 
@@ -75,9 +75,9 @@ effects/<category>/<ID>_<slug>.effect.ts   ← 커널 본체 (.tsx 가능)
 src/categories.ts                          ← 카테고리 데이터 (추가 자유)
 ```
 
-- **meta**: `import.meta.glob('...meta.ts', { eager: true })` — 갤러리가 커널 로드 없이 전 목록 렌더
-- **effect**: lazy glob — 카드 활성화/상세 진입 시에만 청크 로드
-- **빌드 검증** (위반 시 실패): ID 중복 · meta/effect 쌍 불일치 · params 스키마 위반 · 커널의 프레임워크 import · `Math.random`/`Date.now`
+- **meta**: `scripts/gen-manifest.mjs`가 정적 리터럴로 코드젠 — 갤러리가 커널 로드 없이 전 목록 렌더
+- **effect**: 코드젠된 동적 import — 카드 활성화/상세 진입 시에만 청크 로드
+- **빌드 검증** (위반 시 실패): 정확히 500종 · ID 중복 · meta/effect 쌍 불일치 · CATALOG ID/wave 불일치 · params 스키마 위반 · 근접 중복 · 커널의 프레임워크 import · `Math.random`/`Date.now`
 
 ## 5. 드라이버
 
@@ -98,7 +98,7 @@ WebGL 컨텍스트는 **페이지 전체에 1개**(오프스크린). 활성 GL �
 - 어댑터가 `useCurrentFrame()`/`useVideoConfig()`를 읽어 `FxContext`로 변환, 커널 실행.
 - `src/remotion/Root.tsx`: 매니페스트 순회로 전 이펙트 `<Composition>` 자동 등록. 기본 1280×720 / 30fps / 6초, `defaultProps = meta 기본 프리셋`.
 - canvas 커널은 프레임 동기 draw(rAF 아님 — `frame` prop에 반응). webgl 렌더 시 `--gl=angle`.
-- **썸네일 빌드**: `remotion still` 50% 프레임 → `public/thumbs/<id>.webp`. 갤러리 정지 이미지 + 시각 회귀 기준 이미지 겸용.
+- **썸네일 빌드**: 증분 `remotion still` → `public/thumbs/<id>.webp`. 기본 frame 90, 전환·마스크는 정보량이 높은 frame 67을 사용한다. 갤러리 정지 이미지 + 시각 회귀 기준 이미지 겸용.
 
 ### 5.4 HyperFrames 어댑터 (W1 포함)
 
@@ -106,20 +106,20 @@ HyperFrames(HeyGen, Apache 2.0)는 HTML+CSS+JS와 `data-start`/`data-duration` �
 
 - **DOM 커널**: 타임라인을 `data-*` 속성 + CSS keyframes로 번역한 self-contained HTML 스니펫.
 - **canvas/webgl 커널**: HTML + 커널 코드 인라인 + 미니 드라이버(HyperFrames 타임라인에서 frame을 받아 draw) 스니펫.
-- 상세 코드 탭에 `HYPERFRAMES` 탭. **W1 26종 전부** 스니펫 제공 + HyperFrames 렌더러로 실 렌더 검증(정확한 CLI는 구현 시 공식 저장소 `heygen-com/hyperframes` 확인).
+- 상세 코드 탭에 `HYPERFRAMES` 탭. **500종 전부** 스니펫 제공 + 공식 HyperFrames CLI `check`로 전수 검증한다.
 - 코드 탭은 **어댑터 플러그인 구조** — 탭 추가 = 어댑터 파일 1개.
 
 ## 6. 화면
 
 | 라우트 | 내용 |
 |---|---|
-| `/vfx/` | 갤러리 — 좌측 sticky 필터(카테고리 16 · 렌더 4 · 부하 3 · wave) + 검색 + 가상 스크롤 그리드 |
-| `/vfx/#/e/<id>` | 상세 — Remotion Player(스크럽·루프) + 파라미터 패널(스키마 생성) + 피사체 교체 + 코드 탭 + 관련 이펙트 |
+| `/vfx/` | 갤러리 — 좌측 sticky 필터(카테고리 24 · 렌더 4 · 부하 3 · wave) + 검색 + 가상 스크롤 그리드 |
+| `/vfx/#/e/<id>` | 상세 — 결정적 라이브 드라이버(스크럽·루프) + 파라미터 패널(스키마 생성) + 코드 탭 + 관련 이펙트 |
 | `/vfx/#/about` | 사용법 — Remotion/HyperFrames에 붙여넣는 법, 프리셋 JSON·CLI 설명 |
 
 - 코드 탭: `TSX` · `GLSL`(webgl만) · `HYPERFRAMES` · `PRESET JSON` · `CLI` — 전 탭 복사 버튼. CLI 예: `npx remotion render src/remotion/index.ts G02 out/g02.mp4 --props='<현재 파라미터>'`
 - 라우팅은 해시(부모 사이트 404 규칙 무간섭). Vite `base: '/vfx/'`.
-- `@remotion/player`는 상세 라우트에서만 lazy 로드 — 갤러리 초기 번들에 Remotion 0KB.
+- Remotion은 렌더/내보내기 경로에만 둔다. 갤러리 엔트리 청크의 Remotion 모듈은 0개여야 한다.
 
 ## 7. DEXA 테마
 
@@ -149,10 +149,12 @@ HyperFrames(HeyGen, Apache 2.0)는 HTML+CSS+JS와 `data-start`/`data-duration` �
 | 단계 | 내용 |
 |---|---|
 | typecheck | `tsc --noEmit` |
-| 레지스트리 lint | §4 빌드 검증 규칙 |
-| Playwright 스모크 | 매니페스트 순회 → `/#/e/<id>` 방문 → 콘솔 에러 0 + 캔버스 non-blank 픽셀 + 파라미터 1회 변경 후 정상 |
+| 레지스트리·카탈로그·근접중복 lint | §4 빌드 검증 규칙, 500 meta/effect/CATALOG 일치, 의미·소스 근접 이웃 검사 |
+| Playwright 스모크·결정성 | 매니페스트 500종 순회 → 콘솔 에러 0 + 3프레임 alive + 동일 frame 재시크 픽셀 비교 + 파라미터 1회 변경 후 정상 |
+| GL 스트레스 | 공유 WebGL 컨텍스트 1개로 10개 타깃 렌더, context lost 0 |
 | Remotion 렌더 | 전 이펙트 `remotion still` 성공 (썸네일 생성 겸) |
-| HyperFrames 렌더 | W1 전 이펙트 스니펫 실 렌더 성공 |
+| HyperFrames | 500종 스니펫을 공식 CLI `check`로 전수 검증 |
+| 번들 예산 | 엔트리 raw < 500,000 bytes, 엔트리 Remotion 모듈 0 |
 
 이 스위트가 **Codex 발주물 검수 기준**이다. 통과 못 하면 반려.
 
@@ -171,6 +173,11 @@ bun run deploy   # dist → ../adxdeck-dexa-daily-main/vfx/ 복사 (git 커밋·
 | W2 | 이펙트 71종 + 공유 GL 러너 + 오디오 인프라(사전 분석 JSON 파이프라인) |
 | W3 | 이펙트 76종 |
 | W4 | 이펙트 41종 |
+| W5 | 오브젝트 모션·타이포 30종 |
+| W6 | 디스플레이·레트로·스타일라이즈·심화 64종 |
+| W7 | 브로드캐스트·시네마·데이터·UI 64종 |
+| W8 | 3D·오브젝트 모션·자연·오디오 64종 |
+| W9 | 배경·타이포·패턴·마스크·전환 보강 64종 |
 
 ### W1 이펙트 26종
 

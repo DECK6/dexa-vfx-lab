@@ -25,7 +25,7 @@ const kernel = {
           </div>
           {Array.from({ length: rows }, (_, row) => (
             <div key={row} style={{ position: 'relative', height: rowHeight, display: 'grid', gridTemplateColumns: `0.45fr repeat(${channels}, 1fr)`, alignItems: 'center', color: row === playhead ? '#F3FBFC' : '#879195', background: row === playhead ? `${signal}1F` : row % 2 === 0 ? '#0B0E10' : '#101416', borderBottom: row === rows - 1 ? 'none' : '1px solid #20272A', fontSize: rowHeight * 0.31 }}>
-              <span style={{ textAlign: 'center', color: row === playhead ? signal : '#657074' }}>{String((step - playhead + row + 64) % 64).padStart(2, '0')}</span>
+              <span style={{ textAlign: 'center', color: row === playhead ? signal : '#96A3A7' }}>{String((step - playhead + row + 64) % 64).padStart(2, '0')}</span>
               {Array.from({ length: channels }, (_, channel) => {
                 const noteIndex = (step + row * 7 + channel * 11) % NOTES.length;
                 const volume = 0.25 + 0.75 * (0.5 + 0.5 * Math.sin(phase * tempo + channel * 1.8 + row * 0.63));

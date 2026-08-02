@@ -24,10 +24,17 @@ const kernel = {
     const teamB = matchup[1] || 'VFX';
 
     const scoreCard = (previous: number, current: number, active: boolean) => (
-      <div style={{ position: 'relative', width: '26%', height: '100%', perspective: 600, background: '#0A0C0E', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F6F9FA', fontSize: Math.max(18, ctx.width * 0.039), fontWeight: 900 }}>{current}</div>
+      <div
+        data-layout-allow-overlap
+        data-layout-allow-occlusion
+        style={{ position: 'relative', width: '26%', height: '100%', perspective: 600, background: '#0A0C0E', overflow: 'hidden' }}
+      >
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F6F9FA', fontSize: Math.max(18, Math.min(ctx.width * 0.028, ctx.height * 0.08)), fontWeight: 900 }}>{current}</div>
         {active ? (
           <div
+            data-layout-allow-overflow
+            data-layout-allow-overlap
+            data-layout-allow-occlusion
             style={{
               position: 'absolute',
               left: 0,
@@ -36,13 +43,13 @@ const kernel = {
               height: '50%',
               overflow: 'hidden',
               display: 'flex',
-              alignItems: 'flex-start',
+              alignItems: 'center',
               justifyContent: 'center',
               color: '#F6F9FA',
               background: '#15191C',
-              fontSize: Math.max(18, ctx.width * 0.039),
+              fontSize: Math.max(18, Math.min(ctx.width * 0.028, ctx.height * 0.08)),
               fontWeight: 900,
-              lineHeight: 2,
+              lineHeight: 1,
               transform: `rotateX(${-flip * 90}deg)`,
               transformOrigin: 'bottom',
               backfaceVisibility: 'hidden',

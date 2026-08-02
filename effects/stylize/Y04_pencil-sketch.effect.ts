@@ -78,6 +78,8 @@ void main() {
   vec3 wash = mix(paper, u_signal * (0.09 + luma * 0.24), subject.a * 0.42);
   vec3 color = mix(wash, graphite, ink);
   color += u_signal * contour * 0.055;
+  float pencilSweep = exp(-abs(v_uv.y - (0.5 + sin(phase) * 0.38)) * 24.0);
+  color += u_signal * pencilSweep * (0.025 + subject.a * 0.11);
   gl_FragColor = vec4(clamp(color, 0.0, 1.0), 1.0);
 }
 `,

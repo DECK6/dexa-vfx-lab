@@ -51,8 +51,8 @@ void main() {
   float roundPixel = 1.0 - smoothstep(0.50, 0.67, length(local));
   vec3 darkest = vec3(0.059, 0.220, 0.059);
   vec3 color = mix(darkest * 0.72, dmgPalette(tone), roundPixel);
-  float scan = 1.0 - smoothstep(0.0, 0.025, abs(fract(v_uv.y - u_t) - 0.5));
-  color += u_signal * scan * subject.a * 0.055;
+  float scan = 1.0 - smoothstep(0.0, 0.065, abs(fract(v_uv.y - u_t) - 0.5));
+  color += u_signal * scan * (0.035 + subject.a * 0.12);
   gl_FragColor = vec4(color, 1.0);
 }
 `,

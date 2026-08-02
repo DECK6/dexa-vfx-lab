@@ -55,11 +55,11 @@ void main() {
   );
   float raster = 0.96 + 0.04 * sin(v_uv.y * u_resolution.y * 3.14159265);
   float clock = u_frame / max(u_fps, 1.0);
-  float demoBar = exp(-abs(v_uv.y - (0.5 + sin(clock * TAU / 6.0) * 0.34)) * 55.0);
+  float demoBar = exp(-abs(v_uv.y - (0.5 + sin(clock * TAU / 6.0) * 0.34)) * 30.0);
 
   vec3 background = vec3(0.051, 0.055, 0.063);
   vec3 color = mix(background, paletteColor * raster, subject.a);
-  color += u_signal * (edge * 0.44 + demoBar * subject.a * 0.09);
+  color += u_signal * (edge * 0.44 + demoBar * (0.045 + subject.a * 0.16));
   gl_FragColor = vec4(color, 1.0);
 }
 `,

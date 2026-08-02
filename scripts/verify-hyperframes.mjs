@@ -7,7 +7,7 @@ import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { transform } from 'esbuild';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -15,6 +15,7 @@ const args = process.argv.slice(2);
 const selftest = args.includes('--selftest');
 const requestedIds = args.filter((arg) => !arg.startsWith('--')).map((id) => id.toUpperCase());
 const toolTemp = mkdtempSync(join(tmpdir(), 'dexa-hyperframes-tools-'));
+const concurrency = Math.max(1, Number(process.env.HF_CONCURRENCY ?? 4));
 
 function run(command, commandArgs, options = {}) {
   return spawnSync(command, commandArgs, {
@@ -29,6 +30,28 @@ function run(command, commandArgs, options = {}) {
       XDG_CACHE_HOME: join(toolTemp, 'xdg-cache'),
     },
     ...options,
+  });
+}
+
+function runAsync(command, commandArgs) {
+  return new Promise((resolveRun) => {
+    const child = spawn(command, commandArgs, {
+      cwd: ROOT,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env: {
+        ...process.env,
+        TMPDIR: toolTemp,
+        BUN_INSTALL: toolTemp,
+        BUN_INSTALL_CACHE_DIR: join(toolTemp, 'cache'),
+        XDG_CACHE_HOME: join(toolTemp, 'xdg-cache'),
+      },
+    });
+    let stdout = '';
+    let stderr = '';
+    child.stdout.on('data', (chunk) => { stdout += chunk; });
+    child.stderr.on('data', (chunk) => { stderr += chunk; });
+    child.on('error', (error) => resolveRun({ status: null, stdout, stderr: `${stderr}\n${error}` }));
+    child.on('close', (status) => resolveRun({ status, stdout, stderr }));
   });
 }
 
@@ -155,22 +178,41 @@ if (version.status !== 0) {
 }
 console.log(`HyperFrames CLI: ${(version.stdout || version.stderr).trim()}`);
 
-for (const input of inputs) {
-  // `hyperframes check` expects a PROJECT DIRECTORY containing index.html — one dir per effect.
-  const slug = input.meta.id.toLowerCase().replace(/[^a-z0-9-]/g, '-');
-  const projectDir = join(outputDir, slug);
-  mkdirSync(projectDir, { recursive: true });
-  const file = join(projectDir, 'index.html');
-  writeFileSync(file, hyperframesExporter.generate(input));
-  const checked = run('bunx', ['hyperframes', 'check', projectDir]);
-  const output = [checked.stdout, checked.stderr].filter(Boolean).join('\n').trim();
-  results.push({ id: input.meta.id, file, ok: checked.status === 0, output });
-  console.log(`${checked.status === 0 ? 'PASS' : 'FAIL'} ${input.meta.id} — ${slug}/index.html`);
-  if (output) console.log(output);
+let cursor = 0;
+async function worker() {
+  while (cursor < inputs.length) {
+    const index = cursor;
+    cursor += 1;
+    const input = inputs[index];
+    // `hyperframes check` expects a PROJECT DIRECTORY containing index.html — one dir per effect.
+    const slug = input.meta.id.toLowerCase().replace(/[^a-z0-9-]/g, '-');
+    const projectDir = join(outputDir, slug);
+    mkdirSync(projectDir, { recursive: true });
+    const file = join(projectDir, 'index.html');
+    writeFileSync(file, hyperframesExporter.generate(input));
+    const checked = await runAsync('bunx', ['hyperframes', 'check', projectDir]);
+    const output = [checked.stdout, checked.stderr].filter(Boolean).join('\n').trim();
+    const result = { id: input.meta.id, file, ok: checked.status === 0, output };
+    results[index] = result;
+    const knownCodes = [
+      'sweep_static', 'text_box_overflow', 'content_overlap', 'text_occluded',
+      'text_not_painted', 'container_overflow', 'escaped_container',
+      'rotation_pivot_drift', 'panel_out_of_canvas', 'connector_detached',
+    ].filter((code) => output.includes(code));
+    if (/Contrast\s+[\s\S]*?✗/.test(output)) knownCodes.push('contrast');
+    const codeSummary = knownCodes.length ? ` [${knownCodes.join(', ')}]` : '';
+    if (process.env.HF_QUIET !== '1' || !result.ok) {
+      console.log(`${result.ok ? 'PASS' : 'FAIL'} ${input.meta.id}${codeSummary} — ${slug}/index.html`);
+    }
+    if ((!result.ok && process.env.HF_SUMMARY_ONLY !== '1') || process.env.HF_VERBOSE === '1') console.log(output);
+  }
 }
+
+await Promise.all(Array.from({ length: Math.min(concurrency, inputs.length) }, () => worker()));
 
 const passed = results.filter((result) => result.ok).length;
 const failed = results.length - passed;
 console.log(`HyperFrames findings summary: ${passed} passed, ${failed} failed, ${results.length} total`);
+if (failed) console.log(`HyperFrames failed IDs: ${results.filter((result) => !result.ok).map((result) => result.id).join(', ')}`);
 console.log(`Generated snippets: ${outputDir}`);
 if (failed) process.exit(1);

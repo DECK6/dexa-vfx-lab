@@ -48,7 +48,7 @@ const kernel = {
         </svg>
         <div style={{ position: 'absolute', left: '50%', top: '45%', transform: `translate(-50%, -50%) scale(${0.92 + intro * 0.08})`, display: 'flex', gap: Math.max(5, ctx.width * 0.012), opacity: outro * urgentPulse, perspective: 700 }}>
           {digits.map((digit, index) => (
-            <div key={index} style={{ position: 'relative', width: ctx.width * 0.105, height: ctx.height * 0.205, display: 'grid', placeItems: 'center', overflow: 'hidden', border: `1px solid ${signal}55`, borderRadius: 4, background: '#15181CF2', color: '#F4F7F8', fontSize: ctx.height * 0.16, fontWeight: 800, lineHeight: 1, fontVariantNumeric: 'tabular-nums', boxShadow: `inset 0 0 22px ${signal}12` }}>
+            <div key={index} data-layout-allow-occlusion style={{ position: 'relative', width: ctx.width * 0.105, height: ctx.height * 0.205, display: 'grid', placeItems: 'center', overflow: 'hidden', border: `1px solid ${signal}55`, borderRadius: 4, background: '#15181CF2', color: '#F4F7F8', fontSize: ctx.height * 0.16, fontWeight: 800, lineHeight: 1, fontVariantNumeric: 'tabular-nums', boxShadow: `inset 0 0 22px ${signal}12` }}>
               <span style={{ transform: `rotateX(${index === 1 ? flipAngle : 0}deg)`, transformOrigin: 'center bottom' }}>{digit}</span>
               <span style={{ position: 'absolute', left: 0, right: 0, top: '50%', height: 1, background: '#0D0E10', boxShadow: '0 1px 0 #FFFFFF18' }} />
             </div>

@@ -6,8 +6,10 @@ import { spawnSync } from 'node:child_process';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUTPUT_DIR = join(ROOT, 'public/audio');
+const SOURCE_OUTPUT_DIR = join(ROOT, 'src/audio');
 const WAV_PATH = join(OUTPUT_DIR, 'sample.wav');
 const ENVELOPE_PATH = join(OUTPUT_DIR, 'sample.envelope.json');
+const SOURCE_ENVELOPE_PATH = join(SOURCE_OUTPUT_DIR, 'sample.envelope.json');
 const SAMPLE_RATE = 48_000;
 const FPS = 30;
 const DURATION_SECONDS = 6;
@@ -15,6 +17,7 @@ const DURATION_IN_FRAMES = FPS * DURATION_SECONDS;
 const SEED = 0xdecafbad;
 
 mkdirSync(OUTPUT_DIR, { recursive: true });
+mkdirSync(SOURCE_OUTPUT_DIR, { recursive: true });
 
 // 120 BPM: a decaying 54 Hz kick every 0.5 s, plus a deterministic sine sweep.
 // The seed fixes the sweep phase without relying on a random source.
@@ -117,7 +120,7 @@ const frames = rawFrames.map(({ rms, bands }) => ({
   bands: bands.map((value, index) => round(Math.min(1, value / Math.max(peakBands[index], 1e-9)))),
 }));
 
-writeFileSync(ENVELOPE_PATH, `${JSON.stringify({
+const envelopeJson = `${JSON.stringify({
   version: 1,
   seed: SEED >>> 0,
   fps: FPS,
@@ -125,7 +128,9 @@ writeFileSync(ENVELOPE_PATH, `${JSON.stringify({
   sampleRate,
   bandFrequencies,
   frames,
-}, null, 2)}\n`);
+}, null, 2)}\n`;
+writeFileSync(ENVELOPE_PATH, envelopeJson);
+writeFileSync(SOURCE_ENVELOPE_PATH, envelopeJson);
 
 console.log(`gen-audio — ${DURATION_SECONDS}s PCM WAV @ ${sampleRate}Hz`);
 console.log(`gen-audio — ${frames.length} envelope frames × ${bandFrequencies.length} bands (seed ${SEED >>> 0})`);

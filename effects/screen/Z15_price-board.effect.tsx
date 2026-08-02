@@ -30,12 +30,12 @@ const kernel = {
             const rising = change >= 0;
             return (
               <div key={SYMBOLS[index]} style={{ position: 'relative', height: rowHeight, overflow: 'hidden', borderBottom: index === rows - 1 ? 'none' : '1px solid #252C30', background: index % 2 === 0 ? '#0C1012' : '#111518' }}>
-                <div style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '1fr 1.2fr 0.8fr', alignItems: 'center', padding: `0 ${rowHeight * 0.42}px`, transform: `rotateX(${angle}deg)`, transformOrigin: '50% 50%', background: flipPulse > 0.78 ? `${signal}12` : 'transparent', color: '#E8EEF0', fontSize: rowHeight * 0.38, fontWeight: 700 }}>
+                <div style={{ position: 'absolute', inset: 0, zIndex: 2, display: 'grid', gridTemplateColumns: '1fr 1.2fr 0.8fr', alignItems: 'center', padding: `0 ${rowHeight * 0.42}px`, transform: `rotateX(${angle}deg)`, transformOrigin: '50% 50%', background: flipPulse > 0.78 ? `${signal}12` : 'transparent', color: '#E8EEF0', fontSize: rowHeight * 0.38, fontWeight: 700 }}>
                   <span style={{ color: signal, letterSpacing: '0.08em' }}>{SYMBOLS[index]}</span>
                   <span style={{ textAlign: 'right' }}>{price.toFixed(2)}</span>
                   <span style={{ textAlign: 'right', color: rising ? signal : '#FF8174' }}>{rising ? '+' : ''}{change.toFixed(2)}%</span>
                 </div>
-                <div style={{ position: 'absolute', left: 0, right: 0, top: '50%', height: 1, background: '#000A', opacity: flipPulse * flipDepth }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, top: '50%', height: 1, background: '#000A', opacity: flipPulse * flipDepth, zIndex: 1 }} />
               </div>
             );
           })}
