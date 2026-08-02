@@ -74,6 +74,12 @@ test('gallery route renders', async ({ page }) => {
   expect(errors, errors.join('\n')).toHaveLength(0);
 });
 
+test('gallery exposes only user-meaningful filters', async ({ page }) => {
+  await page.goto('#/');
+  await expect(page.locator('.filters')).toBeVisible();
+  await expect(page.locator('.filters legend')).toHaveText(['CATEGORY', 'KIND']);
+});
+
 test('about route renders', async ({ page }) => {
   await page.goto('#/about');
   await expect(page.locator('body')).toBeVisible();

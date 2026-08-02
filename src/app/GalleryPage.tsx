@@ -8,15 +8,11 @@ import { VirtualEffectGrid } from '../ui/VirtualEffectGrid';
 export interface FilterState {
   categories: Set<string>;
   kinds: Set<FxKind>;
-  costs: Set<number>;
-  waves: Set<number>;
 }
 
 const EMPTY_FILTERS: FilterState = {
   categories: new Set(),
   kinds: new Set(),
-  costs: new Set(),
-  waves: new Set(),
 };
 
 export function GalleryPage() {
@@ -27,8 +23,6 @@ export function GalleryPage() {
     return allEffects.filter(({ meta }) => {
       if (filters.categories.size && !filters.categories.has(meta.category)) return false;
       if (filters.kinds.size && !filters.kinds.has(meta.kind)) return false;
-      if (filters.costs.size && !filters.costs.has(meta.cost)) return false;
-      if (filters.waves.size && !filters.waves.has(meta.wave)) return false;
       if (!needle) return true;
       return [meta.id, meta.name, ...meta.tags].some((value) => value.toLocaleLowerCase().includes(needle));
     });
@@ -71,4 +65,3 @@ export function GalleryPage() {
     </main>
   );
 }
-

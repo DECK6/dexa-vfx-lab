@@ -49,22 +49,6 @@ export function GalleryFilters({ categories, value, onChange, onReset }: Gallery
           ))}
         </div>
       </fieldset>
-      <fieldset>
-        <legend>COST</legend>
-        <div className="filter-options">
-          {[1, 2, 3].map((cost) => (
-            <FilterChoice key={cost} label={'●'.repeat(cost)} checked={value.costs.has(cost)} onChange={() => update('costs', cost)} />
-          ))}
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>WAVE</legend>
-        <div className="filter-options">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((wave) => (
-            <FilterChoice key={wave} label={`W${wave}`} checked={value.waves.has(wave)} onChange={() => update('waves', wave)} />
-          ))}
-        </div>
-      </fieldset>
     </aside>
   );
 }
@@ -77,4 +61,3 @@ function FilterChoice({ label, checked, onChange }: { label: string; checked: bo
     </label>
   );
 }
-

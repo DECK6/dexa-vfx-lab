@@ -8,7 +8,7 @@ const COPY = {
       {
         index: '01 / BROWSE',
         title: '갤러리에서 탐색',
-        body: '카테고리, 렌더 종류, 부하, Wave를 조합해 필터링하세요. 보이는 카드만 라이브로 실행되며 나머지는 썸네일로 유지됩니다.',
+        body: '카테고리와 렌더 종류를 조합해 필터링하세요. 보이는 카드만 라이브로 실행되며 나머지는 썸네일로 유지됩니다.',
       },
       {
         index: '02 / TUNE',
@@ -35,7 +35,7 @@ const COPY = {
       {
         index: '01 / BROWSE',
         title: 'Browse the gallery',
-        body: 'Filter by category, kernel kind, cost, and wave. Only visible cards run live — the rest stay as thumbnails.',
+        body: 'Filter by category and kernel kind. Only visible cards run live — the rest stay as thumbnails.',
       },
       {
         index: '02 / TUNE',
